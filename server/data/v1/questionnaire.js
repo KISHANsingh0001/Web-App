@@ -1,4 +1,3 @@
-const { options } = require("../../routes/v1/assessment")
 
 const questionnaire = {
     questions : [
