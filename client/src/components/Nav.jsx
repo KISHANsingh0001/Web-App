@@ -4,9 +4,9 @@ import NavLog from "../assets/NavLogo.png";
 function Nav() {
   return (
     <>
-    <div className="NavOuter px-8 py-4">
+    <div className="NavOuter px-8 py-4 mb-24 sticky top-0 z-10 bg-white">
 
-      <div className=" flex flex-row justify-center md:justify-between">
+      <div className=" flex flex-row justify-center md:justify-between ">
         <div className="NavLogo">
           <a href="">
             <img src={NavLog} alt="Logo" />
