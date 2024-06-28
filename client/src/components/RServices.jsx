@@ -4,7 +4,6 @@ import img1 from "../assets/cardimg1.png";
 import img2 from "../assets/cardimg2.png";
 import img3 from "../assets/cardimg3.png";
 
-
 function RServices() {
   return (
     <>
@@ -25,13 +24,26 @@ function RServices() {
           </span>
         </div>
         <div className=" flex justify-center items-center mt-10">
-        <Card1  title={"Take autism Assessment"} text={"Get the screening done and know the chances of Autism  "} img={img1}/>
-        <Card1  title={"Book diagnosis assessment"} text={"Book your autism diagnosis assessment to confirm the screening results. done by a psychologist. "} img={img2}/>
-        <Card1  title={"Start Therapy"} text={"We provide therapy at your home, at therapy center (online & offline) "} img={img3}/>
-
+          <Card1
+            title={"Take autism Assessment"}
+            text={"Get the screening done and know the chances of Autism  "}
+            img={img1}
+          />
+          <Card1
+            title={"Book diagnosis assessment"}
+            text={
+              "Book your autism diagnosis assessment to confirm the screening results. done by a psychologist. "
+            }
+            img={img2}
+          />
+          <Card1
+            title={"Start Therapy"}
+            text={
+              "We provide therapy at your home, at therapy center (online & offline) "
+            }
+            img={img3}
+          />
         </div>
-
-
       </div>
     </>
   );
