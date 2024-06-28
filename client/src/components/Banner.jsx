@@ -3,6 +3,8 @@ import Card2 from './ui/Card2'
 import img1 from '../assets/Rimg1.png'
 import img2 from '../assets/Rimg2.png'
 import img3 from '../assets/Rimg3.png'
+import img4 from '../assets/Rimg4.png'
+import img5 from '../assets/Rimg5.png'
 
 
 function Banner() {
@@ -16,6 +18,11 @@ function Banner() {
       <Card2  title={"2.Denial"} img={img2} desc={"No this cannot happen to me or my child :("}/>
       <Card2  title={"3.Late Acceptance"} img={img3} desc={"When signs become more evident, then parents accept but its too late "}/>
     </div>
+   </div>
+   <div className="flex md:flex-row flex-col gap-10 justify-between md:mt-10 mx-[6%]">
+    <span className='max-w-[492px] m-10'><img src={img4} alt="logo" /></span>
+    <span className='max-w-[750px] min-w-80 flex justify-center items-center m-10'><img src={img5} alt="Autism & ADHD is not something to be fixed 
+but need to be embraced" /></span>
    </div>
    </>
   )
