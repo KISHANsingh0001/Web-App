@@ -1,5 +1,5 @@
+require("dotenv");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
 const scores = require("../data/scores")
 const db_url = process.env.MONGO_URL;   
 
@@ -21,7 +21,7 @@ mongoose.connect(db_url).then(() => {
 
 const findScore = (responses) =>{
     let totalScore = 0;
-    for( let i = 0; i < responses.length(); i++){
+    for( let i = 0; i < responses.length; i++){
         const response = responses[i];
         const optionScores = scores[i];
         const score = optionScores[response];

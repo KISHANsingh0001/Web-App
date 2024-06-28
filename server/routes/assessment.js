@@ -14,6 +14,7 @@ router.post("/api/assessment",async (req,res)=>{
     const email = req.body.email;
     const phone = req.body.phone;
     const score = findScore(responses);
+    console.log(score)
     await storeDetails(name,email,phone,score);
     if(score > 6){
         return res.json({predection:1})
