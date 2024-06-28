@@ -2,6 +2,7 @@ import React from "react";
 import Txt1 from "../assets/Txt1.png";
 import HomeImg1 from "../assets/HomeImg1.png";
 import RServices from "./RServices";
+import AutismServices from "./AutismServices";
 function Body() {
   return(
     <div className="BodyOuter">
@@ -12,6 +13,7 @@ function Body() {
         <span ><img src={HomeImg1} alt="img2" className=" my-7" /></span>
       </div>
       <RServices />
+      <AutismServices />
     </div>
   );
 }
