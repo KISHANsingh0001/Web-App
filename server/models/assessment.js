@@ -1,4 +1,23 @@
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const scores = require("../data/scores")
+const db_url = process.env.MONGO_URL;   
+
+const userSchema = new mongoose.Schema({
+    name:String,
+    email:String,
+    phone:String,
+    score:Number
+});
+
+const userModel = mongoose.model('users', userSchema);
+
+mongoose.connect(db_url).then(() => {
+    console.log("Connected to the database");
+    }).catch((err)=>{
+    console.log('Error connecting to MongoDB', err);
+    } );
+
 
 const findScore = (responses) =>{
     let totalScore = 0;
@@ -12,7 +31,15 @@ const findScore = (responses) =>{
 }
 
 const storeDetails = async (name, email, phone, score) =>{
+    try{
+    const user = new userModel({name,email,phone,score});
+    await user.save();
 
+    console.log("User response saved successfully");
+    }
+    catch(err){
+        console.log("Error saving user response", err);
+    }
 };
 
 
