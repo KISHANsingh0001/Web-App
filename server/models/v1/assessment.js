@@ -28,7 +28,7 @@ const findScore = (responses) =>{
     for( let i = 0; i < responses.length; i++){
         const response = responses[i];
         const optionScores = scores[i];
-        const score = optionScores[response];
+        const score = optionScores[response.option];
         totalScore = totalScore +score;
     }
     return totalScore;
