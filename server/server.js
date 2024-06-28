@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const assessmentRouter = require('./routes/assessment');
+const assessmentRouter = require('./routes/v1/assessment');
 const port = process.env.PORT
 
 

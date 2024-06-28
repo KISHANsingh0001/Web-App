@@ -1,13 +1,17 @@
 require("dotenv");
 const mongoose = require("mongoose");
-const scores = require("../data/scores")
+const scores = require("../../data/v1/scores");
+const { response } = require("express");
 const db_url = process.env.MONGO_URL;   
 
 const userSchema = new mongoose.Schema({
     name:String,
     email:String,
     phone:String,
-    score:Number
+    testversion:String,
+    responses:Array,
+    score:Number,
+    prediction:Number
 });
 
 const userModel = mongoose.model('users', userSchema);
@@ -30,9 +34,9 @@ const findScore = (responses) =>{
     return totalScore;
 }
 
-const storeDetails = async (name, email, phone, score) =>{
+const storeDetails = async (name, email, phone,testversion,responses,score,prediction) =>{
     try{
-    const user = new userModel({name,email,phone,score});
+    const user = new userModel({name,email,phone,testversion,responses,score,prediction});
     await user.save();
 
     console.log("User response saved successfully");
