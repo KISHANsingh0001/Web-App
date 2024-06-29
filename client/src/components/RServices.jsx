@@ -9,7 +9,7 @@ function RServices() {
     <>
       <div className="ServicesOuter my-8 overflow-hidden">
         <div className="flex justify-center items-center flex-col">
-          <span className="text-3xl  text-purple-500 font-semibold ">
+          <span className="text-3xl font-poppins text-medium-light-shade-magenta font-semibold ">
             Our Services
           </span>
           <span className="text-lg text-slate-500 mt-5 flex flex-col text-center">

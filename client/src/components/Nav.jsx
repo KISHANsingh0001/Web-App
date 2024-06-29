@@ -11,7 +11,7 @@ function Nav() {
               <img src={NavLog} alt="Logo" />
             </a>
           </div>
-          <div className="LeftInfo hidden md:flex flex-row gap-8 text-slate-500 ">
+          <div className="LeftInfo hidden md:flex flex-row gap-8 font-poppins text-slate-500 ">
             <a href="" className="hover:text-slate-700 ">
               About
             </a>
