@@ -6,6 +6,7 @@ import AutismServices from "./AutismServices";
 import Banner from "./Banner";
 import NotAlone from "./NotAlone";
 import AssessmentOffer from "./AssesmentOffer";
+import OurReccomendations from "./OurRecommendations";
 function Body() {
   return (
     <div className="BodyOuter">
@@ -30,6 +31,7 @@ function Body() {
       <AssessmentOffer />
       <AutismServices />
       <Banner />
+      <OurReccomendations />
     </div>
   );
 }
