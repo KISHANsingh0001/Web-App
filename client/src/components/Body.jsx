@@ -4,7 +4,8 @@ import HomeImg1 from "../assets/HomeImg1.png";
 import RServices from "./RServices";
 import AutismServices from "./AutismServices";
 import Banner from "./Banner";
-import { NotAlone } from "./NotAlone";
+import NotAlone from "./NotAlone";
+import AssessmentOffer from "./AssesmentOffer";
 function Body() {
   return (
     <div className="BodyOuter">
@@ -26,6 +27,7 @@ function Body() {
       </div>
       <RServices />
       <NotAlone />
+      <AssessmentOffer />
       <AutismServices />
       <Banner />
     </div>
