@@ -13,10 +13,20 @@
     background: var(--leeza-green, rgba(41, 161, 103, 1));
  
 }
+body{
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
 
-@media screen and (max-width:600px){
-    .LeftInfo{
-     
-     
-    }
+.gradient-line {
+    height: 5px; /* Adjust the height as needed */
+    background: linear-gradient(90deg, #CB6BE5 0%, #F5B400 100%);
+    border: none; /* If using <hr> */
+    
+}
+
+li{
+    list-style-type: disc;
 }
