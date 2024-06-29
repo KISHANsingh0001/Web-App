@@ -5,7 +5,7 @@ import two from "../assets/two.jpg";
 import three from "../assets/three.jpg";
 import four from "../assets/four.jpg";
 
-export const NotAlone = () => {
+const NotAlone = () => {
   return (
     <>
       <div className="notAloneContainer my-14">
@@ -31,3 +31,5 @@ export const NotAlone = () => {
     </>
   );
 };
+
+export default NotAlone;

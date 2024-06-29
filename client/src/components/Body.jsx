@@ -4,6 +4,8 @@ import HomeImg1 from "../assets/HomeImg1.png";
 import RServices from "./RServices";
 import AutismServices from "./AutismServices";
 import Banner from "./Banner";
+import NotAlone from "./NotAlone";
+
 function Body() {
   return (
     <div className="BodyOuter">
@@ -24,6 +26,7 @@ function Body() {
         </span>
       </div>
       <RServices />
+      <NotAlone />
       <AutismServices />
       <Banner />
     </div>
