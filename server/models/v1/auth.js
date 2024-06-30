@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     assesmentResponses:Array,
 });
 
-const userModel = mongoose.model(('users', userSchema));
+const userModel = mongoose.model('users', userSchema);
 
 mongoose.connect(db_url).then(() => {
     console.log("Connected to the database");
@@ -86,4 +86,4 @@ const getUserData = async (email) => {
     }
 }
 
-module.exports = {addUser, authenticateUser, getUserData};
+module.exports = {addUser, authenticateUser, getUserData, userModel};

@@ -4,15 +4,9 @@ const router = express.Router();
 const {addUser, authenticateUser, getUserData} = require("../../models/v1/auth");
 
 
-router.post("api/v1/signup",async (req, res)=>{
+router.post("/api/v1/signup",async (req, res)=>{
     try{
-        const responses = req.body.responses;
-        const name = responses.name;
-        const email = responses.email;
-        const phone = responses.phone;
-        const age = responses.age;
-        const isParent = responses.isParent;
-        const password = responses.password;
+        const { name, email, phone, age, isParent, password } = req.body;
 
         await addUser(name, email, phone, age, isParent, password);
 
@@ -24,12 +18,10 @@ router.post("api/v1/signup",async (req, res)=>{
     }
 });
 
-router.post("api/v1/login",async (req, res)=>{
+router.post("/api/v1/login",async (req, res)=>{
     try{
-        const responses = req.body.responses;
-        const email = responses.email;
-        const password = responses.password;
-
+        const { email, password } = req.body;
+        
         const authed = await authenticateUser(email, password);
 
         if(authed){
@@ -39,7 +31,8 @@ router.post("api/v1/login",async (req, res)=>{
                                     isParent:userData.isParent,
                                     isEnrolled:userData.isEnrolled,
                                     serviceID:userData.serviceID,},
-                                'secretkey');
+                                    process.env.JWT_SECRET_KEY
+                                );
             return res.json({success:true ,message:"User authenticated successfully", token:token});
         }
         else{
@@ -50,3 +43,6 @@ router.post("api/v1/login",async (req, res)=>{
         return res.json({success:false ,message:"Something went wrong"});
     }
 });
+
+
+module.exports = router;
