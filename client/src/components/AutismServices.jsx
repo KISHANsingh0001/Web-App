@@ -8,7 +8,7 @@ function AutismServices() {
   return (
     <>
       <div className="AutismServicesOuter mb-10 ">
-        <span className="text-purple-500 text-4xl  flex justify-center my-14 text-center font-bold">
+        <span className="text-medium-light-shade-magenta font-poppins text-4xl  flex justify-center my-14 text-center font-bold">
           Autism services
         </span>
         <div className="online mx-[3%]">
