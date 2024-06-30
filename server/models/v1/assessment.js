@@ -1,26 +1,6 @@
 require("dotenv");
-const mongoose = require("mongoose");
 const scores = require("../../data/v1/scores");
-const { response } = require("express");
-const db_url = process.env.MONGO_URL;   
-
-const userSchema = new mongoose.Schema({
-    name:String,
-    email:String,
-    phone:String,
-    testversion:String,
-    responses:Array,
-    score:Number,
-    prediction:Number
-});
-
-const userModel = mongoose.model('users', userSchema);
-
-mongoose.connect(db_url).then(() => {
-    console.log("Connected to the database");
-    }).catch((err)=>{
-    console.log('Error connecting to MongoDB', err);
-    } );
+const {userModel} = require("./auth");
 
 
 const findScore = (responses) =>{
@@ -34,17 +14,27 @@ const findScore = (responses) =>{
     return totalScore;
 }
 
-const storeDetails = async (name, email, phone,testversion,responses,score,prediction) =>{
+
+const storeAssesmentResult = async (email, AssesmentVersion, responses, score, predection) => {
     try{
-    const user = new userModel({name,email,phone,testversion,responses,score,prediction});
-    await user.save();
-
-    console.log("User response saved successfully");
+        const result =await userModel.findOneAndUpdate(
+            {email: email},
+            {
+                $push :{assesmentResponses: {AssesmentVersion, responses, score, predection}},
+                $inc: {teststaken: 1}
+            },
+            {new: true}
+            
+        )
+        console.log("Assesment result stored successfully", result);
     }
-    catch(err){
-        console.log("Error saving user response", err);
+    catch(e){
+            console.log("Error in storing the assesment result",e);
+        
     }
-};
 
 
-module.exports = {findScore, storeDetails};
+
+}
+
+module.exports = {findScore, storeAssesmentResult};
