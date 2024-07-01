@@ -15,12 +15,12 @@ const findScore = (responses) =>{
 }
 
 
-const storeAssesmentResult = async (email, AssesmentVersion, responses, score, predection) => {
+const storeAssesmentResult = async (email, assessmentNumber, assesmentVersion, responses, score, predection) => {
     try{
         const result =await userModel.findOneAndUpdate(
             {email: email},
             {
-                $push :{assesmentResponses: {AssesmentVersion, responses, score, predection}},
+                $push :{assesmentResponses: { assessmentNumber, assesmentVersion, responses, score, predection}},
                 $inc: {teststaken: 1}
             },
             {new: true}
@@ -32,9 +32,6 @@ const storeAssesmentResult = async (email, AssesmentVersion, responses, score, p
             console.log("Error in storing the assesment result",e);
         
     }
-
-
-
 }
 
 module.exports = {findScore, storeAssesmentResult};

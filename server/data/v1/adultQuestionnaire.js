@@ -255,28 +255,171 @@ const ASRS_5 = {
     ]
 }
 
-    
-
 const AQ_10 = {
-    questions:[
-        {
-            qid: "AQ_10_01",
-            question: "I often notice small sounds when others do not."
-        },
-        {
-            qid: "AQ_10_02",
-            question: "When Im reading a story, I find it difficult to work out the characters intentions."
-        },
-        {
-            
-        }
+    questions: [
+      {
+        "qid": "AQ_10_01",
+        "question": "I often notice small sounds when others do not."
+      },
+      {
+        "qid": "AQ_10_02",
+        "question": "When I’m reading a story, I find it difficult to work out the characters’ intentions."
+      },
+      {
+        "qid": "AQ_10_03",
+        "question": "I find it easy to 'read between the lines' when someone is talking to me."
+      },
+      {
+        "qid": "AQ_10_04",
+        "question": "I usually concentrate more on the whole picture, rather than the small details."
+      },
+      {
+        "qid": "AQ_10_05",
+        "question": "I know how to tell if someone listening to me is getting bored."
+      },
+      {
+        "qid": "AQ_10_06",
+        "question": "I find it easy to do more than one thing at once."
+      },
+      {
+        "qid": "AQ_10_07",
+        "question": "I find it easy to work out what someone is thinking or feeling just by looking at their face."
+      },
+      {
+        "qid": "AQ_10_08",
+        "question": "If there is an interruption, I can switch back to what I was doing very quickly."
+      },
+      {
+        "qid": "AQ_10_09",
+        "question": "I like to collect information about categories of things."
+      },
+      {
+        "qid": "AQ_10_10",
+        "question": "I find it difficult to work out people’s intentions."
+      }
+    ],
+    options: [
+        "Never",
+        "Rarely",
+        "Sometimes",
+        "Often",
+        "Very Often"
     ]
 }
+  
+const CAT_Q = {
+    questions: [
+      {
+        "qid": "CAT_Q_01",
+        "question": "When I am interacting with someone, I deliberately copy their body language or facial expressions."
+      },
+      {
+        "qid": "CAT_Q_02",
+        "question": "I monitor my body language or facial expressions so that I appear relaxed."
+      },
+      {
+        "qid": "CAT_Q_03",
+        "question": "I rarely feel the need to put on an act in order to get through a social situation."
+      },
+      {
+        "qid": "CAT_Q_04",
+        "question": "I have developed a script to follow in social situations."
+      },
+      {
+        "qid": "CAT_Q_05",
+        "question": "I will repeat phrases that I have heard others say in the exact same way that I first heard them."
+      },
+      {
+        "qid": "CAT_Q_06",
+        "question": "I adjust my body language or facial expressions so that I appear interested by the person I am interacting with."
+      },
+      {
+        "qid": "CAT_Q_07",
+        "question": "In social situations, I feel like I’m ‘performing’ rather than being myself."
+      },
+      {
+        "qid": "CAT_Q_08",
+        "question": "In my own social interactions, I use behaviors that I have learned from watching other people interacting."
+      },
+      {
+        "qid": "CAT_Q_09",
+        "question": "I always think about the impression I make on other people."
+      },
+      {
+        "qid": "CAT_Q_10",
+        "question": "I need the support of other people in order to socialize."
+      },
+      {
+        "qid": "CAT_Q_11",
+        "question": "I practice my facial expressions and body language to make sure they look natural."
+      },
+      {
+        "qid": "CAT_Q_12",
+        "question": "I don’t feel the need to make eye contact with other people if I don’t want to."
+      },
+      {
+        "qid": "CAT_Q_13",
+        "question": "I have to force myself to interact with people when I am in social situations."
+      },
+      {
+        "qid": "CAT_Q_14",
+        "question": "I have tried to improve my understanding of social skills by watching other people."
+      },
+      {
+        "qid": "CAT_Q_15",
+        "question": "I monitor my body language or facial expressions so that I appear interested by the person I am interacting with."
+      },
+      {
+        "qid": "CAT_Q_16",
+        "question": "When in social situations, I try to find ways to avoid interacting with others."
+      },
+      {
+        "qid": "CAT_Q_17",
+        "question": "I have researched the rules of social interactions to improve my own social skills."
+      },
+      {
+        "qid": "CAT_Q_18",
+        "question": "I am always aware of the impression I make on other people."
+      },
+      {
+        "qid": "CAT_Q_19",
+        "question": "I feel free to be myself when I am with other people."
+      },
+      {
+        "qid": "CAT_Q_20",
+        "question": "I learn how people use their bodies and faces to interact by watching television or films, or by reading fiction."
+      },
+      {
+        "qid": "CAT_Q_21",
+        "question": "I adjust my body language or facial expressions so that I appear relaxed."
+      },
+      {
+        "qid": "CAT_Q_22",
+        "question": "When talking to other people, I feel like the conversation flows naturally."
+      },
+      {
+        "qid": "CAT_Q_23",
+        "question": "I have spent time learning social skills from television shows and films, and try to use these in my interactions."
+      },
+      {
+        "qid": "CAT_Q_24",
+        "question": "In social interactions, I do not pay attention to what my face or body are doing."
+      },
+      {
+        "qid": "CAT_Q_25",
+        "question": "In social situations, I feel like I am pretending to be ‘normal’."
+      }
+    ], 
+    options: [
+        "Strongly Disagree",
+        "Disagree",
+        "Somewhat Disagree",
+        "Neither Agree nor Disagree",
+        "Somewhat Agree",
+        "Agree",
+        "Strongly Agree"
+      ]
+  }
+  
 
-const CAT_Q =[
-
-]
-
-const RBQ_2A =[
-
-]
+const RBQ_2A = {}

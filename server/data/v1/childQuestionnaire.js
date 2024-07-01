@@ -52,5 +52,6 @@ const questionnaire = {
         "Snetly Disagree"
     ]
 }
+
 module.exports = questionnaire;
 
