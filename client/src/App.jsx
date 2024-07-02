@@ -1,16 +1,60 @@
 import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
-import Body from "./components/Body";
 import Footer from "./components/Footer";
-import Auth from "./components/Auth"
+import Auth from "./components/Auth";
+import ChildHome from "./components/ChildHome";
+import ParentHome from "./components/ParentHome";
 
 function App1() {
+  const Child = () => {
+    return (
+      <>
+        <Nav />
+        <ChildHome />
+        <Footer />
+      </>
+    );
+  };
+
+  const Parent = () => {
+    return (
+      <>
+        <Nav />
+        <ParentHome />
+        <Footer />
+      </>
+    );
+  };
+
+  const [content, setContent] = useState('');
+  const [showPopup, setShowPopup] = useState(true);
+
+  const handleChildClick = () => {
+    setContent('Child');
+    setShowPopup(false);
+  };
+
+  const handleParentClick = () => {
+    setContent('Parent');
+    setShowPopup(false);
+  };
+
+  
   return (
     <>
-      <Nav />
-      <Body />
-      <Footer />
+      <div className=" ">
+        {showPopup && (
+          <div className="popup">
+            <div className="popup-content">
+              <h2>Select an Option</h2>
+              <button onClick={handleChildClick}>Child</button>
+              <button onClick={handleParentClick}>Parent</button>
+            </div>
+          </div>
+        )}
+        {!showPopup && (content == "parent" ?  <Parent />: <Child />)}
+      </div>
     </>
   );
 }
@@ -19,12 +63,11 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/" element={<App1 />} />
+        <Route path="/" element={<App1 />} />
         <Route path="/home" element={<App1 />} />
         <Route path="/auth" element={<Auth />} />
       </Routes>
     </Router>
-    
   );
 }
 

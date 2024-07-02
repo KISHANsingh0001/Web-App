@@ -1,5 +1,4 @@
-import React from "react";
-import Txt1 from "../assets/Txt1.png";
+import React, {useState} from "react";
 import HomeImg1 from "../assets/HomeImg1.png";
 import RServices from "./RServices";
 import AutismServices from "./AutismServices";
@@ -7,11 +6,10 @@ import Banner from "./Banner";
 import NotAlone from "./NotAlone";
 import AssessmentOffer from "./AssesmentOffer";
 import OurReccomendations from "./OurRecommendations";
-import Auth from "./Auth";
-function Body() {
-  const HomeChild = ()=>{
-    return(
-      <div className="BodyOuter ">
+
+function ChildHome() {
+  return (
+    <div className="BodyOuter ">
       <div className="flex flex-col md:mt-20 justify-center items-center gap-4 ">
         <span className="md:text-5xl text-3xl mt-2 text-center font-poppins text-purple-500 ">
         Being Autistic & ADHDer is not easy
@@ -34,15 +32,9 @@ function Body() {
       <AutismServices />
       <Banner />
       <OurReccomendations />
-      <Auth />
+  
     </div>
-    )
-  }
-  return (
-    <div className=" ">
-   <HomeChild />
-    </div>
-  );
+  )
 }
 
-export default Body;
+export default ChildHome
