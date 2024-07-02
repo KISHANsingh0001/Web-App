@@ -103,5 +103,5 @@ const addUserToTherapist = async (therapistName, userName) => {
         console.log("Error adding user to therapist", err);
         }
     }
-    
-module.exports = {addTherapyCenter, addTherapist, addTherapistToCenter, addUserToTherapist };
+
+module.exports = { therapistModel, therapyCenterModel, addTherapyCenter, addTherapist, addTherapistToCenter, addUserToTherapist };
