@@ -1,6 +1,6 @@
 import React from "react";
 
-const NotAloneCards = ({ img, title, buttonLink }) => {
+const NotAloneCards = ({ img, title, buttonLink="/home" }) => {
   return (
     <div className="h-[327px] w-[321px] border border-black rounded-[40px] px-8 pb-8 pt-14 m-5">
       <div className="numericImg">
@@ -8,10 +8,9 @@ const NotAloneCards = ({ img, title, buttonLink }) => {
       </div>
       <p className="text-3xl mt-6 mb-3 text-black font-bold">{title}</p>
       <span
-        onClick={buttonLink}
-        className="font-poppins font-semibold h-7 text-lg text-know-more"
+        className="font-poppins font-semibold h-7 cursor-pointer text-lg text-know-more"
       >
-        Know more
+        <a href={buttonLink}>Know more</a>
       </span>
     </div>
   );

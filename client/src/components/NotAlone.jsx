@@ -19,7 +19,7 @@ const NotAlone = () => {
           </span>
         </div>
         <div className=" flex justify-center flex-wrap mt-10">
-          <NotAloneCard title={"Take Free Autism Assessment"} img={one} />
+          <NotAloneCard title={"Take Free Autism Assessment"} img={one} buttonLink="/assessment" />
           <NotAloneCard
             title={"Book Your Formal Diagnosis Assessment"}
             img={two}

@@ -7,7 +7,7 @@ import img3 from "../assets/cardimg3.png";
 function RServices() {
   return (
     <>
-      <div className="ServicesOuter my-8 overflow-hidden">
+      <div className="ServicesOuter my-8 overflow-hidden" id="About">
         <div className="flex justify-center items-center flex-col">
           <span className="text-3xl font-poppins text-medium-light-shade-magenta font-semibold ">
             Our Services

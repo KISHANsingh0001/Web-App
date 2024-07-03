@@ -3,7 +3,7 @@ import AssessmentOfferCards from "./cards/AssesmentOfferCards";
 
 const ParentAssesmentOffer = () => {
   return (
-    <div className="assesmentOfferContainer my-14">
+    <div className="assesmentOfferContainer my-14" id="Assessment">
       <div className="flex justify-center items-center flex-col">
         <span className="grid justify-center content-center text-4xl font-poppins font-semibold text-medium-light-shade-magenta h-14">
           Assessments we offer

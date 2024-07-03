@@ -1,11 +1,13 @@
 import React from "react";
 import NotAlone from "./NotAlone";
+import RServices from "./RServices";
 import HomeImg2 from "../assets/HomeImg2.png"
 import ParentAssesmentOffer from "./ParentAssesmentOffer";
 import Banner from "./Banner";
 import OurReccomendations from "./OurRecommendations";
 import AutismServices from "./AutismServices";
 import ParentSufferings from "./ParentsSuffering";
+import Blogs from "./Blogs";
 
 function ParentHome() {
   return (
@@ -30,12 +32,14 @@ function ParentHome() {
           />
         </span>
       </div>
+      <RServices />
       <NotAlone />
       <ParentAssesmentOffer />
       <AutismServices />
       <ParentSufferings />
       <Banner />
       <OurReccomendations />
+      <Blogs />
     </div>
   );
 }

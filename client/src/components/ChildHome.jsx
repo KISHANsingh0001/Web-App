@@ -7,6 +7,7 @@ import NotAlone from "./NotAlone";
 import OurReccomendations from "./OurRecommendations";
 import ChildSufferings from "./ChildSuffering";
 import ChildAssesmentOffer from "./ChildAssesmentOffer";
+import Blogs from "./Blogs";
 
 function ChildHome() {
   return (
@@ -38,6 +39,7 @@ function ChildHome() {
       <ChildSufferings />
       <Banner />
       <OurReccomendations />
+      <Blogs />
     </div>
   );
 }
