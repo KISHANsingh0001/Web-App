@@ -1,4 +1,6 @@
-const scores = [
+const { AQ_10_Scores } = require("./adultScores");
+
+const AQ_scores = [
     {
         //1
         definetlyAgree: 1,
@@ -70,4 +72,4 @@ const scores = [
     }
 ]
 
-module.exports = scores;
+module.exports = {AQ_scores, AQ_10_Scores};

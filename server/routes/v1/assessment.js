@@ -1,30 +1,54 @@
 const express = require("express")
 const router = express.Router()
-const questionnaire = require("../../data/v1/questionnaire")
-const {findScore,storeAssesmentResult} = require("../../models/v1/assessment")
-const jwt = require("jsonwebtoken");
+const Adult = require("../../data/v1/adultQuestionnaire") 
+const Child = require("../../data/v1/childQuestionnaire")
+const {findScore,storeAssesmentResult,findPrediction} = require("../../models/v1/assessment")
+const verifyToken = require("../../middlewares/verifyToken")
+
 
 router.get("/api/v1/assessment",(req,res)=>{
-    return res.json(questionnaire)
+    test = req.query.test;
+    if(test === "Adult_AQ"){
+        return res.json(Adult.AQ)
+    }
+    else if (test === "Adult_ASRS_5"){
+        return res.json(Adult.ASRS_5)
+    }
+    else if (test === "Adult_AQ_10"){
+        return res.json(Adult.AQ_10)
+    }
+    else if (test === "Adult_CAT_Q"){
+        return res.json(Adult.CAT_Q)
+    }
+    else if (test === "Adult_RBQ_2A"){
+        return res.json(Adult.RBQ_2A)
+    }
+    else if (test === "Child_AQ"){
+        return res.json(Child.AQ)
+    }
+    else if (test === "Child_AQ_10"){
+        return res.json(Child.AQ_10)
+    }
+    else{
+        return res.json({error:"Invalid test"})
+    
+    }
 })
 
 
-router.post("/api/v1/assessment",async (req,res)=>{
+router.post("/api/v1/assessment",verifyToken, async (req,res)=>{
+    const test = req.query.test;
     const responses = req.body.responses;
     console.log(responses)
 
-    const authHeader = req.headers.authorization;
-    const token = authHeader.split(" ")[1];
-
-    const score = findScore(responses);
+    const email = req.user.email;
+    
+    const score = findScore(responses, test);
     console.log(score);
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    const email = decoded.email;
+    const predection = findPrediction(score, test);
 
-    const predection = (score>6)? 1:0;
-
-    await storeAssesmentResult(email, responses.assessmentNumber, "v1", responses, score, predection);
+    await storeAssesmentResult(email, responses.assessmentNumber, test, responses, score, predection);
     return res.json({score:score, predection:predection});
 }
 )

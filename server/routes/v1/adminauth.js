@@ -58,3 +58,6 @@ router.post("/api/v1/admin/findThese", async (req, res) => {
         return res.json({ success: false, message: "Something went wrong" });
     }
 });
+
+
+module.exports = router;
