@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import HomeImg1 from "../assets/HomeImg1.png";
 import RServices from "./RServices";
-import AutismServices from "./AutismServices";
+import ChildAutismServices from "./ChildAutismServices";
 import Banner from "./Banner";
 import NotAlone from "./NotAlone";
-import AssessmentOffer from "./AssesmentOffer";
 import OurReccomendations from "./OurRecommendations";
+import ChildSufferings from "./ChildSuffering";
+import ChildAssesmentOffer from "./ChildAssesmentOffer";
 
-function ChildHome({ content }) {
+function ChildHome() {
   return (
     <div className="BodyOuter ">
       <div className="flex flex-col md:mt-20 justify-center items-center gap-4 ">
         <span className="md:text-5xl text-3xl mt-2 text-center font-poppins text-purple-500 ">
-          Raising Neurodivergent child is not easy
+          Being Autistic & ADHDer is not easy
         </span>
         <span className="FontA1 md:text-6xl text-4xl p-4 mb-4">
           <p>We got you!</p>
@@ -32,9 +33,9 @@ function ChildHome({ content }) {
       </div>
       <RServices />
       <NotAlone />
-      {/* <AssessmentOffer /> */}
-      {content && <AssessmentOffer content={content} />}
-      <AutismServices />
+      <ChildAssesmentOffer />
+      <ChildAutismServices />
+      <ChildSufferings />
       <Banner />
       <OurReccomendations />
     </div>

@@ -66,21 +66,7 @@ function App1() {
             </div>
           </div>
         )}
-        {!showPopup &&
-          (content === "Parent" ? (
-            <>
-              <Nav />
-              <ParentHome content={content} />
-              <Footer />
-            </>
-          ) : (
-            <>
-              <Nav />
-              <ChildHome content={content} />
-              <Footer />
-            </>
-          ))}
-        {/* {!showPopup && (content === "Parent" ? <Parent /> : <Child />)} */}
+        {!showPopup && (content === "Parent" ? <Parent /> : <Child />)}
       </div>
     </>
   );

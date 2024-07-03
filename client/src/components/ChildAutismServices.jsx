@@ -4,7 +4,7 @@ import img2 from "../assets/Frame69.png";
 import img3 from "../assets/Frame70.png";
 import img4 from "../assets/Frame71.png";
 
-function AutismServices() {
+function ChildAutismServices() {
   return (
     <>
       <div className="AutismServicesOuter mb-10 ">
@@ -26,12 +26,10 @@ function AutismServices() {
                   Benefits
                 </p>
                 <ul className="md:text-2xl md:ml-10 flex flex-col gap-3 ">
-                  <li>Provides an individual plan to support the child</li>
+                  <li>Gets you the confirmation</li>
                   <li>1 on 1 support</li>
-                  <li>
-                    Encourages to perform therapies within professional guidance
-                  </li>
-                  <li>Eliminates dependency</li>
+                  <li>Maintains anonymity</li>
+                  <li>Proper support and accomodation</li>
                   <li>Economical</li>
                 </ul>
               </span>
@@ -119,4 +117,4 @@ function AutismServices() {
   );
 }
 
-export default AutismServices;
+export default ChildAutismServices;
