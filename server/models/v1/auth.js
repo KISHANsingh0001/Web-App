@@ -1,7 +1,5 @@
-require("dotenv");
+
 const mongoose = require("mongoose");
-const db_url = process.env.MONGO_URL;
-const { response } = require("express");
 const bcrypt = require("bcrypt");
 
 
@@ -20,11 +18,6 @@ const userSchema = new mongoose.Schema({
 
 const userModel = mongoose.model('users', userSchema);
 
-mongoose.connect(db_url).then(() => {
-    console.log("Connected to the database");
-    }).catch((err)=>{
-    console.log('Error connecting to MongoDB', err);
-    } );
 
 const addUser = async (name, email, phone, age, isParent, password) => {
 

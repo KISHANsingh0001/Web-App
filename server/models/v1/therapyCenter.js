@@ -3,49 +3,6 @@ const mongoose = require("mongoose");
 const db_url = process.env.MONGO_URL;
 const { response } = require("express");
 
-const therapistSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    specialization: {
-        type: String,
-        required: true,
-    },
-    yearsOfExperience: {
-        type: Number,
-        required: true,
-    },
-    contactInfo: {
-        email: String,
-        phone: String,
-    },
-
-    associatedUsers: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
-    }],
-    
-});
-
-const therapyCenterSchema = new mongoose.Schema({
-    centerName: {
-        type: String,
-        required: true,
-    },
-    centerLocation: {
-        type: String,
-        required: true,
-    },
-    centerTherapists: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Therapist",
-    }],
-    centerCustomers: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "users",
-    }],
-});
 
 const therapistModel = mongoose.model(('therapists', therapistSchema));
 const therapyCenterModel = mongoose.model(('therapyCenters', therapyCenterSchema));
@@ -132,4 +89,5 @@ const addUserToTherapist = async (therapistName, userName) => {
         console.log("Error adding user to therapist", err);
         }
     }
-module.exports = {addTherapyCenter, addTherapist, addTherapistToCenter, addUserToTherapist };
+
+module.exports = { therapistModel, therapyCenterModel, addTherapyCenter, addTherapist, addTherapistToCenter, addUserToTherapist };
