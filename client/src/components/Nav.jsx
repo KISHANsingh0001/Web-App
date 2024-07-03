@@ -24,6 +24,9 @@ function Nav() {
             <a href="" className="hover:text-slate-700 ">
               Contact Us
             </a>
+            <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-2 font-poppins font-medium text-base min-h-0 hover:bg-[#29A167] flex-nowrap w-[132px] h-[40px]">
+              Login/Sign up
+            </button>
           </div>
         </div>
       </div>

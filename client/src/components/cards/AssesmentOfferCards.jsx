@@ -11,7 +11,7 @@ const AssessmentOfferCards = ({ title, age, text }) => {
         {text}
       </div>
       <div className="block">
-        <button className="btn text-white bg-stateBlue border-stateBlue rounded-[10px] p-6 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-stateBlue flex-nowrap">
+        <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-6 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap">
           Start Assesment
         </button>
       </div>

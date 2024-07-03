@@ -16,7 +16,6 @@ export default {
         'know-more': '#4089ED',
         'stateBlue': '#2445B9',
       },
-
     },
   },
   plugins: [daisyui],

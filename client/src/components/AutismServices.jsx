@@ -31,7 +31,7 @@ function AutismServices() {
                   <li>Economical</li>
                 </ul>
               </span>
-              <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-blue-800 cursor-pointer  text-white">
+              <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-[#29A167] cursor-pointer  text-white">
                 Book Now
               </button>
             </div>
@@ -51,54 +51,56 @@ function AutismServices() {
                   <li>Economical</li>
                 </ul>
               </span>
-              <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-blue-800 cursor-pointer  text-white">
+              <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-[#29A167] cursor-pointer  text-white">
                 Book Now
               </button>
             </div>
           </div>
         </div>
         <div className="offline mx-[3%]">
-        <span className="text-4xl my-5 font-bold">Offline Mode</span>
-        <div class="gradient-line my-5 mb-10"></div>
+          <span className="text-4xl my-5 font-bold">Offline Mode</span>
+          <div class="gradient-line my-5 mb-10"></div>
 
-        <div className="crad flex mb-16 flex-col md:flex-row ">
-          <span>
-            <img src={img3} alt="img1" className="max-w-[350px] ml-8  m-2" />
-          </span>
-          <div className="mx-16">
+          <div className="crad flex mb-16 flex-col md:flex-row ">
             <span>
-              <p className="text-3xl font-bold my-5">Benefits</p>
-              <ul className="md:text-2xl md:ml-10 flex flex-col gap-3  ">
-                <li>Therapy at your place</li>
-                <li>No hassle of visiting therapy centers</li>
-                <li>
-                  The progress will be tracked in our progress tracking system
-                </li>
-              </ul>
+              <img src={img3} alt="img1" className="max-w-[350px] ml-8  m-2" />
             </span>
-            <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-blue-800 cursor-pointer  text-white">
-              Book Now
-            </button>
+            <div className="mx-16">
+              <span>
+                <p className="text-3xl font-bold my-5">Benefits</p>
+                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3  ">
+                  <li>Therapy at your place</li>
+                  <li>No hassle of visiting therapy centers</li>
+                  <li>
+                    The progress will be tracked in our progress tracking system
+                  </li>
+                </ul>
+              </span>
+              <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-[#29A167] cursor-pointer  text-white">
+                Book Now
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="crad flex mb-16 flex-col md:flex-row ">
-          <span>
-            <img src={img4} alt="img1" className="max-w-[350px] ml-8  m-2" />
-          </span>
-          <div className="mx-16">
+          <div className="crad flex mb-16 flex-col md:flex-row ">
             <span>
-              <p className="text-3xl font-bold my-5">Benefits</p>
-              <ul className="md:text-2xl md:ml-10 flex flex-col gap-3 ">
-                <li>Partnered Therapy center</li>
-                <li>encouraged to join therapy sessions</li>
-                <li>The progress will be tracked in our progress tracking system</li>
-              </ul>
+              <img src={img4} alt="img1" className="max-w-[350px] ml-8  m-2" />
             </span>
-            <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-blue-800 cursor-pointer  text-white">
-              Book Now
-            </button>
+            <div className="mx-16">
+              <span>
+                <p className="text-3xl font-bold my-5">Benefits</p>
+                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3 ">
+                  <li>Partnered Therapy center</li>
+                  <li>encouraged to join therapy sessions</li>
+                  <li>
+                    The progress will be tracked in our progress tracking system
+                  </li>
+                </ul>
+              </span>
+              <button className="px-7 md:mt-20 md:mx-5 mt-5 py-2 rounded-xl bg-[#29A167] cursor-pointer  text-white">
+                Book Now
+              </button>
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ const AssessmentOffer = () => {
           Take our assessments and get to know yourself
         </span>
       </div>
-      <div className=" flex justify-center items-center mt-10">
+      <div className=" flex justify-center flex-wrap mt-10">
         <AssessmentOfferCards
           title={"Autism Spectrum Quotient(AQ)"}
           age={"AGE 4-11"}

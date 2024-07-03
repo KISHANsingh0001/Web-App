@@ -23,7 +23,7 @@ function RServices() {
             </p>
           </span>
         </div>
-        <div className=" flex justify-between m-[5%] flex-col md:flex-row  items-center mt-10">
+        <div className=" flex justify-between m-[5%] flex-col md:flex-row items-center mt-10">
           <Card1
             title={"Take autism Assessment"}
             text={"Get the screening done and know the chances of Autism  "}
