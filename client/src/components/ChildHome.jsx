@@ -9,7 +9,7 @@ import OurReccomendations from "./OurRecommendations";
 
 function ChildHome() {
   return (
-    <div className="BodyOuter flex flex-col justify-center content-center">
+    <div className="BodyOuter ">
       <div className="flex flex-col md:mt-20 justify-center items-center gap-4 ">
         <span className="md:text-5xl text-3xl mt-2 text-center font-poppins text-purple-500 ">
           Being Autistic & ADHDer is not easy

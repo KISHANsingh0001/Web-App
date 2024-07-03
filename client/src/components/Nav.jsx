@@ -11,7 +11,7 @@ function Nav() {
               <img src={NavLog} alt="Logo" />
             </a>
           </div>
-          <div className="LeftInfo hidden md:flex flex-row gap-8 font-poppins text-slate-500 ">
+          <div className="LeftInfo hidden md:flex flex-row ali gap-8 font-poppins text-slate-500 ">
             <a href="" className="hover:text-slate-700 ">
               About
             </a>
@@ -24,9 +24,20 @@ function Nav() {
             <a href="" className="hover:text-slate-700 ">
               Contact Us
             </a>
-            <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-2 font-poppins font-medium text-base min-h-0 hover:bg-[#29A167] flex-nowrap w-[132px] h-[40px]">
+            <a
+              href="/auth"
+              className=" text-white bgBT1 px-2 py-1 text-center hover:bg-green-700 rounded-xl"
+            >
               Login/Sign up
-            </button>
+            </a>
+          </div>
+          <div className="sm:flex md:hidden  ml-10 p-2 ">
+            <a
+              href="/auth"
+              className=" text-white bgBT1 px-2 py-1 text-center hover:bg-green-700 rounded-xl"
+            >
+              Login/Sign up
+            </a>
           </div>
         </div>
       </div>
