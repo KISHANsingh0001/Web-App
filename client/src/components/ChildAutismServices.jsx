@@ -18,7 +18,7 @@ function ChildAutismServices() {
           <div class="gradient-line my-5 mb-10"></div>
           <div className="crad flex mb-16 flex-col md:flex-row ">
             <span>
-              {/* <img src={img1} alt="img1" className=" max-w-[350px] ml-8  m-2" /> */}
+              <img src={img1} alt="img1" className=" max-w-[350px] ml-8  m-2" />
             </span>
             <div className="mx-16">
               <span>
@@ -41,7 +41,7 @@ function ChildAutismServices() {
 
           <div className="crad flex mb-16 flex-col md:flex-row  ">
             <span>
-              {/* <img src={img2} alt="img1" className="max-w-[350px] ml-8  m-2" /> */}
+              <img src={img2} alt="img1" className="max-w-[350px] ml-8  m-2" />
             </span>
             <div className="mx-16">
               <span>
@@ -69,7 +69,7 @@ function ChildAutismServices() {
 
           <div className="crad flex mb-16 flex-col md:flex-row ">
             <span>
-              {/* <img src={img3} alt="img1" className="max-w-[350px] ml-8  m-2" /> */}
+              <img src={img3} alt="img1" className="max-w-[350px] ml-8  m-2" />
             </span>
             <div className="mx-16">
               <span>
@@ -91,7 +91,7 @@ function ChildAutismServices() {
           </div>
           <div className="crad flex mb-16 flex-col md:flex-row ">
             <span>
-              {/* <img src={img4} alt="img1" className="max-w-[350px] ml-8  m-2" /> */}
+              <img src={img4} alt="img1" className="max-w-[350px] ml-8  m-2" />
             </span>
             <div className="mx-16">
               <span>

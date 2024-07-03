@@ -1,4 +1,7 @@
 import React from "react";
+import img1 from "../assets/Rimg1.png";
+import img2 from "../assets/Rimg2.png";
+import img3 from "../assets/Rimg3.png";
 
 const ParentSufferings = () => {
   return (
@@ -12,7 +15,10 @@ const ParentSufferings = () => {
           <div className="w-[238px] h-[55.26px] font-normal font-poppins text-4xl">
             1. Ignorance
           </div>
-          <div className="text-2xl font-poppins font-medium my-3">
+          <span className="p-2 my-2">
+            <img src={img1} alt="" />
+          </span>
+          <div className="text-2xl font-poppins font-medium my-5 text-center">
             Because of lack of awareness parents go through denial phase
           </div>
         </div>
@@ -21,7 +27,10 @@ const ParentSufferings = () => {
           <div className="w-[238px] h-[55.26px] font-normal font-poppins text-4xl">
             2. Denial
           </div>
-          <div className="text-2xl font-poppins font-medium my-3">
+          <span className="p-2 my-2">
+            <img src={img2} alt="" />
+          </span>
+          <div className="text-2xl font-poppins font-medium my-5 text-center">
             No this cannot happen to me or my child
           </div>
         </div>
@@ -30,7 +39,10 @@ const ParentSufferings = () => {
           <div className="w-[361.95px] h-[55.26px] font-normal font-poppins text-4xl">
             3. Late Acceptance
           </div>
-          <div className="text-2xl font-poppins font-medium my-3">
+          <span className="p-2 my-2">
+            <img src={img3} alt="" />
+          </span>
+          <div className="text-2xl font-poppins font-medium my-5 text-center">
             When signs become more evident, then parents accept but its too late
           </div>
         </div>

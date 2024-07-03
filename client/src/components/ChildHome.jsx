@@ -24,11 +24,11 @@ function ChildHome() {
           </div>
         </span>
         <span>
-          {/* <img
+          <img
             src={HomeImg1}
             alt="img2"
             className=" my-7 md:max-w-[620px] mx-[10%] max-w-[80%]"
-          /> */}
+          />
         </span>
       </div>
       <RServices />

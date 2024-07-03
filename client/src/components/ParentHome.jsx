@@ -1,5 +1,6 @@
 import React from "react";
 import NotAlone from "./NotAlone";
+import HomeImg2 from "../assets/HomeImg2.png"
 import ParentAssesmentOffer from "./ParentAssesmentOffer";
 import Banner from "./Banner";
 import OurReccomendations from "./OurRecommendations";
@@ -20,6 +21,13 @@ function ParentHome() {
           <div className=" p-2 bgBT1 hover:bg-green-700  text-white rounded-lg cursor-pointer font-semibold">
             Take Free Assessment
           </div>
+        </span>
+        <span>
+          <img
+            src={HomeImg2}
+            alt="img2"
+            className=" my-7 md:max-w-[620px] text-center flex  justify-center mx-[10%] max-w-[80%]"
+          />
         </span>
       </div>
       <NotAlone />
