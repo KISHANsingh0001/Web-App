@@ -1,5 +1,6 @@
 import React from "react";
 import NavLog from "../assets/NavLogo.png";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -32,12 +33,12 @@ function Nav() {
             </a>
           </div>
           <div className="sm:flex md:hidden  ml-10 p-2 ">
-            <a
-              href="/auth"
+            <Link
+              to="/auth"
               className=" text-white bgBT1 px-2 py-1 text-center hover:bg-green-700 rounded-xl"
             >
               Login/Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </div>
