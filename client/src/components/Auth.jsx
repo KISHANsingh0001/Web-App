@@ -264,7 +264,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="w-full flex justify-center content-center">
+    <div className="w-full min-h-screen p-20 flex justify-center content-center">
       <div className=" w-[482px] h-auto border-2 border-medium-light-shade-magenta rounded-[24px] flex flex-col justify-center items-center py-5">
         <div className="loginHeading h-[36px]  font-poppins font-medium text-2xl text-[#C160DB] my-4">
           {isLogin ? "Login Page" : "Signup Page"}
