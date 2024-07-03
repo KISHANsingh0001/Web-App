@@ -27,20 +27,19 @@ function App1() {
     );
   };
 
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState("");
   const [showPopup, setShowPopup] = useState(true);
 
   const handleChildClick = () => {
-    setContent('Child');
+    setContent("Child");
     setShowPopup(false);
   };
 
   const handleParentClick = () => {
-    setContent('Parent');
+    setContent("Parent");
     setShowPopup(false);
   };
 
-  
   return (
     <>
       <div className=" ">
@@ -48,12 +47,40 @@ function App1() {
           <div className="popup">
             <div className="popup-content">
               <h2>Select an Option</h2>
-              <button onClick={handleChildClick}>Child</button>
-              <button onClick={handleParentClick}>Parent</button>
+              <div>
+                <button
+                  onClick={handleChildClick}
+                  className="border border-black my-2"
+                >
+                  Child
+                </button>
+              </div>
+              <div>
+                <button
+                  onClick={handleParentClick}
+                  className="border border-black my-2"
+                >
+                  Parent
+                </button>
+              </div>
             </div>
           </div>
         )}
-        {!showPopup && (content == "parent" ?  <Parent />: <Child />)}
+        {!showPopup &&
+          (content === "Parent" ? (
+            <>
+              <Nav />
+              <ParentHome content={content} />
+              <Footer />
+            </>
+          ) : (
+            <>
+              <Nav />
+              <ChildHome content={content} />
+              <Footer />
+            </>
+          ))}
+        {/* {!showPopup && (content === "Parent" ? <Parent /> : <Child />)} */}
       </div>
     </>
   );

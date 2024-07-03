@@ -25,7 +25,7 @@ const NotAlone = () => {
             img={two}
           />
           <NotAloneCard title={"Therapy And Training Program"} img={three} />
-          <NotAloneCard title={"Re Assessment"} img={four} />
+          <NotAloneCard title={"Book Consultation"} img={four} />
         </div>
       </div>
     </>

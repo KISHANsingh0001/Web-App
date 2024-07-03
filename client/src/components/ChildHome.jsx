@@ -7,12 +7,12 @@ import NotAlone from "./NotAlone";
 import AssessmentOffer from "./AssesmentOffer";
 import OurReccomendations from "./OurRecommendations";
 
-function ChildHome() {
+function ChildHome({ content }) {
   return (
     <div className="BodyOuter ">
       <div className="flex flex-col md:mt-20 justify-center items-center gap-4 ">
         <span className="md:text-5xl text-3xl mt-2 text-center font-poppins text-purple-500 ">
-          Being Autistic & ADHDer is not easy
+          Raising Neurodivergent child is not easy
         </span>
         <span className="FontA1 md:text-6xl text-4xl p-4 mb-4">
           <p>We got you!</p>
@@ -23,16 +23,17 @@ function ChildHome() {
           </div>
         </span>
         <span>
-          <img
+          {/* <img
             src={HomeImg1}
             alt="img2"
             className=" my-7 md:max-w-[620px] mx-[10%] max-w-[80%]"
-          />
+          /> */}
         </span>
       </div>
       <RServices />
       <NotAlone />
-      <AssessmentOffer />
+      {/* <AssessmentOffer /> */}
+      {content && <AssessmentOffer content={content} />}
       <AutismServices />
       <Banner />
       <OurReccomendations />
