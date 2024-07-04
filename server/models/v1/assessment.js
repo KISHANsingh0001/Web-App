@@ -26,11 +26,11 @@ const findScore = (responses,test) =>{
     else if (test === "Adult_RBQ_2A") {
        return find_Adult_RBQ_2A_Score(responses);
     }
-    else if (test === "Child_AQ") {
-        return find_Child_AQ_Score(responses);
+    else if (test === "Child_AQ_10_1") {
+        return find_Child_AQ_10_1_Score(responses);
     }
-    else if (test === "Child_AQ_10") {
-        return find_Child_AQ_10_Score(responses);
+    else if (test === "Child_AQ_10_2") {
+        return find_Child_AQ_10_2_Score(responses);
     }
     else {
         console.log("Invalid test");
@@ -40,8 +40,7 @@ const findScore = (responses,test) =>{
 
 
 
-const storeAssesmentResult = async (email, assessmentNumber, assesmentVersion, responses, score, predection) => {
-
+const storeAssessmentResult = async (email, assessmentNumber, assesmentVersion, responses, score, predection) => {
     try{
         const result =await userModel.findOneAndUpdate(
             {email: email},
@@ -61,7 +60,6 @@ const storeAssesmentResult = async (email, assessmentNumber, assesmentVersion, r
 
 }
 
-module.exports = {findScore, storeAssesmentResult};
 
 
 
@@ -70,12 +68,14 @@ const find_Adult_AQ_Score = (responses) => {
     let totalScore = 0;
     for (let i = 0; i < responses.length; i++) {
         const response = responses[i];
-        const optionScores = AdultScores.AQ_scores[i];
-        const score = optionScores[response.option];
+        const optionScores = AdultScores.AQ_scores[i]; 
+        const score = optionScores[response];
         totalScore += score;
+        console.log(totalScore)
     }
     return totalScore;
 }
+
 
 
 const find_Adult_AQ_Prediction = (score) => {
@@ -93,11 +93,12 @@ const find_Adult_AQ_Prediction = (score) => {
 
 const find_Adult_ASRS_5_Score = (responses) => {
     let totalScore = 0;
-    for (let i = 0; i < 50 ; i++) {
+    for (let i = 0; i < responses.length; i++) {
         const response = responses[i];
         const optionScores = AdultScores.ASRS_5_Scores;
-        const score = optionScores[response.option];
-        totalScore = totalScore + score;
+        const score = optionScores[response];
+        totalScore += score;
+        console.log(totalScore)
     }
     return totalScore;
 }
@@ -108,11 +109,61 @@ const find_Adult_AQ_10_Score = (responses) => {
     for (let i = 0; i < responses.length; i++) {
         const response = responses[i];
         const optionScores = AdultScores.AQ_10_Scores[i];
-        const score = optionScores[response.option];
-        totalScore = totalScore + score;
+        const score = optionScores[response];
+        totalScore += score;
+        console.log(totalScore)
     }
     return totalScore;
 }
+
+const find_Adult_CAT_Q_Score = (responses) => {
+    let totalScore = 0;
+    for (let i = 0; i < responses.length; i++) {
+        const response = responses[i];
+        const optionScores = AdultScores.CAT_Q_Scores;
+        const score = optionScores[response];
+        totalScore += score;
+        console.log(totalScore)
+    }
+    return totalScore;
+}
+
+const find_Adult_RBQ_2A_Score = (responses) => {
+    let totalScore = 0;
+    for (let i = 0; i < responses.length; i++) {
+        const response = responses[i];
+        const optionScores = AdultScores.RBQ_2A_Scores;
+        const score = optionScores[response];
+        totalScore += score;
+        console.log(totalScore)
+    }
+    return totalScore;
+}
+
+const find_Child_AQ_10_1_Score = (responses) => {
+    let totalScore = 0;
+    for (let i = 0; i < responses.length; i++) {
+        const response = responses[i];
+        const optionScores = ChildScores.AQ_10_1_Scores;
+        const score = optionScores[response];
+        totalScore += score;
+        console.log(totalScore)
+    }
+    return totalScore;
+}
+
+const find_Child_AQ_10_2_Score = (responses) => {
+    let totalScore = 0;
+    for (let i = 0; i < responses.length; i++) {
+        const response = responses[i];
+        const optionScores = ChildScores.AQ_10_2_Scores;
+        const score = optionScores[response];
+        totalScore += score;
+        console.log(totalScore)
+    }
+    return totalScore;
+}
+
 
 
 const find_Adult_ASRS_5_Prediction = (score) =>{
@@ -156,17 +207,24 @@ const find_Adult_RBQ_2A_Prediction = (score) => {
     }
 
 }
+const find_Child_AQ_10_1_Prediction = (score) => {
+    if (score < 6){
+        return "Low chances of Autism"
+    }
+    else{
+        return "High chances of Autism"
+    }
+}
 
-// const find_Child_AQ_Score = (responses) => {
-//     let totalScore = 0;
-//     for (let i = 0; i < responses.length; i++) {
-//         const response = responses[i];
-//         const optionScores = ChildScores.AQ_scores[i];
-//         const score = optionScores[response.option];
-//         totalScore = totalScore + score;
-//     }
-//     return totalScore;
-// }
+const find_Child_AQ_10_2_Prediction = (score) => {
+    if (score < 6){
+        return "Low chances of Autism"
+    }
+    else{
+        return "High chances of Autism"
+    }
+}
+
 
 
 const findPrediction = (score, test) => {
@@ -185,12 +243,12 @@ const findPrediction = (score, test) => {
     else if (test === "Adult_RBQ_2A") {
         return find_Adult_RBQ_2A_Prediction(score);
     }
-    // else if (test === "Child_AQ") {
-    //     return find_Child_AQ_Prediction(score);
-    // }
-    // else if (test === "Child_AQ_10") {
-    //     return find_Child_AQ_10_Prediction(score);
-    // }
+    else if (test === "Child_AQ") {
+        return find_Child_AQ_10_1_Prediction(score);
+    }
+    else if (test === "Child_AQ_10") {
+        return find_Child_AQ_10_2_Prediction(score);
+    }
     else {
         console.log("Invalid test");
     }
@@ -198,4 +256,4 @@ const findPrediction = (score, test) => {
 
 
 
-module.exports = {findScore, findPrediction};
+module.exports = {findScore, findPrediction, storeAssessmentResult};

@@ -1,5 +1,3 @@
-const { AQ_10_Scores } = require("./adultScores");
-
 const AQ_10_1_scores = [
     {
         //1
