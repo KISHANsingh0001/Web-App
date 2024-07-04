@@ -18,31 +18,27 @@ router.post("/api/v1/signup",async (req, res)=>{
     }
 });
 
-router.post("/api/v1/login",async (req, res)=>{
-    try{
-        const { email, password } = req.body;
+// router.post("/api/v1/login",async (req, res)=>{
+//     try{
+//         const { email, password } = req.body;
         
-        const authed = await authenticateUser(email, password);
+//         const authed = await authenticateUser(email, password);
 
-        if(authed){
-            const userData = await getUserData(email);
-            const token = jwt.sign({email:email,
-                                    name:userData.name,
-                                    isParent:userData.isParent,
-                                    isEnrolled:userData.isEnrolled,
-                                    serviceID:userData.serviceID,},
-                                    process.env.JWT_SECRET_KEY
-                                );
-            return res.json({success:true ,message:"User authenticated successfully", token:token});
-        }
-        else{
-            return res.json({success:false ,message:"Invalid credentials"});
-        }
-    }catch(err){
-        console.log(err)
-        return res.json({success:false ,message:"Something went wrong"});
-    }
-});
+//         if(authed){
+//             const userData = await getUserData(email);
+//             return res.json({success:true ,message:"User authenticated successfully"});
+//         }
+//         else{
+//             return res.json({success:false ,message:"Invalid credentials"});
+//         }
+//     }catch(err){
+//         console.log(err)
+//         return res.json({success:false ,message:"Something went wrong"});
+//     }
+// });
+
+
+
 
 
 module.exports = router;

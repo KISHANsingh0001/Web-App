@@ -10,7 +10,11 @@ const therapy = require('./routes/v1/therapy');
 const port = process.env.PORT
 const db_url = process.env.MONGO_URL;
 
+const cors = require('cors');
 
+
+
+app.use(cors());
 app.use(express.json());
 
 app.use(assessmentRouter);
