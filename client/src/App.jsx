@@ -8,6 +8,7 @@ import ParentHome from "./components/ParentHome";
 import ScheduleDiagnosisAssesment from "./components/ScheduleDiagnosisAssesment";
 import BookConsultation from "./components/BookConsultation";
 import ScheduleTherapy from "./components/ScheduleTherapy";
+import Assessment from "./components/Assessment";
 
 function App1() {
   const Child = () => {
@@ -88,6 +89,7 @@ function App() {
         />
         <Route path="/bookconsultation" element={<BookConsultation />} />
         <Route path="/scheduletherapy" element={<ScheduleTherapy />} />
+        <Route path="/assessment/:id" element={<Assessment/>} />
       </Routes>
     </Router>
   );

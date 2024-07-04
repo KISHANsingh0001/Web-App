@@ -13,20 +13,43 @@ const ParentAssesmentOffer = () => {
         </span>
       </div>
       <div className=" flex justify-center flex-wrap mt-10">
+        
+               <AssessmentOfferCards
+          title={"Autism Quotient(AQ)"}
+          age={"AGE 18+"}
+          text={"A quick referral guide to adults with suspected autism"}
+          id="ADULT_AQ_10_1"
+        />
         <AssessmentOfferCards
-          title={"Autism Spectrum Quotient(AQ)"}
-          age={"AGE 4-11"}
+          title={"ASRS-5"}
+          age={"AGE 18+"}
           text={
-            "A quick referral guide for parents to complete about a child aged 4-11 years with suspected autism who does not have a learning disability. Its is developed by NHS (National Institute of Health Research)"
+            "The Adult ADHD Self-Report Scale for DSM-5 (ASRS-5) is a self-report screening scale for attention deficit hyperactivity disorder (ADHD) in adults. It’s the updated version of the ASRS v1.1"
           }
         />
-
         <AssessmentOfferCards
-          title={"Autism Spectrum Quotient(AQ)"}
-          age={"AGE 12-15"}
+          title={"AQ-10"}
+          age={"AGE 18+"}
           text={
-            "A quick referral guide for parents to complete about a teenager aged 12-15 years old with suspected autism who does not have a learning disability. Its is developed by NHS (National Institute of Health Research)"
+            "The AQ-10 Autism Spectrum Quotient (AQ-10) is a quick questionnaire that primary care practitioners can use to see if a person should be referred for an autism assessment."
           }
+            id="ADULT_AQ_10_1"
+        />
+        <AssessmentOfferCards
+          title={"CAT-Q"}
+          age={"AGE 18+"}
+          text={
+            "The Camouflaging Autistic Traits Questionnaire gives a measure of how much you camouflage your autistic proclivities. Note also that higher scores on the CAT-Q can also account for lower scores on other autism tests"
+          }
+            id="ADULT_AQ_10_1"
+        />
+        <AssessmentOfferCards
+          title={"Repetitive Behavioral Questions"}
+          age={"AGE 18+"}
+          text={
+            "The Adult Repetitive Behaviors Questionnaire-2 (RBQ-2A) is a self-administered questionnaire that measures restricted and repetitive behaviors in adults."
+          }
+            id="ADULT_AQ_10_1"
         />
       </div>
     </div>

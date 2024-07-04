@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css';
+import { useParams } from 'react-router-dom';
 
 const QUESTIONS_PER_PAGE = 5;
 
-const Assessment = ({test}) => {
+const Assessment = () => {
   const [questions, setQuestions] = useState([]);
   const [responses, setResponses]  = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -11,7 +12,8 @@ const Assessment = ({test}) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchQuestions({test}); // You can replace this with any desired test
+    const { Q } = useParams();
+    fetchQuestions({Q}); // You can replace this with any desired test
   }, []);
 
   const fetchQuestions = (test) => {
