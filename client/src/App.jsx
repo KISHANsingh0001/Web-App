@@ -5,6 +5,9 @@ import Footer from "./components/Footer";
 import Auth from "./components/Auth";
 import ChildHome from "./components/ChildHome";
 import ParentHome from "./components/ParentHome";
+import ScheduleDiagnosisAssesment from "./components/ScheduleDiagnosisAssesment";
+import BookConsultation from "./components/BookConsultation";
+import ScheduleTherapy from "./components/ScheduleTherapy";
 
 function App1() {
   const Child = () => {
@@ -79,6 +82,12 @@ function App() {
         <Route path="/" element={<App1 />} />
         <Route path="/home" element={<App1 />} />
         <Route path="/auth" element={<Auth />} />
+        <Route
+          path="/diagnosisassesment"
+          element={<ScheduleDiagnosisAssesment />}
+        />
+        <Route path="/bookconsultation" element={<BookConsultation />} />
+        <Route path="/scheduletherapy" element={<ScheduleTherapy />} />
       </Routes>
     </Router>
   );
