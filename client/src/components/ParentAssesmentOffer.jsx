@@ -13,12 +13,11 @@ const ParentAssesmentOffer = () => {
         </span>
       </div>
       <div className=" flex justify-center flex-wrap mt-10">
-        
-               <AssessmentOfferCards
+             <AssessmentOfferCards
           title={"Autism Quotient(AQ)"}
           age={"AGE 18+"}
           text={"A quick referral guide to adults with suspected autism"}
-          id="ADULT_AQ_10_1"
+          id="Adult_AQ"
         />
         <AssessmentOfferCards
           title={"ASRS-5"}
@@ -26,6 +25,7 @@ const ParentAssesmentOffer = () => {
           text={
             "The Adult ADHD Self-Report Scale for DSM-5 (ASRS-5) is a self-report screening scale for attention deficit hyperactivity disorder (ADHD) in adults. It’s the updated version of the ASRS v1.1"
           }
+          id="Adult_ASRS_5"
         />
         <AssessmentOfferCards
           title={"AQ-10"}
@@ -33,7 +33,8 @@ const ParentAssesmentOffer = () => {
           text={
             "The AQ-10 Autism Spectrum Quotient (AQ-10) is a quick questionnaire that primary care practitioners can use to see if a person should be referred for an autism assessment."
           }
-            id="ADULT_AQ_10_1"
+          id="Adult_AQ_10"
+            
         />
         <AssessmentOfferCards
           title={"CAT-Q"}
@@ -41,7 +42,7 @@ const ParentAssesmentOffer = () => {
           text={
             "The Camouflaging Autistic Traits Questionnaire gives a measure of how much you camouflage your autistic proclivities. Note also that higher scores on the CAT-Q can also account for lower scores on other autism tests"
           }
-            id="ADULT_AQ_10_1"
+            id="Adult_RBQ_2A"
         />
         <AssessmentOfferCards
           title={"Repetitive Behavioral Questions"}

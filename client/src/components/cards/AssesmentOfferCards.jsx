@@ -11,8 +11,8 @@ const AssessmentOfferCards = ({ title, age, text ,id }) => {
         {text}
       </div>
       <div className="block">
-        <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-8 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap">
-         <a href={`/assessment/:${id}`}> Start Assesment</a>
+        <button className="btn text-white bg-[#29A167] flex justify-center items-center border-[#29A167] hover:border-[#29A167] rounded-[10px] p-8 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap">
+         <a href={`/assessment/${id}`}> Start Assesment</a>
         </button>
       </div>
     </div>

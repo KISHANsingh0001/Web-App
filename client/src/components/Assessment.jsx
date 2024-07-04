@@ -10,16 +10,19 @@ const Assessment = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-
+  const { id } = useParams();
+  const newid = id.replace(/:/g, '');
+  console.log(newid);
   useEffect(() => {
-    const { Q } = useParams();
-    fetchQuestions({Q}); // You can replace this with any desired test
+    fetchQuestions(newid); // You can replace this with any desired test
   }, []);
 
-  const fetchQuestions = (test) => {
-    fetch(`/api/v1/assessment?test=${test}`)
+  const fetchQuestions = (newid) => {
+
+    fetch(`/api/v1/assessment?test=${newid}`)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         setQuestions(data);
         setResponses(new Array(data.length).fill(""));
       })
