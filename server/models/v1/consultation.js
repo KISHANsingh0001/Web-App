@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+import { Resend } from 'resend';
+const resend = new Resend('re_123456789');
 
 const consultationSchema = new mongoose.Schema({
     email: {
@@ -23,4 +25,34 @@ const addConsultation = async (email, date, timeSlot) => {
     console.log("Consultation added successfully");
 }
 
-module.exports = { addConsultation };
+
+const mailUser = async (email, date, timeSlot) => {
+    await resend.emails.send({
+        from: 'Acme <onboarding@resend.dev>',
+        to: ['delivered@resend.dev'],
+        subject: 'hello world',
+        text: 'it works!',
+        attachments: [
+            {
+                filename: 'invoice.pdf',
+                content: invoiceBuffer,
+            },
+        ],
+        headers: {
+            'X-Entity-Ref-ID': '123456789',
+        },
+        tags: [
+            {
+                name: 'category',
+                value: 'confirm_email',
+            },
+        ],
+    });
+}
+
+module.exports = { addConsultation, mailUser };
+
+
+
+
+

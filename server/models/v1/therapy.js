@@ -18,6 +18,8 @@ const addTherapySession = async(email,date,timeSlot,typeOfTherapy)=>{
     console.log("Therapy session added successfully");
 }
 
+
+module.exports = { addTherapySession };
 const enumerateTherapySessions = async() => {
     try{
         const therapySessions = await Therapy.find();

@@ -33,7 +33,7 @@ router.post("/api/v1/admin/addAdmin", async (req, res) => {
 });
 
 
-// modify as per filters
+
 router.post("/api/v1/admin/findThese", async (req, res) => {
     try {
         const { wantCenters, wantUsers, wantTherapists } = req.body;
