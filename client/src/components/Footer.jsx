@@ -12,7 +12,7 @@ import logo3 from "../assets/ContactLogo/Mark.png";
 function Footer() {
   return (
     <>
-      <div className="FootOuter border-t  pt-24">
+      <div className="FootOuter border-t  pt-24" id="Contact">
         <div className="flex md:flex-row flex-col pb-24 justify-between px-4">
           <div className="mx-10 flex mb-10 flex-col gap-6 max-w-80">
             <span className="">

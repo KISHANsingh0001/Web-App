@@ -9,7 +9,7 @@ import img5 from "../assets/Rimg5.png";
 function Banner() {
   return (
     <>
-      <div className="my-8 p-5 pb-10  bg-blue-800 min-h-[500px] overflow-hidden">
+      {/* <div className="my-8 p-5 pb-10  bg-blue-800 min-h-[500px] overflow-hidden">
         <span className="md:m-10 text-2xl  md:text-4xl text-white font-semibold">
           What almost all parents go through
         </span>
@@ -34,7 +34,7 @@ function Banner() {
             }
           />
         </div>
-      </div>
+      </div> */}
       <div className="flex md:flex-row flex-col gap-10 justify-between md:mt-10 mx-[6%]">
         <span className="max-w-[492px] m-10">
           <img src={img4} alt="logo" />

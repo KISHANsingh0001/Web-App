@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
-import verifyToken from '../../middleware/verifyToken';
-const addTherapySession = require('../../models/v1/therapy');
-import {updateTherapySession,findTherapySession, enumerateTherapySessions , addTherapySession} from '../../models/v1/therapy';
+const verifyToken = require('../../middlewares/verifyToken');
+const {updateTherapySession,findTherapySession, enumerateTherapySessions , addTherapySession} = require('../../models/v1/therapy');
 
 router.get('/api/v1/therapy', (req, res) => {
     res.json(

@@ -1,7 +1,7 @@
 //TODO add the questions from the last pdf sent in group here and add the options as well
 
 
-const questionnaire = [
+const AQ_10_1 = [
     {
       "Qid": "AQ_10_1_01",
       "Question": "S/he often notices small sounds when others do not",

@@ -18,14 +18,27 @@ const NotAlone = () => {
             get there
           </span>
         </div>
-        <div className=" flex justify-center items-center mt-10">
-          <NotAloneCard title={"Take Free Autism Assessment"} img={one} />
+        <div className=" flex justify-center flex-wrap mt-10">
+          <NotAloneCard
+            title={"Take Free Autism Assessment"}
+            img={one}
+            buttonLink="/assessment"
+          />
           <NotAloneCard
             title={"Book Your Formal Diagnosis Assessment"}
             img={two}
+            buttonLink="/diagnosisassesment"
           />
-          <NotAloneCard title={"Therapy And Training Program"} img={three} />
-          <NotAloneCard title={"Re Assessment"} img={four} />
+          <NotAloneCard
+            title={"Therapy And Training Program"}
+            img={three}
+            buttonLink="/scheduletherapy"
+          />
+          <NotAloneCard
+            title={"Book Consultation"}
+            img={four}
+            buttonLink="/bookconsultation"
+          />
         </div>
       </div>
     </>

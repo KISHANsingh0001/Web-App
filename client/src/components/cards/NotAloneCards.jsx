@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NotAloneCards = ({ img, title, buttonLink }) => {
   return (
@@ -7,11 +8,9 @@ const NotAloneCards = ({ img, title, buttonLink }) => {
         <img src={img} alt={`${img}`} />
       </div>
       <p className="text-3xl mt-6 mb-3 text-black font-bold">{title}</p>
-      <span
-        onClick={buttonLink}
-        className="font-poppins font-semibold h-7 text-lg text-know-more"
-      >
-        Know more
+      <span className="font-poppins font-semibold h-7 cursor-pointer text-lg text-know-more">
+        {/* <a href={buttonLink}>Know more</a> */}
+        <Link to={buttonLink}>Know more</Link>
       </span>
     </div>
   );

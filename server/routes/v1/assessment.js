@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const Adult = require("../../data/v1/adultQuestionnaire") 
 const Child = require("../../data/v1/childQuestionnaire")
-const {findScore,storeAssesmentResult,findPrediction} = require("../../models/v1/assessment")
+const {findScore,storeAssessmentResult,findPrediction} = require("../../models/v1/assessment")
 const verifyToken = require("../../middlewares/verifyToken")
 
 
@@ -48,7 +48,7 @@ router.post("/api/v1/assessment",verifyToken, async (req,res)=>{
 
     const predection = findPrediction(score, test);
 
-    await storeAssesmentResult(email, responses.assessmentNumber, test, responses, score, predection);
+    await storeAssessmentResult(email, responses.assessmentNumber, test, responses, score, predection);
     return res.json({score:score, predection:predection});
 }
 )

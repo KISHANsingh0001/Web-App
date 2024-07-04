@@ -1,9 +1,9 @@
 import React from "react";
 import AssessmentOfferCards from "./cards/AssesmentOfferCards";
 
-const AssessmentOffer = () => {
+const ParentAssesmentOffer = () => {
   return (
-    <div className="assesmentOfferContainer my-14">
+    <div className="assesmentOfferContainer my-14" id="Assessment">
       <div className="flex justify-center items-center flex-col">
         <span className="grid justify-center content-center text-4xl font-poppins font-semibold text-medium-light-shade-magenta h-14">
           Assessments we offer
@@ -12,7 +12,7 @@ const AssessmentOffer = () => {
           Take our assessments and get to know yourself
         </span>
       </div>
-      <div className=" flex justify-center items-center mt-10">
+      <div className=" flex justify-center flex-wrap mt-10">
         <AssessmentOfferCards
           title={"Autism Spectrum Quotient(AQ)"}
           age={"AGE 4-11"}
@@ -33,4 +33,4 @@ const AssessmentOffer = () => {
   );
 };
 
-export default AssessmentOffer;
+export default ParentAssesmentOffer;
