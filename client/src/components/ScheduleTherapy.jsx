@@ -4,7 +4,7 @@ import CalenderSchedule from "./Calender";
 
 const ScheduleTherapy = () => {
   return (
-    <div className="flex flex-col items-center px-6 pb-6 pt-6 h-full">
+    <div className="flex flex-col items-center px-6 pb-6 pt-6 min-h-screen">
       <div className="w-[1305px] my-2">
         <p className="h-[42px] font-poppins font-medium text-[#CB6BE5] text-3xl">
           Schedule Therapy

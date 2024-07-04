@@ -147,7 +147,7 @@ const Auth = () => {
           />
         </div>
         {isLogin ? (
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" >
             <div className=" my-5">
               <input
                 type="email"
@@ -172,14 +172,14 @@ const Auth = () => {
               Forgot password
             </div>
             <button
-              type="submit"
+              type="submit" onClick={handleLogin}
               className="btn bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] w-[402px] h-[60px] border rounded-[11px] text-white text-[22px] font-poppins my-6"
             >
               Login
             </button>
           </form>
         ) : (
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" >
             <div className=" my-5">
               <input
                 type="email"
@@ -262,6 +262,7 @@ const Auth = () => {
             </div>
             <button
               type="submit"
+              onClick={handleSignUp}
               className="btn bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] w-[402px] h-[60px] border rounded-[11px] text-white text-[22px] font-poppins my-6"
             >
               Sign up

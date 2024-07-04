@@ -3,7 +3,7 @@ import '../index.css';
 
 const QUESTIONS_PER_PAGE = 5;
 
-const App = () => {
+const Assessment = ({test}) => {
   const [questions, setQuestions] = useState([]);
   const [responses, setResponses]  = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -11,7 +11,7 @@ const App = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchQuestions("Adult_AQ_10"); // You can replace this with any desired test
+    fetchQuestions({test}); // You can replace this with any desired test
   }, []);
 
   const fetchQuestions = (test) => {
@@ -125,4 +125,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Assessment;
