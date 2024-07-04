@@ -9,6 +9,7 @@ export default {
     extend: {
       fontFamily: {
         poppins: ["Poppins"],
+        inter: ["Inter"],
       },
       colors: {
         'medium-light-shade-magenta': '#CB6BE5',
