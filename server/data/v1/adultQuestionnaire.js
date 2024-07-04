@@ -375,7 +375,7 @@ const CAT_Q = [
   },
   {
     "Qid": "CAT_Q_07",
-    "Question": "In social situations, I feel like I’m ‘performing’ rather than being myself.",
+    "Question": "In social situations, I feel like I'm 'performing' rather than being myself.",
     "Options": ["Strongly Disagree", "Disagree", "Somewhat Disagree", "Neither Agree nor Disagree", "Somewhat Agree", "Agree", "Strongly Agree"]
   },
   {

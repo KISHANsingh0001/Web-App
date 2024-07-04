@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const verifyToken = require('../../middleware/verifyToken');
+const verifyToken = require('../../middlewares/verifyToken');
 const {addConsultation, mailUser} = require('../../models/v1/consultation');
 
 router.post("/api/v1/consultation", verifyToken, async (req, res) => {

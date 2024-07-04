@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-import { Resend } from 'resend';
-const resend = new Resend('re_123456789');
+const Resend = require('resend');
+const resend = new Resend.Resend('re_123456789');
 
 const consultationSchema = new mongoose.Schema({
     email: {

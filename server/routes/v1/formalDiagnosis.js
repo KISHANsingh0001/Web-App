@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const verifyToken = require('../../middleware/verifyToken');
+const verifyToken = require('../../middlewares/verifyToken');
 
 const addFromalDiagnosis = require('../../models/v1/formalDiagnosis');
 
@@ -20,4 +20,4 @@ router.post("/api/v1/formalDiagnosis", verifyToken, async (req, res) => {
 });
 
 
-modules.exports = router;
+module.exports = router;

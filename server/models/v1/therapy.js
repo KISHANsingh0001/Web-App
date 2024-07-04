@@ -4,16 +4,17 @@ const therapySessionSchema = new mongoose.Schema({
     email: { type: String, required: true},
     date: { type: Date, required: true},
     timeSlot: {type: String,required: true},
+    mode: { type: String, default: "Online"},
     typeOfTherapy: { type: [String], default: []},
     isDone: { type: Boolean, default: false},
 });
 
 
-const Therapy = mongoose.model('Therapy', therapySchema);
+const Therapy = mongoose.model('Therapy', therapySessionSchema);
 
 
-const addTherapySession = async(email,date,timeSlot,typeOfTherapy)=>{
-    const therapy = new Therapy({email, date, timeSlot, typeOfTherapy, isDone: false});
+const addTherapySession = async(email,date,timeSlot,mode ,typeOfTherapy)=>{
+    const therapy = new Therapy({email, date, timeSlot,mode, typeOfTherapy, isDone: false});
     await therapy.save();
     console.log("Therapy session added successfully");
 }
@@ -39,9 +40,9 @@ const findTherapySession = async(email) => {
     }
 }
 
-const updateTherapySession = async(email, date, timeSlot, typeOfTherapy, isDone) => {
+const updateTherapySession = async(email, date, timeSlot,mode, typeOfTherapy, isDone) => {
     try{
-        await Therapy.updateOne({ email: email}, { date, timeSlot, typeOfTherapy, isDone});
+        await Therapy.updateOne({ email: email}, { date, timeSlot,mode, typeOfTherapy, isDone});
         console.log("Therapy session updated successfully");
 
     }catch(err){
