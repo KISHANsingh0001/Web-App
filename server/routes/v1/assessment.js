@@ -23,11 +23,11 @@ router.get("/api/v1/assessment",(req,res)=>{
     else if (test === "Adult_RBQ_2A"){
         return res.json(Adult.RBQ_2A)
     }
-    else if (test === "Child_AQ"){
-        return res.json(Child.AQ)
+    else if (test === "Child_AQ_10_1"){
+        return res.json(Child.AQ_10_1)
     }
-    else if (test === "Child_AQ_10"){
-        return res.json(Child.AQ_10)
+    else if (test === "Child_AQ_10_2"){
+        return res.json(Child.AQ_10_2)
     }
     else{
         return res.json({error:"Invalid test"})
