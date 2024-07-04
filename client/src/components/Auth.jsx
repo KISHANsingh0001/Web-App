@@ -1,4 +1,4 @@
-
+import axios from "axios"
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -27,35 +27,10 @@ const Auth = () => {
   };
 
   const handleSignUp = async () => {
-    try {
-      const response = await fetch("/api/v1/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          age,
-          isParent: role === "parent",
-          password,
-        }),
-      });
+      const response = await axios.post("/api/v1/signup", { name, email, age, phone, isparent:true, password })
+      console.log(response.data)
 
-      const data = await response.json();
-
-      if (response.ok) {
-        console.log("User signed up successfully:", data.message);
-        alert("User signed up successfully");
-      } else {
-        console.error("Signup failed:", data.message);
-        alert("Signup failed:", data.message);
-      }
-    } catch (error) {
-      console.error("Error signing up:", error.message);
-    }
-  };
+};
 
   const handleLogin = async () => {
     try {
@@ -83,17 +58,8 @@ const Auth = () => {
     } catch (error) {
       console.error("Error logging in:", error.message);
     }
-  };
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (isSignUp) {
-      handleSignUp();
-    } else {
-      handleLogin();
-    }
-  };
 
   const [isLogin, setIsLogin] = useState(true);
 
@@ -126,28 +92,25 @@ const Auth = () => {
           />
           <label
             htmlFor="login"
-            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${
-              isLogin ? "text-white" : "text-[#CB6BE5]"
-            }`}
+            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${isLogin ? "text-white" : "text-[#CB6BE5]"
+              }`}
           >
             Login
           </label>
           <label
             htmlFor="signup"
-            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${
-              isLogin ? "text-[#CB6BE5]" : "text-white"
-            }`}
+            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${isLogin ? "text-[#CB6BE5]" : "text-white"
+              }`}
           >
             Sign up
           </label>
           <div
-            className={`slider-tab absolute top-0 left-0 w-[140px] h-full bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] transition-all duration-600 font-poppins font-medium text-base border-0 rounded-3xl ${
-              isLogin ? "" : "left-1/2"
-            }`}
+            className={`slider-tab absolute top-0 left-0 w-[140px] h-full bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] transition-all duration-600 font-poppins font-medium text-base border-0 rounded-3xl ${isLogin ? "" : "left-1/2"
+              }`}
           />
         </div>
         {isLogin ? (
-          <form className="space-y-4" >
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className=" my-5">
               <input
                 type="email"
@@ -172,14 +135,14 @@ const Auth = () => {
               Forgot password
             </div>
             <button
-              type="submit" onClick={handleLogin}
+              type="submit"
               className="btn bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] w-[402px] h-[60px] border rounded-[11px] text-white text-[22px] font-poppins my-6"
             >
               Login
             </button>
           </form>
         ) : (
-          <form className="space-y-4" >
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className=" my-5">
               <input
                 type="email"
