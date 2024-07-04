@@ -8,6 +8,7 @@ import OurReccomendations from "./OurRecommendations";
 import ChildSufferings from "./ChildSuffering";
 import ChildAssesmentOffer from "./ChildAssesmentOffer";
 import Blogs from "./Blogs";
+import Assessment from "./Assessment";
 
 function ChildHome() {
   return (
@@ -40,6 +41,7 @@ function ChildHome() {
       <Banner />
       <OurReccomendations />
       <Blogs />
+      <Assessment />
     </div>
   );
 }
