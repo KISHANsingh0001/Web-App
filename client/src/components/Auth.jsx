@@ -27,14 +27,32 @@ const Auth = () => {
   };
 
   const handleSignUp = async () => {
-      const response = await axios.post("/api/v1/signup", { name, email, age, phone, isparent:true, password })
-      console.log(response.data)
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/signup", { // Update this line
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, age, phone, isparent: true, password }),
+      });
 
-};
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log("User signed in successfully:", data.message);
+        alert("User signed in successfully:", data.message);
+      } else {
+        console.error("Sign up failed:", data.message);
+        alert("Sign up failed:", data.message);
+      }
+    } catch (error) {
+      console.error("Error signing up:", error.message);
+    }
+  };
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("/api/v1/login", {
+      const response = await fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,6 +76,17 @@ const Auth = () => {
     } catch (error) {
       console.error("Error logging in:", error.message);
     }
+
+
+    // let id = localStorage.getItem(email);
+    // if (id === password) {
+    //   console.log("User logged in successfully");
+    //   navigate("/home"); // Navigate to home page after successful login
+    // } else {
+    //   console.error("Login failed");
+    //   alert("Login failed");
+    // }
+
   }
 
 
@@ -110,7 +139,7 @@ const Auth = () => {
           />
         </div>
         {isLogin ? (
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" >
             <div className=" my-5">
               <input
                 type="email"
@@ -136,13 +165,14 @@ const Auth = () => {
             </div>
             <button
               type="submit"
+              onClick={handleLogin}
               className="btn bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] w-[402px] h-[60px] border rounded-[11px] text-white text-[22px] font-poppins my-6"
             >
               Login
             </button>
           </form>
         ) : (
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" >
             <div className=" my-5">
               <input
                 type="email"
@@ -214,15 +244,40 @@ const Auth = () => {
                   id="teacher"
                   name="role"
                   value="teacher"
-                  checked={role === "teacher"}
+                  checked={role === "Adult"}
                   onChange={(e) => setRole(e.target.value)}
                   required
                 />
                 <label htmlFor="Adult" className="ml-2">
                   Adult
                 </label>
+                  {role === 'parent' && (
+                    <>
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Child Name"
+                  
+                     
+                          required
+                          className='p-2 w-64 my-4 bg-white border-2 rounded-xl  '
+                        />
+                      </div>
+                      <div>
+                        <input
+                          type="text"
+                          placeholder="Child Age"
+                     
+                        
+                          required
+                          className='p-2 w-64 bg-white border-2 rounded-xl  '
+                        />
+                      </div>
+                    </>
+                  )}
               </div>
             </div>
+       
             <button
               type="submit"
               onClick={handleSignUp}
