@@ -1,6 +1,7 @@
 import React from "react";
 import TimeSlots from "./TimeSlot";
 import CalenderSchedule from "./Calender";
+import CheckBox from "./CheckBox";
 
 const ScheduleTherapy = () => {
   return (
@@ -14,9 +15,10 @@ const ScheduleTherapy = () => {
       <div className="main w-[1305px] flex justify-evenly flex-wrap py-4 mt-7">
         <CalenderSchedule />
         <TimeSlots />
+        <CheckBox />
       </div>
       <div className="mt-10">
-        <button className="btn text-white bg-[#CB6BE5] border-[#CB6BE5] hover:border-[#CB6BE5] rounded-[10px] p-8 h-[60px] font-poppins font-semibold text-xl min-h-0 hover:bg-[#CB6BE5] flex-nowrap">
+        <button className="btn text-white bg-[#CB6BE5] flex justify-center items-center border-[#CB6BE5] hover:border-[#CB6BE5] rounded-[10px] p-8 h-[60px] font-poppins font-semibold text-xl min-h-0 hover:bg-[#CB6BE5] flex-nowrap">
           Schedule Now
         </button>
       </div>

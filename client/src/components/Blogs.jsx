@@ -18,7 +18,6 @@ function Blogs() {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 1,
-   
 
      
     },

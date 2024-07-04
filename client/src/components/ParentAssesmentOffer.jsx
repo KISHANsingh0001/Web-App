@@ -42,7 +42,7 @@ const ParentAssesmentOffer = () => {
           text={
             "The Camouflaging Autistic Traits Questionnaire gives a measure of how much you camouflage your autistic proclivities. Note also that higher scores on the CAT-Q can also account for lower scores on other autism tests"
           }
-            id="Adult_RBQ_2A"
+            id="Adult_CAT_Q"
         />
         <AssessmentOfferCards
           title={"Repetitive Behavioral Questions"}
@@ -50,7 +50,7 @@ const ParentAssesmentOffer = () => {
           text={
             "The Adult Repetitive Behaviors Questionnaire-2 (RBQ-2A) is a self-administered questionnaire that measures restricted and repetitive behaviors in adults."
           }
-            id="ADULT_AQ_10_1"
+            id="Adult_RBQ_2A"
         />
       </div>
     </div>
