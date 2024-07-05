@@ -11,16 +11,16 @@ router.post("/signup", async (req, res) => {
 
         return res.json({ success: true, message: "User added successfully" });
     } catch (err) {
-        console.log(err);
+        console.log("Signup Error:", err);
         return res.status(500).json({ success: false, message: "Something went wrong" });
     }
 });
 
-
 router.post("/login", async (req, res) => {
     try {
         const { email, password } = req.body;
-        
+        console.log("Login attempt with email:", email);
+
         const authed = await authenticateUser(email, password);
 
         if (authed) {
@@ -33,15 +33,16 @@ router.post("/login", async (req, res) => {
                 serviceID: userData.serviceID,
             }, process.env.JWT_SECRET_KEY);
 
+            console.log("User authenticated successfully");
             return res.json({ success: true, message: "User authenticated successfully", token: token });
         } else {
+            console.log("Invalid credentials for email:", email);
             return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
     } catch (err) {
-        console.log(err);
+        console.log("Login Error:", err);
         return res.status(500).json({ success: false, message: "Something went wrong" });
     }
 });
-
 
 module.exports = router;

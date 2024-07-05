@@ -144,7 +144,7 @@ const find_Child_AQ_10_1_Score = (responses) => {
     let totalScore = 0;
     for (let i = 0; i < responses.length; i++) {
         const response = responses[i];
-        const optionScores = ChildScores.AQ_10_1_Scores;
+        const optionScores = ChildScores.AQ_10_1_scores;
         const score = optionScores[response];
         totalScore += score;
         console.log(totalScore)

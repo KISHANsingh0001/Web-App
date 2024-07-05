@@ -1,82 +1,77 @@
-
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
-
 const userSchema = new mongoose.Schema({
-    name:String,
-    email:String,
-    password:String,
-    phone:String,
-    age:Number,
-    isParent:Boolean,
-    isEnrolled:Boolean,
-    serviceID:String,
-    teststaken:Number,
-    assesmentResponses:Array,
+    name: String,
+    email: String,
+    password: String,
+    phone: String,
+    age: Number,
+    isParent: Boolean,
+    isEnrolled: Boolean,
+    serviceID: String,
+    teststaken: Number,
+    assesmentResponses: Array,
 });
 
 const userModel = mongoose.model('users', userSchema);
 
-
 const addUser = async (name, email, phone, age, isParent, password) => {
+    try {
+        const existingUser = await userModel.findOne({ email: email });
 
-    try{
-        const existingUser = await userModel.findOne({email: email});
-
-        if (existingUser){
+        if (existingUser) {
             console.log("User already exists");
             return;
         }
 
         const hashedPassword = await bcrypt.hash(password, 5);
 
-        const user = new userModel({name, email, password: hashedPassword, phone, age, isParent, isEnrolled: false, serviceID: "", teststaken: 0, assesmentResponses: []});
+        const user = new userModel({ name, email, password: hashedPassword, phone, age, isParent, isEnrolled: false, serviceID: "", teststaken: 0, assesmentResponses: [] });
         await user.save();
         console.log("User added successfully");
-
-    }catch(err){
-        console.log("Error saving user response", err);
+    } catch (err) {
+        console.log("Error saving user response:", err);
     }
 }
 
 const authenticateUser = async (email, password) => {
-    try{
+    try {
         const user = await userModel.findOne({ email: email });
+        console.log("Authenticating user with email:", email); // Log email
         if (!user) {
-            console.log("User not found");
-            return null;
+            console.log("User not found for email:", email); // Log user not found
+            return false;
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (isMatch) {
-            console.log("Authentication successful");
+            console.log("Authentication successful for email:", email); // Log successful authentication
             return true;
-
         } else {
-            console.log("Invalid credentials");
-            return null; 
+            console.log("Invalid credentials for email:", email); // Log invalid credentials
+            return false;
         }
-    }catch(err){
-        console.log("Error authenticating user", err);
+    } catch (err) {
+        console.log("Error authenticating user:", err);
+        return false;
     }
 }
 
 const getUserData = async (email) => {
-    try{
-        const user = await userModel.findOne({email: email});
-
-        return {email:user.email,
-                name:user.name,
-                isParent:user.isParent,
-                isEnrolled:user.isEnrolled,
-                serviceID:user.serviceID,
-                };
-                
-    }catch(err){
-        console.log("Error getting user data", err);
+    try {
+        const user = await userModel.findOne({ email: email });
+        return {
+            email: user.email,
+            name: user.name,
+            isParent: user.isParent,
+            isEnrolled: user.isEnrolled,
+            serviceID: user.serviceID,
+        };
+    } catch (err) {
+        console.log("Error getting user data:", err);
     }
 }
 
-module.exports = {addUser, authenticateUser, getUserData, userModel};
+module.exports = { addUser, authenticateUser, getUserData, userModel };

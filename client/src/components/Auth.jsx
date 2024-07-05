@@ -58,6 +58,8 @@ const Auth = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("Attempting login with email:", email); // Log email
+    console.log("Attempting login with password:", password); // Log password
     try {
       const response = await fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -66,23 +68,26 @@ const Auth = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-
+  
       const data = await response.json();
-
+      console.log("API Response:", data); // Log API response
+  
       if (response.ok) {
         console.log("User logged in successfully:", data.message);
-
+  
         // Save JWT token to local storage
         localStorage.setItem("token", data.token);
-
+  
         navigate("/home"); // Navigate to home page after successful login
       } else {
         console.error("Login failed:", data.message);
         alert("Login failed:", data.message);
       }
     } catch (error) {
-      console.error("Error logging in:", error.message);
+      console.error("Error logging in:", error);
     }
+  };
+  
 
 
   return (

@@ -12,6 +12,8 @@ const Assessment = () => {
   const [error, setError] = useState(null);
   const { id } = useParams();
   const newid = id.replace(/:/g, '');
+  const token = localStorage.getItem('token');
+  
   console.log(newid);
   useEffect(() => {
     fetchQuestions(newid); // You can replace this with any desired test
@@ -37,9 +39,9 @@ const Assessment = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const token = "YOUR_JWT_TOKEN_HERE"; // Replace with actual token
+    
 
-    fetch("/api/v1/assessment?test=Adult_AQ_10", {
+    fetch(`/api/v1/assessment?test=${newid}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

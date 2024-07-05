@@ -6,7 +6,7 @@ const {findScore,storeAssessmentResult,findPrediction} = require("../../models/v
 const verifyToken = require("../../middlewares/verifyToken")
 
 
-router.get("/api/v1/assessment",(req,res)=>{
+router.get("/assessment",(req,res)=>{
     test = req.query.test;
     if(test === "Adult_AQ"){
         return res.json(Adult.AQ)
@@ -36,7 +36,7 @@ router.get("/api/v1/assessment",(req,res)=>{
 })
 
 
-router.post("/api/v1/assessment",verifyToken, async (req,res)=>{
+router.post("/assessment",verifyToken, async (req,res)=>{
     const test = req.query.test;
     const responses = req.body.responses;
     console.log(responses)
@@ -48,7 +48,7 @@ router.post("/api/v1/assessment",verifyToken, async (req,res)=>{
 
     const predection = findPrediction(score, test);
 
-    await storeAssessmentResult(email, responses.assessmentNumber, test, responses, score, predection);
+    await storeAssessmentResult(email, test, "v1", responses, score, predection);
     return res.json({score:score, predection:predection});
 }
 )
