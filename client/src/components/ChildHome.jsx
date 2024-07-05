@@ -41,7 +41,7 @@ function ChildHome() {
       <Banner />
       <OurReccomendations />
       <Blogs />
-      <Assessment />
+    
     </div>
   );
 }

@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/v1', auth); // Prefix the routes with /api/v1
 
+
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -28,30 +29,27 @@ const Auth = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
+
       const response = await fetch("http://localhost:3000/api/v1/signup", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          age,
-          isParent: role === "parent",
-          password,
-        }),
+        body: JSON.stringify({ name, email, age, phone, isparent: true, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
+
         console.log("User signed up successfully:", data.message);
         alert("User signed up successfully");
         resetForm();
+
       } else {
-        console.error("Signup failed:", data.message);
-        alert("Signup failed:", data.message);
+        console.error("Sign up failed:", data.message);
+        alert("Sign up failed:", data.message);
       }
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -85,7 +83,7 @@ const Auth = () => {
     } catch (error) {
       console.error("Error logging in:", error.message);
     }
-  };
+
 
   return (
     <div className="w-full min-h-screen p-20 flex justify-center content-center">
@@ -112,28 +110,27 @@ const Auth = () => {
           />
           <label
             htmlFor="login"
-            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${
-              isLogin ? "text-white" : "text-[#CB6BE5]"
-            }`}
+            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${isLogin ? "text-white" : "text-[#CB6BE5]"
+              }`}
           >
             Login
           </label>
           <label
             htmlFor="signup"
-            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${
-              isLogin ? "text-[#CB6BE5]" : "text-white"
-            }`}
+            className={`slide w-1/2 flex flex-col justify-center content-center text-center cursor-pointer z-10 transition-colors duration-600 rounded-3xl font-poppins font-medium text-base h-full ${isLogin ? "text-[#CB6BE5]" : "text-white"
+              }`}
           >
             Sign up
           </label>
           <div
-            className={`slider-tab absolute top-0 left-0 w-[140px] h-full bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] transition-all duration-600 font-poppins font-medium text-base border-0 rounded-3xl ${
-              isLogin ? "" : "left-1/2"
-            }`}
+            className={`slider-tab absolute top-0 left-0 w-[140px] h-full bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] transition-all duration-600 font-poppins font-medium text-base border-0 rounded-3xl ${isLogin ? "" : "left-1/2"
+              }`}
           />
         </div>
         {isLogin ? (
+
           <form className="space-y-4" onSubmit={handleLogin}>
+
             <div className=" my-5">
               <input
                 type="email"
@@ -160,6 +157,7 @@ const Auth = () => {
                 Login
               </button>
             </div>
+
           </form>
         ) : (
           <form className="space-y-4" onSubmit={handleSignUp}>
@@ -172,6 +170,7 @@ const Auth = () => {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
+
             <div className=" my-5">
               <input
                 type="email"
@@ -208,6 +207,7 @@ const Auth = () => {
                 onChange={(e) => setAge(e.target.value)}
               />
             </div>
+
             <div className=" my-5">
               <select
                 className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
@@ -227,6 +227,7 @@ const Auth = () => {
                 Sign up
               </button>
             </div>
+
           </form>
         )}
       </div>

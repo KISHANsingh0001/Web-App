@@ -2,7 +2,7 @@ require("dotenv");
 
 
 
-const storeAssesmentResult = async (email, AssesmentVersion, responses, score, predection) => {
+
 
 const {userModel} = require("./auth");
 

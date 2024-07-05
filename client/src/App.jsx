@@ -8,6 +8,7 @@ import ParentHome from "./components/ParentHome";
 import ScheduleDiagnosisAssesment from "./components/ScheduleDiagnosisAssesment";
 import BookConsultation from "./components/BookConsultation";
 import ScheduleTherapy from "./components/ScheduleTherapy";
+import Assessment from "./components/Assessment";
 
 function App1() {
   const Child = () => {
@@ -47,21 +48,20 @@ function App1() {
     <>
       <div className=" ">
         {showPopup && (
-          <div className="popup">
-            <div className="popup-content">
-              <h2>Select an Option</h2>
-              <div>
+          <div className="popup min-h-screen flex justify-center items-center">
+            <div className="popup-content border border-black  rounded-xl p-10 ">
+              <h2 className=" text-3xl ">Select an Option</h2>
+              <div className=" flex justify-between items-center gap-4 p-4 m-2 ">
                 <button
                   onClick={handleChildClick}
-                  className="border border-black my-2"
+                  className="border border-black hover:font-bold px-4 py-2 rounded-xl my-2"
                 >
-                  Child
+                  Adult
                 </button>
-              </div>
-              <div>
+            
                 <button
                   onClick={handleParentClick}
-                  className="border border-black my-2"
+                  className="border border-black hover:font-bold px-4 py-2 rounded-xl my-2"
                 >
                   Parent
                 </button>
@@ -88,6 +88,7 @@ function App() {
         />
         <Route path="/bookconsultation" element={<BookConsultation />} />
         <Route path="/scheduletherapy" element={<ScheduleTherapy />} />
+        <Route path="/assessment/:id" element={<Assessment/>} />
       </Routes>
     </Router>
   );

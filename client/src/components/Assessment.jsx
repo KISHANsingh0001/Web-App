@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css';
+import { useParams } from 'react-router-dom';
 
 const QUESTIONS_PER_PAGE = 5;
 
-const App = () => {
+const Assessment = () => {
   const [questions, setQuestions] = useState([]);
   const [responses, setResponses]  = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-
+  const { id } = useParams();
+  const newid = id.replace(/:/g, '');
+  console.log(newid);
   useEffect(() => {
-    fetchQuestions("Adult_AQ_10"); // You can replace this with any desired test
+    fetchQuestions(newid); // You can replace this with any desired test
   }, []);
 
-  const fetchQuestions = (test) => {
-    fetch(`/api/v1/assessment?test=${test}`)
+  const fetchQuestions = (newid) => {
+
+    fetch(`/api/v1/assessment?test=${newid}`)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         setQuestions(data);
         setResponses(new Array(data.length).fill(""));
       })
@@ -125,4 +130,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Assessment;

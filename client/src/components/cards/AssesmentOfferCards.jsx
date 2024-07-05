@@ -1,6 +1,6 @@
 import React from "react";
 
-const AssessmentOfferCards = ({ title, age, text }) => {
+const AssessmentOfferCards = ({ title, age, text ,id }) => {
   return (
     <div className="h-[523px] w-[435px] border border-black rounded-[40px] px-8 pb-8 pt-9 m-5">
       <div className="text-3xl mt-6 mb-3 text-black font-bold">{title}</div>
@@ -11,8 +11,8 @@ const AssessmentOfferCards = ({ title, age, text }) => {
         {text}
       </div>
       <div className="block">
-        <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-8 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap">
-          Start Assesment
+        <button className="btn text-white bg-[#29A167] flex justify-center items-center border-[#29A167] hover:border-[#29A167] rounded-[10px] p-8 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap">
+         <a href={`/assessment/${id}`}> Start Assesment</a>
         </button>
       </div>
     </div>

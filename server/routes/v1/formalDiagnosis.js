@@ -11,11 +11,10 @@ router.get("/api/v1/formalDiagnosis", (req, res) => {
 });
 
 
-router.post("/api/v1/formalDiagnosis", verifyToken, async (req, res) => {
-    const email = req.user.email;
-    const {date, diagnosis, typeOfDiagnosis} = req.body;
-    await addFromalDiagnosis.addFormalDiagnosis(email, date, diagnosis, typeOfDiagnosis);
-    mailUser(email, date, diagnosis, typeOfDiagnosis);
+router.post("/api/v1/formalDiagnosis", async (req, res) => {
+    const email = req.body.email;
+    const {date, timeSlot, typeOfDiagnosis, mode} = req.body;
+    await addFromalDiagnosis.addFormalDiagnosis(email, date, timeSlot, typeOfDiagnosis,mode );
     res.json({success:true, message:"Diagnosis added successfully"});
 });
 
