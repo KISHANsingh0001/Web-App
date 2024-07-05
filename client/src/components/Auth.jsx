@@ -1,9 +1,9 @@
-import axios from "axios"
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -12,8 +12,8 @@ const Auth = () => {
   const [role, setRole] = useState("");
   const navigate = useNavigate();
 
-  const toggleMode = () => {
-    setIsSignUp((prevMode) => !prevMode);
+  const handleToggle = () => {
+    setIsLogin(!isLogin);
     resetForm();
   };
 
@@ -26,9 +26,12 @@ const Auth = () => {
     setRole("");
   };
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/v1/signup", { // Update this line
+
+      const response = await fetch("http://localhost:3000/api/v1/signup", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,8 +42,11 @@ const Auth = () => {
       const data = await response.json();
 
       if (response.ok) {
-        console.log("User signed in successfully:", data.message);
-        alert("User signed in successfully:", data.message);
+
+        console.log("User signed up successfully:", data.message);
+        alert("User signed up successfully");
+        resetForm();
+
       } else {
         console.error("Sign up failed:", data.message);
         alert("Sign up failed:", data.message);
@@ -50,7 +56,8 @@ const Auth = () => {
     }
   };
 
-  const handleLogin = async () => {
+  const handleLogin = async (e) => {
+    e.preventDefault();
     try {
       const response = await fetch("http://localhost:3000/api/v1/login", {
         method: "POST",
@@ -77,24 +84,6 @@ const Auth = () => {
       console.error("Error logging in:", error.message);
     }
 
-
-    // let id = localStorage.getItem(email);
-    // if (id === password) {
-    //   console.log("User logged in successfully");
-    //   navigate("/home"); // Navigate to home page after successful login
-    // } else {
-    //   console.error("Login failed");
-    //   alert("Login failed");
-    // }
-
-  }
-
-
-  const [isLogin, setIsLogin] = useState(true);
-
-  const handleToggle = () => {
-    setIsLogin(!isLogin);
-  };
 
   return (
     <div className="w-full min-h-screen p-20 flex justify-center content-center">
@@ -139,152 +128,106 @@ const Auth = () => {
           />
         </div>
         {isLogin ? (
-          <form className="space-y-4" >
+
+          <form className="space-y-4" onSubmit={handleLogin}>
+
             <div className=" my-5">
               <input
                 type="email"
                 className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
-                placeholder="anything@email.com"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                required
               />
             </div>
-            <div className=" my-5">
+            <div className="my-5">
               <input
                 type="password"
                 className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
-                placeholder="password"
+                placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
               />
             </div>
-            <div className="h-[27px] font-light font-poppins text-lg text-[#CB6BE5] cursor-pointer">
-              Forgot password
+            <div className="flex flex-row justify-between items-center">
+              <button
+                type="submit"
+                className="w-[150px] h-[50px] bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] text-white font-poppins font-medium text-[22px] rounded-lg"
+              >
+                Login
+              </button>
             </div>
-            <button
-              type="submit"
-              onClick={handleLogin}
-              className="btn bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] w-[402px] h-[60px] border rounded-[11px] text-white text-[22px] font-poppins my-6"
-            >
-              Login
-            </button>
+
           </form>
         ) : (
-          <form className="space-y-4" >
+          <form className="space-y-4" onSubmit={handleSignUp}>
             <div className=" my-5">
               <input
-                type="email"
-                className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
-                placeholder="anything@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div className=" my-5">
-              <input
-                type="password"
-                className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className=" my-5">
-              <input
-                type="name"
+                type="text"
                 className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                required
+              />
+            </div>
+
+            <div className=" my-5">
+              <input
+                type="email"
+                className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div className=" my-5">
               <input
-                type="phone"
+                type="password"
+                className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className=" my-5">
+              <input
+                type="text"
                 className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
                 placeholder="Phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                required
               />
             </div>
             <div className=" my-5">
               <input
-                type="age"
+                type="number"
                 className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
                 placeholder="Age"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
-                required
               />
             </div>
-            <div className=" my-5 flex flex-col space-y-2">
-              <div>
-                <input
-                  type="radio"
-                  id="parent"
-                  name="role"
-                  value="parent"
-                  checked={role === "parent"}
-                  onChange={(e) => setRole(e.target.value)}
-                  required
-                />
-                <label htmlFor="parent" className="ml-2">
-                  Parent
-                </label>
-              </div>
-              <div>
-                <input
-                  type="radio"
-                  id="teacher"
-                  name="role"
-                  value="teacher"
-                  checked={role === "Adult"}
-                  onChange={(e) => setRole(e.target.value)}
-                  required
-                />
-                <label htmlFor="Adult" className="ml-2">
-                  Adult
-                </label>
-                  {role === 'parent' && (
-                    <>
-                      <div>
-                        <input
-                          type="text"
-                          placeholder="Child Name"
-                  
-                     
-                          required
-                          className='p-2 w-64 my-4 bg-white border-2 rounded-xl  '
-                        />
-                      </div>
-                      <div>
-                        <input
-                          type="text"
-                          placeholder="Child Age"
-                     
-                        
-                          required
-                          className='p-2 w-64 bg-white border-2 rounded-xl  '
-                        />
-                      </div>
-                    </>
-                  )}
-              </div>
+
+            <div className=" my-5">
+              <select
+                className="input font-light font-poppins text-[#8F8F8F] w-[402px] h-[60px] border rounded-[11px] text-[22px] bg-white focus:outline-none border-[#8F8F8F] focus:border-[#8F8F8F]"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+              >
+                <option value="">Select Role</option>
+                <option value="parent">Parent</option>
+                <option value="child">Child</option>
+              </select>
             </div>
-       
-            <button
-              type="submit"
-              onClick={handleSignUp}
-              className="btn bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] w-[402px] h-[60px] border rounded-[11px] text-white text-[22px] font-poppins my-6"
-            >
-              Sign up
-            </button>
+            <div className="flex flex-row justify-between items-center">
+              <button
+                type="submit"
+                className="w-[150px] h-[50px] bg-gradient-to-r from-[#CB6BE5] to-[#713B7F] text-white font-poppins font-medium text-[22px] rounded-lg"
+              >
+                Sign up
+              </button>
+            </div>
+
           </form>
         )}
       </div>

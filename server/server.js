@@ -1,35 +1,16 @@
 require('dotenv').config();
 const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const assessmentRouter = require('./routes/v1/assessment');
-const auth = require('./routes/v1/auth');
-const formalDiagnosis = require('./routes/v1/formalDiagnosis');
-const consultation = require('./routes/v1/consultation');
-const therapy = require('./routes/v1/therapy');
-const port = process.env.PORT
-const db_url = process.env.MONGO_URL;
-
 const cors = require('cors');
+const auth = require('./routes/v1/auth');
+require('./dbconnect'); // Ensure this file establishes the database connection
 
-
+const app = express();
+const port = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
-app.use(assessmentRouter);
-app.use(auth);
-app.use(formalDiagnosis);
-app.use(consultation);
-app.use(therapy);
-
-
-mongoose.connect(db_url).then(() => {
-    console.log("Connected to the database");
-}).catch((err) => {
-    console.log('Error connecting to MongoDB', err);
-});
-
+app.use('/api/v1', auth); // Prefix the routes with /api/v1
 
 
 app.listen(port, () => {
