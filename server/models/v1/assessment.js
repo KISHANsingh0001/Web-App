@@ -1,41 +1,39 @@
 require("dotenv");
 
-
-
-
-
 const {userModel} = require("./auth");
 
 const AdultScores = require("../../data/v1/adultScores");
 const ChildScores = require("../../data/v1/childScores");
 
-
-const findScore = (responses,test) =>{
+const findScore = (responses, test) => {
+    let totalScore = 0;
     if (test === "Adult_AQ") {
-        return find_Adult_AQ_Score(responses);
+        totalScore = find_Adult_AQ_Score(responses);
     }
     else if (test === "Adult_ASRS_5") {
-       return  find_Adult_ASRS_5_Score(responses);
+        totalScore = find_Adult_ASRS_5_Score(responses);
     }
     else if (test === "Adult_AQ_10") {
-       return find_Adult_AQ_10_Score(responses);
+        totalScore = find_Adult_AQ_10_Score(responses);
     }
     else if (test === "Adult_CAT_Q") {
-        return find_Adult_CAT_Q_Score(responses);
+        totalScore = find_Adult_CAT_Q_Score(responses);
     }
     else if (test === "Adult_RBQ_2A") {
-       return find_Adult_RBQ_2A_Score(responses);
+        totalScore = find_Adult_RBQ_2A_Score(responses);
     }
     else if (test === "Child_AQ_10_1") {
-        return find_Child_AQ_10_1_Score(responses);
+        totalScore = find_Child_AQ_10_1_Score(responses);
     }
     else if (test === "Child_AQ_10_2") {
-        return find_Child_AQ_10_2_Score(responses);
+        totalScore = find_Child_AQ_10_2_Score(responses);
     }
     else {
         console.log("Invalid test");
     }
-}
+    return totalScore;
+};
+
 
 
 
@@ -59,8 +57,6 @@ const storeAssessmentResult = async (email, assessmentNumber, assesmentVersion, 
     }
 
 }
-
-
 
 
 
@@ -228,31 +224,34 @@ const find_Child_AQ_10_2_Prediction = (score) => {
 
 
 const findPrediction = (score, test) => {
+    let prediction = "";
     if (test === "Adult_AQ") {
-        return find_Adult_AQ_Prediction(score);
+        prediction = find_Adult_AQ_Prediction(score);
     }
     else if (test === "Adult_ASRS_5") {
-        return find_Adult_ASRS_5_Prediction(score);
+        prediction = find_Adult_ASRS_5_Prediction(score);
     }
     else if (test === "Adult_AQ_10") {
-        return find_Adult_AQ_10_Prediction(score);
+        prediction = find_Adult_AQ_10_Prediction(score);
     }
     else if (test === "Adult_CAT_Q") {
-        return find_Adult_CAT_Q_Prediction(score);
+        prediction = find_Adult_CAT_Q_Prediction(score);
     }
     else if (test === "Adult_RBQ_2A") {
-        return find_Adult_RBQ_2A_Prediction(score);
+        prediction = find_Adult_RBQ_2A_Prediction(score);
     }
-    else if (test === "Child_AQ") {
-        return find_Child_AQ_10_1_Prediction(score);
+    else if (test === "Child_AQ_10_1") {
+        prediction = find_Child_AQ_10_1_Prediction(score);
     }
-    else if (test === "Child_AQ_10") {
-        return find_Child_AQ_10_2_Prediction(score);
+    else if (test === "Child_AQ_10_2") {
+        prediction = find_Child_AQ_10_2_Prediction(score);
     }
     else {
         console.log("Invalid test");
     }
-}
+    return prediction;
+};
+
 
 
 

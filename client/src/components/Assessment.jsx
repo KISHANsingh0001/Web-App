@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import '../index.css';
 import { useParams } from 'react-router-dom';
 
 const QUESTIONS_PER_PAGE = 5;
 
 const Assessment = () => {
   const [questions, setQuestions] = useState([]);
-  const [responses, setResponses]  = useState([]);
+  const [responses, setResponses] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
@@ -14,17 +13,14 @@ const Assessment = () => {
   const newid = id.replace(/:/g, '');
   const token = localStorage.getItem('token');
   
-  console.log(newid);
   useEffect(() => {
-    fetchQuestions(newid); // You can replace this with any desired test
-  }, []);
+    fetchQuestions(newid);
+  }, [newid]);
 
-  const fetchQuestions = (newid) => {
-
-    fetch(`/api/v1/assessment?test=${newid}`)
+  const fetchQuestions = (test) => {
+    fetch(`/api/v1/assessment?test=${test}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         setQuestions(data);
         setResponses(new Array(data.length).fill(""));
       })
@@ -40,7 +36,6 @@ const Assessment = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     
-
     fetch(`/api/v1/assessment?test=${newid}`, {
       method: "POST",
       headers: {
@@ -56,6 +51,9 @@ const Assessment = () => {
       .catch(error => {
         console.error("Error:", error);
         setError("Failed to submit assessment.");
+      })
+      .finally(() => {
+        setResponses(new Array(questions.length).fill("")); // Reset responses
       });
   };
 
@@ -125,7 +123,7 @@ const Assessment = () => {
       ) : (
         <div className="result text-center">
           <h2 className="text-xl font-bold mt-6">Prediction Result</h2>
-          <p className="text-lg mt-4">{result === 1 ? "Prediction: High" : "Prediction: Low"}</p>
+          <p className="text-lg mt-4">{result}</p>
         </div>
       )}
     </div>

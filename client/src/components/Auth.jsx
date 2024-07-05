@@ -221,7 +221,7 @@ const Auth = () => {
               >
                 <option value="">Select Role</option>
                 <option value="parent">Parent</option>
-                <option value="child">Child</option>
+                <option value="adult">Adult</option>
               </select>
             </div>
             <div className="flex flex-row justify-between items-center">

@@ -14,7 +14,7 @@ function App1() {
   const Child = () => {
     return (
       <>
-        <Nav />
+        {/* <Nav /> */}
         <ChildHome />
         <Footer />
       </>
@@ -24,7 +24,7 @@ function App1() {
   const Parent = () => {
     return (
       <>
-        <Nav />
+        {/* <Nav /> */}
         <ParentHome />
         <Footer />
       </>
@@ -47,6 +47,7 @@ function App1() {
   return (
     <>
       <div className=" ">
+        <Nav />
         {showPopup && (
           <div className="popup min-h-screen flex justify-center items-center">
             <div className="popup-content border border-black  rounded-xl p-10 ">

@@ -2,7 +2,7 @@ import React from "react";
 import NotAlone from "./NotAlone";
 import RServices from "./RServices";
 import HomeImg2 from "../assets/HomeImg2.png"
-import ParentAssesmentOffer from "./ParentAssesmentOffer";
+import ChildAssesmentOffer from "./ChildAssesmentOffer";
 import Banner from "./Banner";
 import OurReccomendations from "./OurRecommendations";
 import AutismServices from "./AutismServices";
@@ -34,7 +34,7 @@ function ParentHome() {
       </div>
       <RServices />
       <NotAlone />
-      <ParentAssesmentOffer />
+      <ChildAssesmentOffer />
       <AutismServices />
       <ParentSufferings />
       <Banner />

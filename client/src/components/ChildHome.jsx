@@ -6,7 +6,7 @@ import Banner from "./Banner";
 import NotAlone from "./NotAlone";
 import OurReccomendations from "./OurRecommendations";
 import ChildSufferings from "./ChildSuffering";
-import ChildAssesmentOffer from "./ChildAssesmentOffer";
+import ParentAssesmentOffer from './ParentAssesmentOffer'
 import Blogs from "./Blogs";
 import Assessment from "./Assessment";
 
@@ -35,7 +35,7 @@ function ChildHome() {
       </div>
       <RServices />
       <NotAlone />
-      <ChildAssesmentOffer />
+      <ParentAssesmentOffer />
       <ChildAutismServices />
       <ChildSufferings />
       <Banner />

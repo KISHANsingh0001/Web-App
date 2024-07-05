@@ -36,21 +36,21 @@ router.get("/assessment",(req,res)=>{
 })
 
 
-router.post("/assessment",verifyToken, async (req,res)=>{
+router.post("/assessment", verifyToken, async (req, res) => {
     const test = req.query.test;
     const responses = req.body.responses;
-    console.log(responses)
-
+    console.log(responses);
+  
     const email = req.user.email;
-    
+  
     const score = findScore(responses, test);
     console.log(score);
-
-    const predection = findPrediction(score, test);
-
-    await storeAssessmentResult(email, test, "v1", responses, score, predection);
-    return res.json({score:score, predection:predection});
-}
-)
+  
+    const prediction = findPrediction(score, test);
+  
+    await storeAssessmentResult(email, test, "v1", responses, score, prediction);
+    return res.json({ score: score, prediction: prediction });
+  });
+  
 
 module.exports = router;
