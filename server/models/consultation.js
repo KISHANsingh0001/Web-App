@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 // const Resend = require('resend');
 // const resend = new Resend.Resend('re_123456789');
 

@@ -108,5 +108,5 @@ const AQ_10_1 = [
   ]
   
 
-module.exports = {AQ_10_1, AQ_10_2};
+  export default {AQ_10_1, AQ_10_2};
 

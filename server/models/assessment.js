@@ -1,9 +1,7 @@
-require("dotenv");
-
-const {userModel} = require("./auth");
-
-const AdultScores = require("../../data/v1/adultScores");
-const ChildScores = require("../../data/v1/childScores");
+import 'dotenv'
+import { userModel } from './auth.js';
+import AdultScores from '../data/adultScores.js'
+import ChildScores from "../data/childScores.js"
 
 const findScore = (responses, test) => {
     let totalScore = 0;
@@ -255,4 +253,4 @@ const findPrediction = (score, test) => {
 
 
 
-module.exports = {findScore, findPrediction, storeAssessmentResult};
+export {findScore, storeAssessmentResult, findPrediction};

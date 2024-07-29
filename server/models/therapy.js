@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const therapySessionSchema = new mongoose.Schema({
     email: { type: String, required: true},
@@ -50,4 +50,4 @@ const updateTherapySession = async(email, date, timeSlot,mode, typeOfTherapy, is
     }
 }
 
-module.exports = {updateTherapySession,findTherapySession, enumerateTherapySessions , addTherapySession};
+export default {updateTherapySession,findTherapySession, enumerateTherapySessions , addTherapySession};

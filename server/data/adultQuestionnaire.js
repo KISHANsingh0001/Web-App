@@ -670,4 +670,4 @@ const RBQ_2A = [
 
 
 
-module.exports = {AQ, ASRS_5, AQ_10, CAT_Q, RBQ_2A}
+export default  {AQ, ASRS_5, AQ_10, CAT_Q, RBQ_2A}

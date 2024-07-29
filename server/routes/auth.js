@@ -1,6 +1,6 @@
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const { addUser, authenticateUser, getUserData } = require('../../models/v1/auth');
+import express from 'express'
+import jwt from 'jsonwebtoken'
+import { addUser, authenticateUser, getUserData } from '../models/auth.js'
 const router = express.Router();
 
 router.post("/signup", async (req, res) => {
@@ -45,4 +45,4 @@ router.post("/login", async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

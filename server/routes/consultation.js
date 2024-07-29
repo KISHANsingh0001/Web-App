@@ -1,7 +1,7 @@
-const express = require('express');
+import express from 'express'
 const router = express.Router();
-const verifyToken = require('../../middlewares/verifyToken');
-const {addConsultation} = require('../../models/v1/consultation');
+import verifyToken from "../middlewares/verifyToken"
+import addConsultation from '../../models/v1/consultation'
 
 router.post("/api/v1/consultation", async (req, res) => {
     const email = req.body.email;
@@ -11,4 +11,4 @@ router.post("/api/v1/consultation", async (req, res) => {
 });
 
 
-module.exports = router
+export default router
