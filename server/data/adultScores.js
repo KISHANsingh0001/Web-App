@@ -830,4 +830,4 @@ const RBQ_2A_Scores = [
 
 
 
-module.exports = {AQ_scores, ASRS_5_Scores, AQ_10_Scores, CAT_Q_Scores, RBQ_2A_Scores}
+export default {AQ_scores, ASRS_5_Scores, AQ_10_Scores, CAT_Q_Scores, RBQ_2A_Scores}

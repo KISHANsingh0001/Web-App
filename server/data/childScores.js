@@ -144,4 +144,4 @@ const AQ_10_2_Scores = [
 ]
 
 
-module.exports = {AQ_10_1_scores, AQ_10_2_Scores};
+export default {AQ_10_1_scores, AQ_10_2_Scores};

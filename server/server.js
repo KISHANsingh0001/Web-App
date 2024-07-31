@@ -1,10 +1,13 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const auth = require('./routes/v1/auth');
-const assessment = require('./routes/v1/assessment');
+import express from 'express'
+import cors from 'cors'
+import auth from './routes/auth.js'
+import assessment from './routes/assessment.js'
+import admin from './routes/adminauth.js'
+import './dbconnect.js'
+import dotenv from 'dotenv';
 
-require('./dbconnect'); // Ensure this file establishes the database connection
+dotenv.config(); 
+
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,8 +15,9 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/v1', auth); // Prefix the routes with /api/v1
-app.use('/api/v1', assessment);
+app.use('/api/', auth); 
+app.use('/api/', assessment);
+app.use('/api/admin', admin)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

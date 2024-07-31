@@ -2,14 +2,15 @@ import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import Auth from "./components/Auth";
+import Auth1 from "./components/Auth1";
 import ChildHome from "./components/ChildHome";
 import ParentHome from "./components/ParentHome";
 import ScheduleDiagnosisAssesment from "./components/ScheduleDiagnosisAssesment";
 import BookConsultation from "./components/BookConsultation";
 import ScheduleTherapy from "./components/ScheduleTherapy";
 import Assessment from "./components/Assessment";
-
+import AdminLogin from "./components/AdminLogin";
+import AdminDashboard from "./components/AdminDashboard";
 function App1() {
   const Child = () => {
     return (
@@ -82,7 +83,7 @@ function App() {
       <Routes>
         <Route path="/" element={<App1 />} />
         <Route path="/home" element={<App1 />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" element={<Auth1 />} />
         <Route
           path="/diagnosisassesment"
           element={<ScheduleDiagnosisAssesment />}
@@ -90,6 +91,8 @@ function App() {
         <Route path="/bookconsultation" element={<BookConsultation />} />
         <Route path="/scheduletherapy" element={<ScheduleTherapy />} />
         <Route path="/assessment/:id" element={<Assessment/>} />
+        <Route path="/admin-login" element={<AdminLogin />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );

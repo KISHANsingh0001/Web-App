@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express'
 const router = express.Router();
-const verifyToken = require('../../middlewares/verifyToken');
+import verifyToken from "../middlewares/verifyToken"
+import addFormalDiagnosis from '../../models/v1/formalDiagnosis'
 
-const addFromalDiagnosis = require('../../models/v1/formalDiagnosis');
 
 router.get("/api/v1/formalDiagnosis", (req, res) => {
     res.json(
@@ -19,4 +19,4 @@ router.post("/api/v1/formalDiagnosis", async (req, res) => {
 });
 
 
-module.exports = router;
+export default router;

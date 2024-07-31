@@ -1,9 +1,9 @@
-const express = require("express")
+import express from 'express'
 const router = express.Router()
-const Adult = require("../../data/v1/adultQuestionnaire") 
-const Child = require("../../data/v1/childQuestionnaire")
-const {findScore,storeAssessmentResult,findPrediction} = require("../../models/v1/assessment")
-const verifyToken = require("../../middlewares/verifyToken")
+import Adult from "../data/adultQuestionnaire.js"
+import Child from "../data/childQuestionnaire.js"
+import {findScore, storeAssessmentResult, findPrediction} from "../models/assessment.js"
+import verifyToken from "../middlewares/verifyToken.js"
 
 
 router.get("/assessment",(req,res)=>{
@@ -53,4 +53,4 @@ router.post("/assessment", verifyToken, async (req, res) => {
   });
   
 
-module.exports = router;
+export default router;

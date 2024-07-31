@@ -70,4 +70,4 @@ const scores = [
     }
 ]
 
-module.exports = scores;
+export default scores;

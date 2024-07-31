@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+import mongoose from "mongoose";
+import bcrypt from "bcrypt"
 
 const userSchema = new mongoose.Schema({
     name: String,
@@ -47,10 +47,10 @@ const authenticateUser = async (email, password) => {
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (isMatch) {
-            console.log("Authentication successful for email:", email); // Log successful authentication
+            console.log("Authentication successful for email:", email); 
             return true;
         } else {
-            console.log("Invalid credentials for email:", email); // Log invalid credentials
+            console.log("Invalid credentials for email:", email); 
             return false;
         }
     } catch (err) {
@@ -74,4 +74,4 @@ const getUserData = async (email) => {
     }
 }
 
-module.exports = { addUser, authenticateUser, getUserData, userModel };
+export { addUser, authenticateUser, getUserData, userModel };

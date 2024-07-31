@@ -1,17 +1,11 @@
-require("dotenv");
-const mongoose = require("mongoose");
+import 'bcrypt'
+import mongoose from "mongoose";
 const db_url = process.env.MONGO_URL;
-const { response } = require("express");
+import { response } from 'express'
 
+// const therapistModel = mongoose.model(('therapists', therapistSchema));
+// const therapyCenterModel = mongoose.model(('therapyCenters', therapyCenterSchema));
 
-const therapistModel = mongoose.model(('therapists', therapistSchema));
-const therapyCenterModel = mongoose.model(('therapyCenters', therapyCenterSchema));
-
-mongoose.connect(db_url).then(() => {
-    console.log("Connected to the database");
-    }).catch((err)=>{
-    console.log('Error connecting to MongoDB', err);
-    } );
 
 const addTherapyCenter = async (centerName, centerLocation) => {
     try{
@@ -90,4 +84,4 @@ const addUserToTherapist = async (therapistName, userName) => {
         }
     }
 
-module.exports = { therapistModel, therapyCenterModel, addTherapyCenter, addTherapist, addTherapistToCenter, addUserToTherapist };
+export { addTherapyCenter, addTherapist, addTherapistToCenter, addUserToTherapist };
