@@ -39,6 +39,7 @@ const Auth1 = () => {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem('email', email);
         console.log("User signed up successfully:", data.message);
         alert("User signed up successfully");
         resetForm();
@@ -87,6 +88,7 @@ const Auth1 = () => {
 
         if (response.ok && data.success) {
           // User login successful
+          localStorage.setItem('email', email);
           console.log("User logged in successfully:", data.message);
 
           // Save JWT token to local storage

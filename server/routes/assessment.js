@@ -7,7 +7,8 @@ import verifyToken from "../middlewares/verifyToken.js"
 
 
 router.get("/assessment",(req,res)=>{
-    test = req.query.test;
+    const test = req.query.test;
+    console.log(`Received request for test: ${test}`);
     if(test === "Adult_AQ"){
         return res.json(Adult.AQ)
     }

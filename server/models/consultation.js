@@ -25,7 +25,7 @@ const consultationSchema = new mongoose.Schema({
 
 const Consultation = mongoose.model('Consultation', consultationSchema);
 
-const addConsultation = async (email, date, timeSlot) => {
+export const addConsultation = async (email, date, timeSlot,mode) => {
     const consultation = new Consultation({ email, date, timeSlot , mode, isDone: false});
     await consultation.save();
     console.log("Consultation added successfully");
@@ -56,7 +56,7 @@ const addConsultation = async (email, date, timeSlot) => {
 //     });
 // }
 
-module.exports = { addConsultation}
+//module.exports = { addConsultation}
 
 
 

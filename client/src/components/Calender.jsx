@@ -1,12 +1,13 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
-const CalenderSchedule = () => {
+const CalenderSchedule = ({ setDate }) => {
   const [value, setValue] = useState(new Date());
 
   const onChange = (newValue) => {
     setValue(newValue);
+    setDate(newValue);
   };
 
   return (
