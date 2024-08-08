@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -18,7 +19,7 @@ const Assessment = () => {
   }, [newid]);
 
   const fetchQuestions = (test) => {
-    fetch(`https://worthy-dawna-tck-6e00d059.koyeb.app/api/v1/assessment?test=${test}`)
+    fetch(`/api/v1/assessment?test=${test}`)
       .then(response => response.json())
       .then(data => {
         setQuestions(data);
@@ -36,7 +37,7 @@ const Assessment = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    fetch(`https://worthy-dawna-tck-6e00d059.koyeb.app/api/v1/assessment?test=${newid}`, {
+    fetch(`/api/v1/assessment?test=${newid}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
