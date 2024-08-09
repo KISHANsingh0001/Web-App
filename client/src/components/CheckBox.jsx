@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 
-const CheckBox = () => {
+const CheckBox = ({ setMode }) => {
   const [checkedItems, setCheckedItems] = useState({
     peachTherapy: false,
     occupationalTherapy: false,
@@ -11,57 +12,27 @@ const CheckBox = () => {
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
     setCheckedItems({ ...checkedItems, [name]: checked });
+    if (checked) {
+      setMode(name); // Set the mode to the checked item
+    }
   };
 
   return (
-    <div className='flex  flex-col gap-1 mt-14 '>
-      <label>
-        <input
-          type="checkbox"
-          name="peachTherapy"
-          checked={checkedItems.peachTherapy}
-          onChange={handleCheckboxChange}
-          className='m-2'
-        />
-        Peach Therapy
-      </label>
-      <br />
-      <label>
-        <input
-          type="checkbox"
-          name="occupationalTherapy"
-          checked={checkedItems.occupationalTherapy}
-          onChange={handleCheckboxChange}
-           className='m-2'
-        />
-        Occupational Therapy
-      </label>
-      <br />
-      <label>
-        <input
-          type="checkbox"
-          name="behaviouralTherapy"
-          checked={checkedItems.behaviouralTherapy}
-          onChange={handleCheckboxChange}
-           className='m-2'
-        />
-        Behavioural Therapy
-      </label>
-      <br />
-      <label>
-        <input
-          type="checkbox"
-          name="sensoryIntegrationTherapy"
-          checked={checkedItems.sensoryIntegrationTherapy}
-          onChange={handleCheckboxChange}
-           className='m-2'
-        />
-        Sensory Integration Therapy
-      </label>
+    <div className='flex flex-col gap-1 mt-14 '>
+      {["peachTherapy", "occupationalTherapy", "behaviouralTherapy", "sensoryIntegrationTherapy"].map((therapy) => (
+        <label key={therapy}>
+          <input
+            type="checkbox"
+            name={therapy}
+            checked={checkedItems[therapy]}
+            onChange={handleCheckboxChange}
+            className='m-2'
+          />
+          {therapy.split(/(?=[A-Z])/).join(' ')} {/* Split camel case to space-separated */}
+        </label>
+      ))}
     </div>
   );
 };
-
-
 
 export default CheckBox;
