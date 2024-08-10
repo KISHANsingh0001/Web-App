@@ -62,7 +62,7 @@ function Blogs() {
           title="Autism in Babies: Early Signs"
           img={img4}
           description="The first few years of a child’s life are filled with incredible milestones. As parents, we eagerly watch our babies gurgle, coo, smile, and reach for connection. But sometimes, development…"
-          link="http://localhost:3000/blog4.html"
+          link="https://leeza.app/blog4.html"
         />
       </Carousel>
     </div>
