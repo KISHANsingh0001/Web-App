@@ -30,7 +30,7 @@ const Auth = () => {
     e.preventDefault();
     try {
 
-      const response = await fetch("https://leeza.app/api/signup", {
+      const response = await fetch("https://leeza.suhail.app/api/signup", {
 
         method: "POST",
         headers: {
@@ -61,7 +61,7 @@ const Auth = () => {
     console.log("Attempting login with email:", email); // Log email
     console.log("Attempting login with password:", password); // Log password
     try {
-      const response = await fetch("https://leeza.app/api/login", {
+      const response = await fetch("https://leeza.suhail.app/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

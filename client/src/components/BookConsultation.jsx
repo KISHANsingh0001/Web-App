@@ -13,7 +13,7 @@ const BookConsultation = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await fetch("https://leeza.app/api/consultation", {
+      const response = await fetch("https://leeza.suhail.app/api/consultation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

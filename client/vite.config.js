@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://leeza.app',
+        target: 'https://leeza.suhail.app',
         changeOrigin: true,
         secure: false,
       },

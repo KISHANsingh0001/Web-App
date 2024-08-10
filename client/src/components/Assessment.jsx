@@ -20,7 +20,7 @@ const Assessment = () => {
 
   const fetchQuestions = (test) => {
 
-    fetch(`https://leeza.app/api/assessment?test=${test}`)
+    fetch(`https://leeza.suhail.app/api/assessment?test=${test}`)
       .then(response => response.json())
       .then(data => {
         setQuestions(data);
@@ -39,7 +39,7 @@ const Assessment = () => {
     event.preventDefault();
     
 
-    fetch(`https://leeza.app/api/assessment?test=${newid}`, {
+    fetch(`https://leeza.suhail.app/api/assessment?test=${newid}`, {
 
       method: "POST",
       headers: {

@@ -28,7 +28,7 @@ const Auth1 = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://leeza.app/api/signup", {
+      const response = await fetch("https://leeza.suhail.app/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const Auth1 = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch("https://leeza.app/api/admin/login", {
+      let response = await fetch("https://leeza.suhail.app/api/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const Auth1 = () => {
         navigate("/admin-dashboard");
       } else {
         // Admin login failed, try normal user login
-        response = await fetch("https://leeza.app/api/login", {
+        response = await fetch("https://leeza.suhail.app/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -109,7 +109,7 @@ const Auth1 = () => {
   const handleAddAdmin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://leeza.app/api/admin/addAdmin', {
+      const response = await fetch('https://leeza.suhail.app/api/admin/addAdmin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
