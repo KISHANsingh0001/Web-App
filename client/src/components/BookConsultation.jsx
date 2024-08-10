@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TimeSlots from "./TimeSlot";
 import CalenderSchedule from "./Calender";
 import CheckBox from "./CheckBox";
 import toast from "react-hot-toast";
 
 const BookConsultation = () => {
+  // eslint-disable-next-line no-unused-vars
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [date, setDate] = useState("");
   const [timeSlot, setTimeSlot] = useState("");

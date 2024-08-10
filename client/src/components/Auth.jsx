@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
@@ -30,7 +30,7 @@ const Auth = () => {
     e.preventDefault();
     try {
 
-      const response = await fetch("https://leeza.app/api/v1/signup", {
+      const response = await fetch("http://localhost:3000/api/signup", {
 
         method: "POST",
         headers: {
@@ -61,7 +61,7 @@ const Auth = () => {
     console.log("Attempting login with email:", email); // Log email
     console.log("Attempting login with password:", password); // Log password
     try {
-      const response = await fetch("https://leeza.app/api/v1/login", {
+      const response = await fetch("http://localhost:3000/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

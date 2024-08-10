@@ -58,7 +58,7 @@ export const addConsultation = async (email, date, timeSlot,mode) => {
 // }
 
 
-module.exports = { addConsultation}
+export default { addConsultation}
 
 
 
