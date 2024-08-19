@@ -11,6 +11,7 @@ import ScheduleTherapy from "./components/ScheduleTherapy";
 import Assessment from "./components/Assessment";
 import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
+import AdminOpinion from "./components/AdminOpinion";
 function App1() {
   const Child = () => {
     return (
@@ -93,6 +94,7 @@ function App() {
         <Route path="/assessment/:id" element={<Assessment/>} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/user-opinion" element={<AdminOpinion />} />
       </Routes>
     </Router>
   );

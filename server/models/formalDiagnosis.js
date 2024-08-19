@@ -17,10 +17,10 @@ const formalDiagnosisSchema = new mongoose.Schema({
         type: [String],
         default: []
     },
-    mode: {
-        type: String,
-        required: true
-    },
+    // mode: {
+    //     type: String,
+    //     required: true
+    // },
     isDone: { type: Boolean, default: false },
 });
 
@@ -29,10 +29,10 @@ const FormalDiagnosis = mongoose.model('FormalDiagnosis', formalDiagnosisSchema)
 
 
 
-const addFormalDiagnosis = async(email,date,timeSlot,diagnosisFor,mode)=>{
-    const formalDiagnosis = new FormalDiagnosis({email, date, timeSlot, diagnosisFor, mode, isDone: false});
+const addFormalDiagnosis = async(email,date,timeSlot,diagnosisFor)=>{
+    const formalDiagnosis = new FormalDiagnosis({email, date, timeSlot, diagnosisFor, isDone: false});
     await formalDiagnosis.save();
     console.log("Formal Diagnosis  added successfully");
 }
 
-module.exports = {addFormalDiagnosis};
+export {addFormalDiagnosis, FormalDiagnosis};
