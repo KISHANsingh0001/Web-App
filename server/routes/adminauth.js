@@ -57,9 +57,7 @@ router.get("/findThese", async (req, res) => {
         const users = await userModel.find({});
         
         const therapists = await therapistModel.find({});
-
         //const therapyCenter = await therapyCenterModel.find({});
-
 
         return res.json( { success: true, therapistsData: therapists, userData:users })
     } catch (err) {
