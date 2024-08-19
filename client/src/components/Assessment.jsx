@@ -64,7 +64,11 @@ const Assessment = () => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
-
+  useEffect(() => {
+    if (result) {
+      localStorage.setItem("result", result);
+    }
+  }, [result]);
   const startIndex = currentPage * QUESTIONS_PER_PAGE;
   const currentQuestions = questions.slice(startIndex, startIndex + QUESTIONS_PER_PAGE);
 

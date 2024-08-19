@@ -1,6 +1,6 @@
  import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from './Modal';  
+//import Modal from './Modal';  // Make sure to adjust the import path based on your project structure
 
 const Auth1 = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -40,6 +40,7 @@ const Auth1 = () => {
 
       if (response.ok) {
         localStorage.setItem('email', email);
+        localStorage.setItem('name', name);
         console.log("User signed up successfully:", data.message);
         alert("User signed up successfully");
         resetForm();
@@ -263,7 +264,7 @@ const Auth1 = () => {
         )}
         </div>
         <div className="flex flex-col justify-end">
-        <div className="flex justify-center w-full mt-4">
+        {/* <div className="flex justify-center w-full mt-4">
           <button
             onClick={() => setIsModalOpen(true)}
             className="px-4 py-2  text-black rounded"
@@ -281,8 +282,8 @@ const Auth1 = () => {
           setEmail={setEmail}
           password={password}
           setPassword={setPassword}
-        />
-      </div>
+        /> */}
+      </div> 
         </div>
    
     
