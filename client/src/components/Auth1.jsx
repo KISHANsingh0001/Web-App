@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 //import Modal from './Modal';  // Make sure to adjust the import path based on your project structure
 
@@ -28,7 +28,7 @@ const Auth1 = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/signup", {
+      const response = await fetch("https://leeza.app/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const Auth1 = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/admin/login", {
+      let response = await fetch("https://leeza.app/api/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const Auth1 = () => {
         navigate("/admin-dashboard");
       } else {
         // Admin login failed, try normal user login
-        response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/login", {
+        response = await fetch("https://leeza.app/api/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -110,7 +110,7 @@ const Auth1 = () => {
   const handleAddAdmin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/admin/addAdmin', {
+      const response = await fetch('https://leeza.app/api/admin/addAdmin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

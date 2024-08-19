@@ -747,7 +747,7 @@ const AdminDashboard = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/admin/findThese');
+      const response = await fetch('https://leeza.app/api/admin/findThese');
       const result = await response.json();
       if (response.ok) {
         setData({
@@ -788,7 +788,7 @@ const AdminDashboard = () => {
   const handleAddAdmin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/api/admin/addAdmin', {
+      const response = await fetch('https://leeza.app/api/admin/addAdmin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
