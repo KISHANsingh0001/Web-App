@@ -1,19 +1,17 @@
 /* eslint-disable react/prop-types */
-// import React from "react";
+import React from "react";
 
-const AssessmentOfferCards = ({ title, age, text ,id }) => {
+const AssessmentOfferCards = ({ title, age, text, id }) => {
   return (
-    <div className="h-[523px] w-[435px] border border-black rounded-[40px] px-8 pb-8 pt-9 m-5">
-      <div className="text-3xl mt-6 mb-3 text-black font-bold">{title}</div>
-      <div className="text-topaz mt-5 text-base font-poppins font-semibold text-gray-500 h-8">
-        {age}
-      </div>
-      <div className="font-poppins font-medium text-xl h-[228px] block">
-        {text}
-      </div>
-      <div className="block">
-        <button className="btn text-white bg-[#29A167] flex justify-center items-center border-[#29A167] hover:border-[#29A167] rounded-[10px] p-8 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap">
-         <a href={`/assessment/${id}`}> Start Assesment</a>
+    <div className="max-w-[400px] h-[400px] flex flex-col items-center px-5 py-8 rounded-lg shadow-lg hover:scale-105 transform transition-transform duration-300 m-5">
+      <h1 className="text-[#F5B400] text-center text-2xl mt-5 font-bold">
+        {title}
+      </h1>
+      <p className="text-gray-500 text-center mt-2 font-semibold">{age}</p>
+      <p className="text-[#142937] text-center mt-4 font-medium">{text}</p>
+      <div className="mt-auto">
+        <button className="bg-[#29A167] text-white rounded-lg px-6 py-2 font-poppins font-medium text-xl hover:bg-green-700 transition-colors duration-300">
+          <a href={`/assessment/${id}`}>Start Assessment</a>
         </button>
       </div>
     </div>

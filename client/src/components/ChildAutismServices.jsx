@@ -7,106 +7,104 @@ import img4 from "../assets/Frame71.png";
 function ChildAutismServices() {
   return (
     <>
-      <div className="AutismServicesOuter mb-10 ">
-        <span className="text-medium-light-shade-magenta font-poppins text-4xl  flex justify-center my-14 text-center font-bold">
-          Autism services
+      <div className="AutismServicesOuter mb-10">
+        <span className="text-4xl font-poppins font-bold  flex justify-center my-14 text-center md:text-4xl sm:text-3xl xs:text-2xl">
+          Autism Services
         </span>
         <div className="online mx-[3%]">
-          <span className="text-4xl my-5 font-bold text-[#EB5D1E]">
+          <span className="text-4xl my-5 font-bold text-[#CB6BE5]">
             Online Mode
           </span>
-          <div class="gradient-line my-5 mb-10"></div>
-          <div className="crad flex mb-16 flex-col md:flex-row ">
+          <div className="my-5 mb-10" style={{ backgroundColor: "#F5B400", height: "4px", width: "100%" }}></div>
+          <div className="crad flex mb-16 flex-col md:flex-row">
             <span>
-              <img src={img1} alt="img1" className=" max-w-[350px] ml-8  m-2" />
+              <img src={img1} alt="img1" className="max-w-[350px] ml-8 m-2 border-none" />
             </span>
-            <div className="mx-16">
+            <div className="mx-8 md:mx-16 mt-4 md:mt-0">
               <span>
                 <p className="text-3xl font-bold my-5 text-[#EB5D1E]">
                   Benefits
                 </p>
-                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3 ">
+                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3">
                   <li>Gets you the confirmation</li>
                   <li>1 on 1 support</li>
                   <li>Maintains anonymity</li>
-                  <li>Proper support and accomodation</li>
+                  <li>Proper support and accommodation</li>
                   <li>Economical</li>
                 </ul>
               </span>
-              <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-6 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap mb-3 mt-7">
+              <button className="mt-6 bg-[#29A167] text-white rounded-lg px-6 py-2 font-poppins font-medium text-xl hover:bg-green-700 transition-colors duration-300">
                 Book Now
               </button>
             </div>
           </div>
 
-          <div className="crad flex mb-16 flex-col md:flex-row  ">
+          <div className="crad flex mb-16 flex-col md:flex-row">
             <span>
-              <img src={img2} alt="img1" className="max-w-[350px] ml-8  m-2" />
+              <img src={img2} alt="img2" className="max-w-[350px] ml-8 m-2 border-none" />
             </span>
-            <div className="mx-16">
+            <div className="mx-8 md:mx-16 mt-4 md:mt-0">
               <span>
                 <p className="text-3xl font-bold my-5 text-[#EB5D1E]">
                   Benefits
                 </p>
-                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3 ">
+                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3">
                   <li>Therapies with Professional Guidance</li>
                   <li>Eliminates dependency</li>
-                  <li>Promotes in dependency in the long term</li>
+                  <li>Promotes independence in the long term</li>
                   <li>Economical</li>
                 </ul>
               </span>
-              <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-6 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap mb-3 mt-7">
+              <button className="mt-6 bg-[#29A167] text-white rounded-lg px-6 py-2 font-poppins font-medium text-xl hover:bg-green-700 transition-colors duration-300">
                 Book Now
               </button>
             </div>
           </div>
         </div>
+
         <div className="offline mx-[3%]">
-          <span className="text-4xl my-5 font-bold text-[#EB5D1E]">
+          <span className="text-4xl my-5 font-bold text-[#CB6BE5]">
             Offline Mode
           </span>
-          <div class="gradient-line my-5 mb-10"></div>
+          <div className="my-5 mb-10" style={{ backgroundColor: "#F5B400", height: "4px", width: "100%" }}></div>
 
-          <div className="crad flex mb-16 flex-col md:flex-row ">
+          <div className="crad flex mb-16 flex-col md:flex-row">
             <span>
-              <img src={img3} alt="img1" className="max-w-[350px] ml-8  m-2" />
+              <img src={img3} alt="img3" className="max-w-[350px] ml-8 m-2 border-none" />
             </span>
-            <div className="mx-16">
+            <div className="mx-8 md:mx-16 mt-4 md:mt-0">
               <span>
                 <p className="text-3xl font-bold my-5 text-[#EB5D1E]">
                   Benefits
                 </p>
-                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3  ">
+                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3">
                   <li>Therapy at your place</li>
                   <li>No hassle of visiting therapy centers</li>
-                  <li>
-                    The progress will be tracked in our progress tracking system
-                  </li>
+                  <li>The progress will be tracked in our progress tracking system</li>
                 </ul>
               </span>
-              <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-6 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap mb-3 mt-7">
+              <button className="mt-6 bg-[#29A167] text-white rounded-lg px-6 py-2 font-poppins font-medium text-xl hover:bg-green-700 transition-colors duration-300">
                 Book Now
               </button>
             </div>
           </div>
-          <div className="crad flex mb-16 flex-col md:flex-row ">
+
+          <div className="crad flex mb-16 flex-col md:flex-row">
             <span>
-              <img src={img4} alt="img1" className="max-w-[350px] ml-8  m-2" />
+              <img src={img4} alt="img4" className="max-w-[350px] ml-8 m-2 border-none" />
             </span>
-            <div className="mx-16">
+            <div className="mx-8 md:mx-16 mt-4 md:mt-0">
               <span>
                 <p className="text-3xl font-bold my-5 text-[#EB5D1E]">
                   Benefits
                 </p>
-                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3 ">
+                <ul className="md:text-2xl md:ml-10 flex flex-col gap-3">
                   <li>Partnered Therapy center</li>
-                  <li>encouraged to join therapy sessions</li>
-                  <li>
-                    The progress will be tracked in our progress tracking system
-                  </li>
+                  <li>Encouraged to join therapy sessions</li>
+                  <li>The progress will be tracked in our progress tracking system</li>
                 </ul>
               </span>
-              <button className="btn text-white bg-[#29A167] border-[#29A167] hover:border-[#29A167] rounded-[10px] p-6 h-7 font-poppins font-medium text-xl min-h-0 hover:bg-[#29A167] flex-nowrap mb-3 mt-7">
+              <button className="mt-6 bg-[#29A167] text-white rounded-lg px-6 py-2 font-poppins font-medium text-xl hover:bg-green-700 transition-colors duration-300">
                 Book Now
               </button>
             </div>
