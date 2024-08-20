@@ -10,41 +10,38 @@ const Auth1 = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
-  const [role, setRole] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Toggle between Login and Signup
   const handleToggle = () => {
     setIsLogin(!isLogin);
     resetForm();
   };
 
-  // Reset form fields
   const resetForm = () => {
     setEmail("");
     setPassword("");
     setName("");
     setAge("");
     setPhone("");
-    setRole("");
   };
 
-  // Handle Signup
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/v1/signup", {
+      const response = await fetch("https://leeza.app/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, age, phone, isparent: role === "parent", password }),
+        body: JSON.stringify({ name, email, age, phone, isparent: true, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem('email', email);
+        localStorage.setItem('name', name);
         console.log("User signed up successfully:", data.message);
         alert("User signed up successfully");
         resetForm();
@@ -57,11 +54,10 @@ const Auth1 = () => {
     }
   };
 
-  // Handle Login
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      let response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/v1/login", {
+      let response = await fetch("https://leeza.app/api/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,19 +68,46 @@ const Auth1 = () => {
       let data = await response.json();
 
       if (response.ok && data.success) {
-        console.log("User logged in successfully:", data.message);
+        // Admin login successful
+        console.log("Admin logged in successfully:", data.message);
+
+        // Save JWT token to local storage
         localStorage.setItem("token", data.token);
-        navigate("/home");
+
+        // Redirect to admin dashboard
+        navigate("/admin-dashboard");
       } else {
-        console.error("Login failed:", data.message);
-        alert("Login failed:", data.message);
+        // Admin login failed, try normal user login
+        response = await fetch("https://leeza.app/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        data = await response.json();
+
+        if (response.ok && data.success) {
+          // User login successful
+          localStorage.setItem('email', email);
+          console.log("User logged in successfully:", data.message);
+
+          // Save JWT token to local storage
+          localStorage.setItem("token", data.token);
+
+          // Redirect to home page
+          navigate("/home");
+        } else {
+          console.error("Login failed:", data.message);
+          alert("Login failed:", data.message);
+        }
       }
     } catch (error) {
       console.error("Error logging in:", error);
     }
   };
 
-  // Handle Admin Addition (commented out)
   const handleAddAdmin = async (e) => {
     e.preventDefault();
     try {
