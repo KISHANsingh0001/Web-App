@@ -19,7 +19,7 @@ const CheckBox = ({ setMode }) => {
 
   return (
     <div className='flex flex-col gap-1 mt-14 '>
-      {["peachTherapy", "occupationalTherapy", "behaviouralTherapy", "sensoryIntegrationTherapy"].map((therapy) => (
+      {["SpeechTherapy", "occupationalTherapy", "behaviouralTherapy", "sensoryIntegrationTherapy"].map((therapy) => (
         <label key={therapy}>
           <input
             type="checkbox"
