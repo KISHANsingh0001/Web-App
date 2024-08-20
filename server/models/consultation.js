@@ -27,20 +27,15 @@ const consultationSchema = new mongoose.Schema({
 });
 
 const Consultation = mongoose.model('Consultation', consultationSchema);
-<<<<<<< HEAD
-export default Consultation
+
 export const addConsultation = async (email, date, timeSlot,mode,result,isDone) => {
     const consultation = new Consultation({ email, date, timeSlot , mode, isDone,result});
-=======
 
-
-export const addConsultation = async (email, date, timeSlot,mode) => {
-    const consultation = new Consultation({ email, date, timeSlot , mode, isDone: false});
->>>>>>> 5e00446987c3e76d19cdb226fdc40001a43b25d3
     await consultation.save();
     console.log("Consultation added successfully");
 }
 
+export default Consultation
 
 // const mailUser = async (email, date, timeSlot) => {
 //     await resend.emails.send({
@@ -65,11 +60,3 @@ export const addConsultation = async (email, date, timeSlot,mode) => {
 //         ],
 //     });
 // }
-
-
-export default { addConsultation}
-
-
-
-
-

@@ -1,6 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Auth from "./components/Auth";
+import Auth1 from "./components/Auth1"
 import ChildHome from "./components/ChildHome";
 import ParentHome from "./components/ParentHome";
 import HomePage from "./components/HomePage";
@@ -18,7 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/auth" element={<Auth1 />} />
         <Route
           path="/diagnosisassesment"
           element={<ScheduleDiagnosisAssesment />}

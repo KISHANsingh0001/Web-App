@@ -30,7 +30,7 @@ const Auth = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/v1/signup", {
+      const response = await fetch("https://leeza.app/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const Auth = () => {
     console.log("Attempting login with email:", email); // Log email
     console.log("Attempting login with password:", password); // Log password
     try {
-      const response = await fetch("https://worthy-dawna-tck-6e00d059.koyeb.app/api/v1/login", {
+      const response = await fetch("https://leeza.app/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
