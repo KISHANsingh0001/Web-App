@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Auth from "./components/Auth1";
+import Auth from "./components/Auth";
 import ChildHome from "./components/ChildHome";
 import ParentHome from "./components/ParentHome";
 import HomePage from "./components/HomePage";
