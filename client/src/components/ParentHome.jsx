@@ -55,7 +55,8 @@ function ParentHome() {
             />
           </div>
         </div>
-        <NotAlone />
+        {/* Pass the scroll function to the NotAlone component */}
+        <NotAlone onTakeAssessmentClick={handleTakeAssessment} />
         <div id="assessment-offer" ref={assessmentOfferRef}>
           <ChildAssesmentOffer />
         </div>

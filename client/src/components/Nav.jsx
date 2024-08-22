@@ -67,7 +67,7 @@ function Nav() {
                   onClick={handleAdultAssignmentClick}
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
-                  Adult Assignment
+                  Adult Assessment
                 </Link>
                 <Link
                   to="/parent"
@@ -75,7 +75,7 @@ function Nav() {
                   smooth={true} duration={900}
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
-                  Child Assignment
+                  Child Assessment
                 </Link>
               </div>
             </div>

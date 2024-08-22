@@ -5,7 +5,7 @@ import two from "../assets/assessmentcardsimg/diagnosisAssessment.png";
 import three from "../assets/assessmentcardsimg/trainingProgram.png";
 import four from "../assets/assessmentcardsimg/bookConsultation.png";
 
-const NotAlone = () => {
+const NotAlone = ({ onTakeAssessmentClick }) => {
   return (
     <div className="my-14 py-10 px-5 pt-16 flex flex-col items-center" id="NotAlone">
       <div className="flex justify-center items-center flex-col text-center">
@@ -20,7 +20,7 @@ const NotAlone = () => {
         <NotAloneCards
           title={"Take Free Autism Assessment"}
           img={one}
-          buttonLink="/assessment"
+          onClick={onTakeAssessmentClick}
           step={1}
           description={"Get an initial understanding of autism signs with our free assessment."}
           buttonText="Take Assessment"

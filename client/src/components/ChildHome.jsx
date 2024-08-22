@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import HomeImg1 from "../assets/HomeImg1.png";
 import ChildAutismServices from "./ChildAutismServices";
 import Banner from "./Banner";
@@ -12,8 +13,15 @@ import Footer from "./Footer";
 
 function ChildHome() {
   const assessmentOfferRef = useRef(null);
+  const location = useLocation();
 
-  const handleTakeAssessment = () => {
+  useEffect(() => {
+    if (location.state?.scrollToAssessment && assessmentOfferRef.current) {
+      assessmentOfferRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [location.state]);
+
+  const scrollToAssessment = () => {
     if (assessmentOfferRef.current) {
       assessmentOfferRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -33,7 +41,7 @@ function ChildHome() {
               <p className="text-shadow-md">We got you!</p>
             </span>
             <div className="mb-2" />
-            <button onClick={handleTakeAssessment}>
+            <button onClick={scrollToAssessment}>
               <div className="p-2 bg-[#29A167] hover:bg-[#29A167]/90 text-white rounded-lg cursor-pointer font-semibold">
                 Take Free Assessment
               </div>
@@ -47,8 +55,8 @@ function ChildHome() {
             />
           </div>
         </div>
-        <NotAlone />
-        <div id="assessment-offer">
+        <NotAlone onTakeAssessmentClick={scrollToAssessment} />
+        <div id="assessment-offer" ref={assessmentOfferRef}>
           <ParentAssesmentOffer />
         </div>
         <ChildAutismServices />
