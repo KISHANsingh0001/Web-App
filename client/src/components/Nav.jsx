@@ -101,7 +101,7 @@ function Nav() {
                 Login
               </Link>
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 onClick={toggleDropdown}
                 className="flex items-center text-slate-500 hover:text-slate-700"
@@ -118,10 +118,9 @@ function Nav() {
                   >
                     Opinion
                   </Link>
-                  {/* Add more profile-related links here if needed */}
                 </div>
               )}
-            </div>
+            </div> */}
           </div>
           <div className="sm:flex md:hidden ml-10 p-2">
             <div className="flex flex-row gap-2">
