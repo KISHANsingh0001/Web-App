@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import imagelogin from "../assets/loginimage.jpg";
 import Nav from "./Nav";
 
@@ -10,8 +10,14 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
-  const [role, setRole] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const urlParams = new URLSearchParams(location.search);
+  const isSignUp = urlParams.get('signup') === 'true';
+
+  useEffect(() => {
+    setIsLogin(!isSignUp);
+  }, [isSignUp]);
 
   const handleToggle = () => {
     setIsLogin(!isLogin);
@@ -24,7 +30,6 @@ const Auth = () => {
     setName("");
     setAge("");
     setPhone("");
-    setRole("");
   };
 
   const handleSignUp = async (e) => {
@@ -35,18 +40,20 @@ const Auth = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, age, phone, isparent: role === "parent", password }),
+        body: JSON.stringify({ name, email, age, phone, isparent: true, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem('email', email);
+        localStorage.setItem('name', name);
         console.log("User signed up successfully:", data.message);
         alert("User signed up successfully");
-        resetForm();
+        navigate("/home"); // Navigate to home or any other page after successful sign-up
       } else {
         console.error("Sign up failed:", data.message);
-        alert("Sign up failed:", data.message);
+        alert("Sign up failed: " + data.message);
       }
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -55,10 +62,8 @@ const Auth = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Attempting login with email:", email); // Log email
-    console.log("Attempting login with password:", password); // Log password
     try {
-      const response = await fetch("https://leeza.app/api/login", {
+      let response = await fetch("https://leeza.app/api/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,16 +71,32 @@ const Auth = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-      console.log("API Response:", data); // Log API response
+      let data = await response.json();
 
-      if (response.ok) {
-        console.log("User logged in successfully:", data.message);
+      if (response.ok && data.success) {
+        console.log("Admin logged in successfully:", data.message);
         localStorage.setItem("token", data.token);
-        navigate("/home");
+        navigate("/admin-dashboard");
       } else {
-        console.error("Login failed:", data.message);
-        alert("Login failed:", data.message);
+        response = await fetch("https://leeza.app/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        data = await response.json();
+
+        if (response.ok && data.success) {
+          localStorage.setItem('email', email);
+          console.log("User logged in successfully:", data.message);
+          localStorage.setItem("token", data.token);
+          navigate("/home");
+        } else {
+          console.error("Login failed:", data.message);
+          alert("Login failed: " + data.message);
+        }
       }
     } catch (error) {
       console.error("Error logging in:", error);
@@ -88,9 +109,7 @@ const Auth = () => {
       <section className="bg-gray-50 min-h-screen flex items-center justify-center">
         <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           <div className="md:w-1/2 px-8 md:px-16">
-            <h2 className="font-bold text-2xl text-[#002D74]">
-              {isLogin ? "Login" : "Sign Up"}
-            </h2>
+            <h2 className="font-bold text-2xl text-[#002D74]">{isLogin ? "Login" : "Sign Up"}</h2>
             <p className="text-xs mt-4 text-[#002D74]">
               {isLogin ? "If you are already a member, easily log in" : "Create an account to get started"}
             </p>
@@ -121,16 +140,6 @@ const Auth = () => {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                   />
-                  <select
-                    id="role"
-                    className="p-2 w-full rounded-xl border border-[#8F8F8F] text-[#002D74] text-lg bg-white focus:outline-none mt-0"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                  >
-                    <option value="">Select Role</option>
-                    <option value="parent">Parent</option>
-                    <option value="adult">Adult</option>
-                  </select>
                 </>
               )}
               <input
@@ -141,27 +150,14 @@ const Auth = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <div className="relative">
-                <input
-                  className="p-2 rounded-xl border border-[#8F8F8F] w-full text-[#002D74] text-lg"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="gray"
-                  className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                </svg>
-              </div>
+              <input
+                className="p-2 rounded-xl border border-[#8F8F8F] w-full text-[#002D74] text-lg"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               <button className="bg-[#29A167] rounded-xl text-white py-2 hover:scale-105 duration-300">
                 {isLogin ? "Login" : "Sign Up"}
               </button>
@@ -181,9 +177,9 @@ const Auth = () => {
           </div>
           <div className="md:block hidden w-1/2">
             <img
-              className="rounded-2xl"
               src={imagelogin}
-              alt="Login Illustration"
+              alt="Login"
+              className="rounded-2xl object-cover h-full"
             />
           </div>
         </div>

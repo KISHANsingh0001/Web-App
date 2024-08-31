@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowDropdown } from "react-icons/io";
-import NavLog from "../assets/NavLogo.png"; // Ensure this path is correct
+import NavLog from "../assets/NavLogo.png";
 
 function Nav() {
   const navigate = useNavigate();
@@ -89,7 +89,7 @@ function Nav() {
             </ScrollLink>
             <div className="flex flex-row gap-2">
               <Link
-                to="/auth"
+                to="/auth?signup=true"
                 className="bg-white px-2 py-1 text-center hover:bg-gray-100 rounded-xl shadow-md mr-2"
               >
                 Sign up
