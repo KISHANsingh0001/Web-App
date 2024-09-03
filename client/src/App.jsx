@@ -12,11 +12,15 @@ import Assessment from "./components/Assessment";
 import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminOpinion from "./components/AdminOpinion";
+import DiplomaHome from "./components/DiplomaHome";
+import DemoCard from "./components/DemoCard";
 
 function App() {
   return (
     <Router>
       <Routes>
+      <Route path="/DiplomaHome" element={<DiplomaHome />} />
+      <Route path="/DemoCard" element={<DemoCard />} />
       <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/auth" element={<Auth />} />
