@@ -13,7 +13,7 @@ function Nav() {
     // Check if the user is logged in by checking the presence of a token in localStorage
     const token = localStorage.getItem("token");
     if (token) {
-      setIsLoggedIn(false); // Set to true if token is present
+      setIsLoggedIn(true); // Set to true if token is present
     }
   }, []);
 

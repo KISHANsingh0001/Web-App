@@ -8,6 +8,7 @@ import assessment from './routes/assessment.js'
 import admin from './routes/adminauth.js'
 import consultation from './routes/consultation.js'
 import formalDiagnosis from './routes/formalDiagnosis.js'
+import userProfile from './routes/userProfile.js'
 import './dbconnect.js'
 import dotenv from 'dotenv';
 
@@ -35,7 +36,7 @@ app.use("/api", auth);
 app.use("/api", assessment);
 app.use("/api/admin", admin);
 app.use("/api", consultation);
-
+app.use("/api", userProfile)
 
 // Serve the index.html for any unknown routes
 app.get("*", (req, res) => {
