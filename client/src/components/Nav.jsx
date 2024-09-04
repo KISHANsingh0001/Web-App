@@ -1,16 +1,21 @@
-import React, { useState } from "react";
-import { Link as ScrollLink } from "react-scroll";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { IoIosArrowDropdown } from "react-icons/io";
+import { Link as ScrollLink } from "react-scroll";
 import NavLog from "../assets/NavLogo.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 function Nav() {
   const navigate = useNavigate();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  useEffect(() => {
+    // Check if the user is logged in by checking the presence of a token in localStorage
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(false); // Set to true if token is present
+    }
+  }, []);
 
   const handleChildAssignmentClick = () => {
     navigate("/parent", { replace: true });
@@ -29,15 +34,15 @@ function Nav() {
   };
 
   return (
-    <>
-      <div className="NavOuter px-8 py-4 sticky top-0 z-10 bg-white">
-        <div className="flex flex-row justify-center md:justify-between">
-          <div className="NavLogo">
-            <Link to="/">
-              <img src={NavLog} alt="Logo" />
-            </Link>
-          </div>
-          <div className="LeftInfo hidden md:flex flex-row gap-8 font-poppins text-slate-500">
+    <div className="NavOuter px-4 py-2 md:px-8 md:py-4 sticky top-0 z-10 bg-white">
+      <div className="flex flex-row justify-between items-center">
+        <div className="NavLogo">
+          <Link to="/">
+            <img src={NavLog} alt="Logo" />
+          </Link>
+        </div>
+        <div className="flex flex-row items-center gap-4 md:gap-8 font-poppins text-slate-500">
+          <div className="hidden md:flex flex-row gap-8 items-center">
             <ScrollLink to="About" smooth={true} duration={500}>
               <p className="relative pt-1 group cursor-pointer">
                 About
@@ -54,6 +59,14 @@ function Nav() {
                 ></span>
               </p>
             </ScrollLink>
+            <Link to="/DiplomaHome" smooth={true} duration={900}>
+              <p className="relative pt-1 group cursor-pointer">
+                Diploma
+                <span
+                  className="absolute bottom-0 left-0 w-0 h-1 bg-[#29A167] transition-all duration-300 group-hover:w-full"
+                ></span>
+              </p>
+            </Link>
             <div className="relative group cursor-pointer">
               <p className="relative pt-1 group cursor-pointer">
                 Assessment
@@ -72,7 +85,6 @@ function Nav() {
                 <Link
                   to="/parent"
                   onClick={handleChildAssignmentClick}
-                  smooth={true} duration={900}
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Child Assessment
@@ -87,6 +99,17 @@ function Nav() {
                 ></span>
               </p>
             </ScrollLink>
+          </div>
+
+          {isLoggedIn ? (
+            <button className="items-center bg-white px-2 py-1 text-center hover:bg-gray-100 rounded-xl shadow-md mr-2">
+              <span className="mr-2">Profile</span>
+              <FontAwesomeIcon
+                icon={faUser}
+                style={{ color: "#f5b400" }}
+              />
+            </button>
+          ) : (
             <div className="flex flex-row gap-2">
               <Link
                 to="/auth?signup=true"
@@ -101,46 +124,10 @@ function Nav() {
                 Login
               </Link>
             </div>
-            {/* <div className="relative">
-              <button
-                onClick={toggleDropdown}
-                className="flex items-center text-slate-500 hover:text-slate-700"
-              >
-                Profile
-                <IoIosArrowDropdown className="ml-2" />
-              </button>
-              {isDropdownOpen && (
-                <div className="absolute mt-2 py-2 w-48 bg-white border rounded-lg shadow-xl">
-                  <Link
-                    to="/user-opinion"
-                    className="block px-4 py-2 text-slate-700 hover:bg-gray-100"
-                    onClick={() => setIsDropdownOpen(false)} // Close dropdown on click
-                  >
-                    Opinion
-                  </Link>
-                </div>
-              )}
-            </div> */}
-          </div>
-          <div className="sm:flex md:hidden ml-10 p-2">
-            <div className="flex flex-row gap-2">
-              <Link
-                to="/auth"
-                className="bg-white px-2 py-1 text-center hover:bg-gray-100 rounded-xl shadow-md mr-2"
-              >
-                Sign up
-              </Link>
-              <Link
-                to="/auth"
-                className="bgBT1 px-2 py-1 text-center hover:bg-green-700 rounded-xl text-white shadow-md"
-              >
-                Login
-              </Link>
-            </div>
-          </div>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
