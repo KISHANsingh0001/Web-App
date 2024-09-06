@@ -207,6 +207,14 @@ function Nav() {
                 ></span>
               </p>
             </ScrollLink>
+            <Link to="/DiplomaHome" smooth={true} duration={900}>
+              <p className="relative pt-1 group cursor-pointer">
+                Diploma
+                <span
+                  className="absolute bottom-0 left-0 w-0 h-1 bg-[#29A167] transition-all duration-300 group-hover:w-full"
+                ></span>
+              </p>
+            </Link>
             <div className="relative group cursor-pointer">
               <p className="relative pt-1 group cursor-pointer">
                 Assessment
@@ -225,8 +233,6 @@ function Nav() {
                 <Link
                   to="/parent"
                   onClick={handleChildAssignmentClick}
-                  smooth={true}
-                  duration={900}
                   className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
                   Child Assessment

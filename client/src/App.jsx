@@ -13,11 +13,15 @@ import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminOpinion from "./components/AdminOpinion";
 import UserProfile from "./components/UserProfile";
+import DiplomaHome from "./components/DiplomaHome";
+import DemoCard from "./components/DemoCard";
 
 function App() {
   return (
     <Router>
       <Routes>
+      <Route path="/DiplomaHome" element={<DiplomaHome />} />
+      <Route path="/DemoCard" element={<DemoCard />} />
       <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/user-profile" element={<UserProfile />} />
@@ -34,7 +38,7 @@ function App() {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/user-opinion" element={<AdminOpinion />} />
-        {/* <Route path="/user-profile" element={<UserProfile />} /> */}
+        <Route path="/user-profile" element={<UserProfile />} /> 
       </Routes>
     </Router>
   );
