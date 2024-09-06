@@ -12,7 +12,6 @@ import Assessment from "./components/Assessment";
 import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminOpinion from "./components/AdminOpinion";
-import UserProfile from "./components/UserProfile";
 import DiplomaHome from "./components/DiplomaHome";
 import DemoCard from "./components/DemoCard";
 
@@ -24,7 +23,6 @@ function App() {
       <Route path="/DemoCard" element={<DemoCard />} />
       <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/auth" element={<Auth />} />
         <Route
           path="/diagnosisassesment"
@@ -38,7 +36,6 @@ function App() {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/user-opinion" element={<AdminOpinion />} />
-        <Route path="/user-profile" element={<UserProfile />} /> 
       </Routes>
     </Router>
   );
