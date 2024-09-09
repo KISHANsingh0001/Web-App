@@ -34,11 +34,11 @@ const BookConsultation = () => {
   return (
     <div className="flex flex-col items-center px-6 min-h-screen pb-6 pt-6 h-full">
       <div className="w-full max-w-screen-lg my-2">
-        <p className="font-poppins font-medium text-[#CB6BE5] text-2xl md:text-3xl text-center mb-4 md:mb-6">
+        <p className="font-poppins font-medium text-[#F5B400] text-2xl md:text-3xl text-center mb-4 md:mb-6">
           Book Consultation
         </p>
       </div>
-      <div className="w-full max-w-screen-lg h-[6px] bg-[#CB6BE5]"></div>
+      <div className="w-full max-w-screen-lg h-[6px] bg-[#F5B400]"></div>
       <div className="main w-full max-w-screen-lg flex flex-col md:flex-row justify-evenly flex-wrap py-4 mt-7 gap-4">
         <div className="flex-1 min-w-[250px]">
           <CalenderSchedule setDate={setDate} />
@@ -52,7 +52,7 @@ const BookConsultation = () => {
       </div>
       <div className="mt-10">
         <button
-          className="btn text-white bg-[#CB6BE5] border-[#CB6BE5] hover:border-[#CB6BE5] rounded-[10px] px-6 py-3 h-[60px] font-poppins font-semibold text-lg md:text-xl min-h-0 hover:bg-[#CB6BE5] flex-nowrap"
+          className="btn text-white bg-[#29A167] border-[#F5B400] hover:border-[#29A167] rounded-[10px] px-6 py-3 h-[60px] font-poppins font-semibold text-lg md:text-xl min-h-0 hover:bg-[#29A167] flex-nowrap"
           onClick={handleSubmit}
         >
           Book Consultation
