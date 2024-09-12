@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import AuthPopUp from './AuthPopUp';
+
 const QUESTIONS_PER_PAGE = 5;
 
 const Assessment = () => {
@@ -9,12 +10,10 @@ const Assessment = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [result, setResult] = useState(null);
   const [error, setError] = useState(null);
-  const [showLoginPopup, setShowLoginPopup] = useState(false); 
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
   const { id } = useParams();
   const newid = id.replace(/:/g, '');
-  const token = localStorage.getItem('token');
   const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     fetchQuestions(newid);
@@ -25,9 +24,9 @@ const Assessment = () => {
       .then(response => response.json())
       .then(data => {
         setQuestions(data);
-        setResponses(new Array(data.length).fill(""));
+        setResponses(new Array(data.length).fill(''));
       })
-      .catch(error => console.error("Error fetching questions:", error));
+      .catch(error => console.error('Error fetching questions:', error));
   };
 
   const handleOptionChange = (questionIndex, option) => {
@@ -38,30 +37,44 @@ const Assessment = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const token = localStorage.getItem('token');
+    
     if (!token) {
+      // Show login popup if user is not logged in
       setShowLoginPopup(true);
-      return;
+    } else {
+      // Submit the assessment if logged in
+      submitAssessment(token);
     }
-    submitAssessment();
   };
 
-  const submitAssessment = () => {
+  const submitAssessment = (token) => {
     fetch(`https://leeza.app/api/assessment?test=${newid}`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
       },
-      body: JSON.stringify({ responses })
+      body: JSON.stringify({ responses }),
     })
-      .then(response => response.json())
+      .then(response => {
+        if (response.status === 403) {
+          setError('Your session has expired or you are not authorized. Please log in again.');
+          setShowLoginPopup(true);  // Show login popup if forbidden
+          return Promise.reject('Forbidden: Token expired or invalid.');
+        }
+        if (!response.ok) {
+          return Promise.reject('Error submitting assessment: ' + response.status);
+        }
+        return response.json();
+      })
       .then(data => {
         setResult(data.prediction);
-        console.log("Assessment submitted successfully:", data.prediction);
+        localStorage.setItem('result', data.prediction); // Store the result in localStorage
       })
       .catch(error => {
-        console.error("Error submitting assessment:", error);
-        setError("Failed to submit assessment.");
+        console.error(error);
+        setError('Failed to submit assessment.');
       });
   };
 
@@ -70,15 +83,12 @@ const Assessment = () => {
   };
 
   const handleLoginSuccess = () => {
+    const token = localStorage.getItem('token');
     setShowLoginPopup(false);
-    submitAssessment();
-  };
-
-  useEffect(() => {
-    if (result) {
-      localStorage.setItem("result", result);
+    if (token) {
+      submitAssessment(token);  // After login, submit the assessment
     }
-  }, [result]);
+  };
 
   const startIndex = currentPage * QUESTIONS_PER_PAGE;
   const currentQuestions = questions.slice(startIndex, startIndex + QUESTIONS_PER_PAGE);

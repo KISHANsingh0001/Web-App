@@ -33,10 +33,10 @@ const AuthPopUp = ({ onSuccess }) => {
     setAge("");
     setPhone("");
   };
-
-  const handleLogin = async (e) => {
+const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      // Try to login as admin first
       let response = await fetch("https://leeza.app/api/admin/login", {
         method: "POST",
         headers: {
@@ -47,13 +47,12 @@ const AuthPopUp = ({ onSuccess }) => {
 
       let data = await response.json();
 
+      // If the admin login is successful, show an alert and prevent login
       if (response.ok && data.success) {
-        localStorage.setItem("token", data.token);
-        console.log("Admin logged in successfully");
-
-        // Call onSuccess callback to handle success
-        onSuccess();
+        alert("Admin can't log in here");
+        console.log("Admin login attempt blocked");
       } else {
+        // Proceed with regular user login if admin login fails
         response = await fetch("https://leeza.app/api/login", {
           method: "POST",
           headers: {
