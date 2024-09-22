@@ -15,6 +15,7 @@ import AdminOpinion from "./components/AdminOpinion";
 import DiplomaHome from "./components/DiplomaHome";
 import DemoCard from "./components/DemoCard";
 import UserProfile from "./components/UserProfile";
+import About from "./components/About";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           element={<ScheduleDiagnosisAssesment />}
         />
         <Route path="/child" element={<ChildHome />} />
+        <Route path="/About" element={<About />} />
         <Route path="/parent" element={<ParentHome />} />
         <Route path="/bookconsultation" element={<BookConsultation />} />
         <Route path="/scheduletherapy" element={<ScheduleTherapy />} />

@@ -114,7 +114,7 @@ useEffect(() => {
     <aside
       class="w-64 bg-white border-r-2 border-gray-200 fixed inset-y-0 left-0 flex flex-col p-6 shadow-lg z-10 transform -translate-x-full transition-transform peer-checked:translate-x-0 sm:translate-x-0"
     >
-      <h1 class="text-2xl font-bold text-gray-700 mb-8">User Dashboard</h1>
+      <h1 class="text-2xl pt-8 font-bold text-gray-700 mb-8">User Dashboard</h1>
   
       <nav class="flex-1 space-y-4">
         <button class="w-full text-left text-gray-600 hover:text-gray-900 font-medium py-2">Profile</button>
@@ -132,7 +132,7 @@ useEffect(() => {
     </aside>
   
     {/* <!-- Main Content --> */}
-    <main class="flex-1 ml-0 sm:ml-64 p-8">
+    <main class="flex-1 ml-0 sm:ml-64 pt-9 p-8">
       <div class="w-full max-w-[482px] h-auto border-2 border-gray-300 rounded-[24px] p-6 bg-white shadow-lg">
         <h2 class="text-2xl font-bold mb-4 text-gray-700">User Information</h2>
   

@@ -1,21 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TimeSlots from "./TimeSlot";
 import CalenderSchedule from "./Calender";
 import CheckBox from "./CheckBox";
 import toast from "react-hot-toast";
+import AuthPopUp from "./AuthPopUp"; // Import your AuthPopUp component
 
 const BookConsultation = () => {
   const [email, setEmail] = useState(localStorage.getItem("email") || "");
   const [date, setDate] = useState("");
   const [timeSlot, setTimeSlot] = useState("");
   const [mode, setMode] = useState("");
+  const [showLoginPopup, setShowLoginPopup] = useState(false); // For login popup state
+
+  useEffect(() => {
+    // Check if user is logged in
+    const token = localStorage.getItem("token");
+    if (!token) {
+      setShowLoginPopup(true); // Show login popup if not logged in
+    }
+  }, []);
 
   const handleSubmit = async () => {
+    const token = localStorage.getItem("token");
+    
+    if (!token) {
+      setShowLoginPopup(true); // If no token, show login popup
+      return;
+    }
+
     try {
       const response = await fetch("https://leeza.app/api/consultation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`, // Send token in Authorization header
         },
         body: JSON.stringify({ email, date, timeSlot, mode }),
       });
@@ -24,11 +42,17 @@ const BookConsultation = () => {
         toast.success("Consultation booked successfully");
         console.log("Consultation booked successfully");
       } else {
+        toast.error("Failed to book consultation");
         console.error("Failed to book consultation");
       }
     } catch (error) {
       console.error("Error:", error);
+      toast.error("An error occurred while booking the consultation");
     }
+  };
+
+  const handleLoginSuccess = () => {
+    setShowLoginPopup(false); // Hide the login popup after successful login
   };
 
   return (
@@ -58,6 +82,8 @@ const BookConsultation = () => {
           Book Consultation
         </button>
       </div>
+
+      {showLoginPopup && <AuthPopUp onSuccess={handleLoginSuccess} />} {/* Show login popup */}
     </div>
   );
 };
