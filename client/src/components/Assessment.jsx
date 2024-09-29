@@ -167,18 +167,21 @@ const Assessment = () => {
         <div className="result text-center mt-6 p-6 bg-white border border-gray-300 shadow-lg rounded-lg">
           <h2 className="text-xl font-bold">Prediction Result</h2>
           <p className="text-lg mt-4">{result}</p>
+
+          {/* Only show the "Book Consultation" section after result is displayed */}
+          <div className="text-center mt-8">
+            <p className="text-lg font-medium mb-4">
+              If you are willing to take the next step in your journey, book a consultation with our experts. We offer a wide range of services to help you with autism-related needs.
+            </p>
+            <Link to="/bookconsultation">
+              <button className="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700">
+                Book Consultation
+              </button>
+            </Link>
+          </div>
         </div>
       )}
-      <div className="text-center mt-8">
-        <p className="text-lg font-medium mb-4">
-          If you are willing to take the next step in your journey, book a consultation with our experts. We offer a wide range of services to help you with autism-related needs.
-        </p>
-        <Link to="/bookconsultation">
-          <button className="bg-purple-500 text-white py-2 px-4 rounded hover:bg-purple-700">
-            Book Consultation
-          </button>
-        </Link>
-      </div>
+
       {showLoginPopup && <AuthPopUp onSuccess={handleLoginSuccess} />} {/* Show login popup */}
     </div>
   );

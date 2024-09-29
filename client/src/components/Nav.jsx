@@ -191,14 +191,14 @@ function Nav() {
         </div>
         <div className="flex flex-row items-center gap-4 md:gap-8 font-poppins text-slate-500">
           <div className="hidden md:flex flex-row gap-8 items-center">
-            <ScrollLink to="About" smooth={true} duration={500}>
+            <Link to="/About">
               <p className="relative pt-1 group cursor-pointer">
                 About
                 <span
                   className="absolute bottom-0 left-0 w-0 h-1 bg-[#29A167] transition-all duration-300 group-hover:w-full"
                 ></span>
               </p>
-            </ScrollLink>
+            </Link>
             <ScrollLink to="Blogs" smooth={true} duration={900}>
               <p className="relative pt-1 group cursor-pointer">
                 Blogs
