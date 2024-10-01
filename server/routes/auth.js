@@ -22,6 +22,7 @@ router.post("/login", async (req, res) => {
         console.log("Login attempt with email:", email);
 
         const authed = await authenticateUser(email, password);
+        console.log(authed)
 
         if (authed) {
             const userData = await getUserData(email);
