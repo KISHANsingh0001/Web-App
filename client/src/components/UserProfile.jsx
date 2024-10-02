@@ -257,6 +257,7 @@
 
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(null);
@@ -331,7 +332,7 @@ const UserProfile = () => {
           <nav className="flex-1 space-y-4">
             <button className="w-full text-left text-gray-600 hover:text-gray-900 font-medium py-2">Profile</button>
             <button className="w-full text-left text-gray-600 hover:text-gray-900 font-medium py-2">Contact Us</button>
-            <button className="w-full text-left text-gray-600 hover:text-gray-900 font-medium py-2">About</button>
+            <Link to="/About"><button className="w-full text-left text-gray-600 hover:text-gray-900 font-medium py-2">About</button></Link>
             <button className="w-full text-left text-gray-600 hover:text-gray-900 font-medium py-2">Settings</button>
           </nav>
           <button
