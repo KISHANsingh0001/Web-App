@@ -166,7 +166,7 @@ const BookingSchedule = ({ setDate, setTimeSlot, bookingType}) => {
   // Fetch booked slots from API for all future dates based on booking type
   const fetchBookedSlots = async (bookingType) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/consultationdata?bookingType=${bookingType}`);
+      const response = await fetch(`https://leeza.app/api/consultationdata?bookingType=${bookingType}`);
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

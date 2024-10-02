@@ -164,7 +164,7 @@ const ScheduleTherapy = () => {
     }
   
     try {
-      const response = await fetch("http://localhost:3000/api/consultation?bookingType=therapyTraining", {
+      const response = await fetch("https://leeza.app/api/consultation?bookingType=therapyTraining", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

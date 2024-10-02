@@ -173,7 +173,7 @@ const ScheduleDiagnosisAssesment = () => {
     }
   
     try {
-      const response = await fetch("http://localhost:3000/api/consultation?bookingType=formalDiagnosis", {
+      const response = await fetch("https://leeza.app/api/consultation?bookingType=formalDiagnosis", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
