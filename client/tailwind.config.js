@@ -11,6 +11,7 @@ export default {
         inter: ["Inter"],
       },
       colors: {
+        'custom-light-blue': '#EAF6FF',
         'medium-light-shade-magenta': '#CB6BE5',
         'Topaz': '#7D7987',
         'know-more': '#4089ED',

@@ -7,7 +7,7 @@ import Banner from "./Banner";
 import OurReccomendations from "./OurRecommendations";
 import AutismServices from "./AutismServices";
 import ParentSufferings from "./ParentsSuffering";
-import Blogs from "./Blogs";
+// import Blogs from "./Blogs";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
@@ -64,7 +64,7 @@ function ParentHome() {
         <ParentSufferings />
         <Banner />
         <OurReccomendations />
-        <Blogs />
+        {/* <Blogs /> */}
       </div>
       <Footer />
     </div>

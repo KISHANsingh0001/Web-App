@@ -267,8 +267,8 @@ const BookingSchedule = ({ setDate, setTimeSlot, bookingType}) => {
 
   return (
     <div>
-      <p className="h-[36px] w-[202px] text-2xl font-normal font-poppins">Pick a date</p>
-      <div className="mt-5">
+      <p className="h-[36px] w-[202px] text-2xl font-normal font-poppins ml-60">Pick a date</p>
+      <div className="mt-10 ml-60">
         <Calendar
           onChange={onChange}
           value={value}
