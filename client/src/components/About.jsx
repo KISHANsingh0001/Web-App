@@ -183,7 +183,7 @@ import Footer from "./Footer";
 
 // Card data for Team Members (Meet Our Team)
 const teamProfiles = [
-  { name: "Aziz-ur-rahman", college: "Vageshwari College", image: "../src/assets/about/Aziz.png" },
+  { name: "Aziz-ur-rahman", college: "Vageshwari College", image: "../src/assets/about/Azizz.png" },
   { name: "syed mohiuddin rafay", college: "St Joseph Degree & PG College", image: "../src/assets/about/Abdulrafay.png" },
   { name: "Mariyam ", college: "St Joseph Degree & PG College", image: "../src/assets/about/Mariyam.png" },
   { name: "Madhiha", college: "St Joseph Degree & PG College", image: "path/to/profile-pic-3.jpg" },
