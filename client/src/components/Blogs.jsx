@@ -81,25 +81,59 @@
 
 
 
-import React from "react";
+// import React from "react";
+// import Nav from "./Nav";
+
+// function Blogs() {
+//   return (
+//     <>
+//       <Nav />
+//       <div className="iframe-container mt-4">
+//         <iframe
+//           src="http://blog.leeza.app"
+//           width="100%"
+//           height="1000px"
+//           title="External Blog"
+//           style={{ border: 'none', display: 'block' }}  // Remove any margin or padding issues
+//         />
+//       </div>
+//     </>
+//   );
+// }
+
+// export default Blogs;
+
+
+import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 
 function Blogs() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setIsLoaded(true), 1000); // Delay loading iframe
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <>
       <Nav />
       <div className="iframe-container mt-4">
-        <iframe
-          src="http://blog.leeza.app"
-          width="100%"
-          height="1000px"
-          title="External Blog"
-          style={{ border: 'none', display: 'block' }}  // Remove any margin or padding issues
-        />
+        {isLoaded && (
+          <iframe
+            src="http://blog.leeza.app"
+            width="100%"
+            height="1000px"
+            title="External Blog"
+            style={{ border: "none", display: "block" }}
+          />
+        )}
+        {!isLoaded && <div className="spinner">Loading...</div>}
       </div>
     </>
   );
 }
 
 export default Blogs;
+
 
