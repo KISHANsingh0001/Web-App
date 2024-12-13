@@ -150,7 +150,7 @@ router.post("/contact", async (req, res) => {
     // Send Email
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "zeenathkousar11@gmail.com", // Define the receiver email address
+      to: "ibrahim.raza@leeza.app", // Define the receiver email address
       subject: "Details of your client !",
       html: `
        
