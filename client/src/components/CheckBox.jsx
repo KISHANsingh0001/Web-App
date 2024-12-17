@@ -46,3 +46,5 @@ const CheckBox = ({ setMode }) => {
 };
 
 export default CheckBox;
+
+

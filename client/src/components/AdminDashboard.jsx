@@ -15,7 +15,7 @@
 
 // // // //   const fetchData = async () => {
 // // // //     try {
-// // // //       const response = await fetch('http://localhost:3000/api/admin/findThese');
+// // // //       const response = await fetch('https://leeza.app/api/admin/findThese');
 // // // //       const result = await response.json();
 // // // //       if (response.ok) {
 // // // //         setData({
@@ -33,7 +33,7 @@
 // // // //   const handleAddAdmin = async (e) => {
 // // // //     e.preventDefault();
 // // // //     try {
-// // // //       const response = await fetch('http://localhost:3000/api/admin/addAdmin', {
+// // // //       const response = await fetch('https://leeza.app/api/admin/addAdmin', {
 // // // //         method: 'POST',
 // // // //         headers: {
 // // // //           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@
 
 // // // //   const handleViewDetails = async (id) => {
 // // // //     try {
-// // // //       const response = await fetch(`http://localhost:3000/api/admin/user/${id}`);
+// // // //       const response = await fetch(`https://leeza.app/api/admin/user/${id}`);
 // // // //       const result = await response.json();
 // // // //       if (response.ok) {
 // // // //         setSelectedUser(result.user);
@@ -172,7 +172,7 @@
 
 // // //   const fetchData = async () => {
 // // //     try {
-// // //       const response = await fetch('http://localhost:3000/api/admin/findThese');
+// // //       const response = await fetch('https://leeza.app/api/admin/findThese');
 // // //       const result = await response.json();
 // // //       if (response.ok) {
 // // //         setData({
@@ -190,7 +190,7 @@
 // // //   const handleAddAdmin = async (e) => {
 // // //     e.preventDefault();
 // // //     try {
-// // //       const response = await fetch('http://localhost:3000/api/admin/addAdmin', {
+// // //       const response = await fetch('https://leeza.app/api/admin/addAdmin', {
 // // //         method: 'POST',
 // // //         headers: {
 // // //           'Content-Type': 'application/json',
@@ -215,7 +215,7 @@
 
 // // //   const handleViewDetails = async (id) => {
 // // //     try {
-// // //       const response = await fetch(`http://localhost:3000/api/consultationdata/${id}`);
+// // //       const response = await fetch(`https://leeza.app/api/consultationdata/${id}`);
 // // //       const result = await response.json();
 // // //       if (response.ok) {
 // // //         setSelectedUser(result.user);
@@ -340,7 +340,7 @@
 
 // //   const fetchData = async () => {
 // //     try {
-// //       const response = await fetch('http://localhost:3000/api/admin/findThese');
+// //       const response = await fetch('https://leeza.app/api/admin/findThese');
 // //       const result = await response.json();
 // //       if (response.ok) {
 // //         setData({
@@ -357,7 +357,7 @@
 
 // //   const fetchUserDetails = async (email) => {
 // //     try {
-// //       const response = await fetch(`http://localhost:3000/api/consultationdata?email=${encodeURIComponent(email)}`);
+// //       const response = await fetch(`https://leeza.app/api/consultationdata?email=${encodeURIComponent(email)}`);
 // //       if (response.ok) {
 // //         const result = await response.json();
 // //         setSelectedUser({
@@ -381,7 +381,7 @@
 // //   const handleAddAdmin = async (e) => {
 // //     e.preventDefault();
 // //     try {
-// //       const response = await fetch('http://localhost:3000/api/admin/addAdmin', {
+// //       const response = await fetch('https://leeza.app/api/admin/addAdmin', {
 // //         method: 'POST',
 // //         headers: {
 // //           'Content-Type': 'application/json',
@@ -524,7 +524,7 @@
 
 //   const fetchData = async () => {
 //     try {
-//       const response = await fetch('http://localhost:3000/api/admin/findThese');
+//       const response = await fetch('https://leeza.app/api/admin/findThese');
 //       const result = await response.json();
 //       if (response.ok) {
 //         setData({
@@ -541,7 +541,7 @@
 
 //   const fetchUserDetails = async (email) => {
 //     try {
-//       const response = await fetch(`http://localhost:3000/api/consultationdata?email=${encodeURIComponent(email)}`);
+//       const response = await fetch(`https://leeza.app/api/consultationdata?email=${encodeURIComponent(email)}`);
 //       if (response.ok) {
 //         const result = await response.json();
 //         setSelectedUser({
@@ -565,7 +565,7 @@
 //   const handleAddAdmin = async (e) => {
 //     e.preventDefault();
 //     try {
-//       const response = await fetch('http://localhost:3000/api/admin/addAdmin', {
+//       const response = await fetch('https://leeza.app/api/admin/addAdmin', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -590,7 +590,7 @@
 
 //   const saveDiagnosis = async (email, diagnosis, selectedOption) => {
 //     try {
-//       const response = await fetch('http://localhost:3000/api/saveDiagnosis', {
+//       const response = await fetch('https://leeza.app/api/saveDiagnosis', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -764,7 +764,7 @@ const AdminDashboard = () => {
 
   const fetchUserDetails = async (email) => {
     try {
-      const response = await fetch(`http://localhost:3000/api/consultationdata?email=${encodeURIComponent(email)}`);
+      const response = await fetch(`https://leeza.app/api/consultationdata?email=${encodeURIComponent(email)}`);
       if (response.ok) {
         const result = await response.json();
         setSelectedUser({
@@ -813,7 +813,7 @@ const AdminDashboard = () => {
 
   const saveDiagnosis = async (email, diagnosis, selectedOption) => {
     try {
-      const response = await fetch('http://localhost:3000/api/saveDiagnosis', {
+      const response = await fetch('https://leeza.app/api/saveDiagnosis', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

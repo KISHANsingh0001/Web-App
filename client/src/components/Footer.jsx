@@ -91,6 +91,7 @@ function Footer() {
   <span className="text-center md:text-left md:order-none order-2">Copyright © 2024 Leeza.app</span>
   <span className="flex gap-2 flex-wrap justify-center md:justify-start order-1 md:order-none text-center md:text-left">
     <span>All Rights Reserved</span>
+    <span> V 1.0.0</span>
     <span>|</span>
     <a href="" className="underline text-violet-800 whitespace-nowrap">Terms and Conditions</a>
     <span>|</span>

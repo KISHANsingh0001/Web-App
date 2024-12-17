@@ -11,7 +11,7 @@
 // //   useEffect(() => {
 // //     const fetchDiagnosis = async () => {
 // //       try {
-// //         const response = await fetch(`http://localhost:3000/api/getDiagnosis?email=${encodeURIComponent(email)}`);
+// //         const response = await fetch(`https://leeza.app/api/getDiagnosis?email=${encodeURIComponent(email)}`);
 // //         if (response.ok) {
 // //           const result = await response.json();
 // //           setDiagnosis(result.diagnosis);
@@ -74,7 +74,7 @@
 //   useEffect(() => {
 //     const fetchDiagnosis = async () => {
 //       try {
-//         const response = await fetch(`http://localhost:3000/api/getDiagnosis?email=${encodeURIComponent(email)}`);
+//         const response = await fetch(`https://leeza.app/api/getDiagnosis?email=${encodeURIComponent(email)}`);
 //         if (response.ok) {
 //           const result = await response.json();
 //           setDiagnosis(result.diagnosis);
@@ -104,7 +104,7 @@
 //       return;
 //     }
 //     try {
-//       const response = await fetch('http://localhost:3000/api/v1/formalDiagnosis', {
+//       const response = await fetch('https://leeza.app/api/v1/formalDiagnosis', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',
@@ -202,7 +202,7 @@ const AdminOpinion = () => {
   useEffect(() => {
     const fetchDiagnosis = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/getDiagnosis?email=${encodeURIComponent(email)}`);
+        const response = await fetch(`https://leeza.app/api/getDiagnosis?email=${encodeURIComponent(email)}`);
         if (response.ok) {
           const result = await response.json();
           setDiagnosis(result.diagnosis);
@@ -232,7 +232,7 @@ const AdminOpinion = () => {
       return;
     }
     try {
-      const response = await fetch('http://localhost:3000/api/v1/formalDiagnosis', {
+      const response = await fetch('https://leeza.app/api/v1/formalDiagnosis', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

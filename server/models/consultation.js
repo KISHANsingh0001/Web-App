@@ -20,6 +20,10 @@ const consultationSchema = new mongoose.Schema({
     //     required: true
     
     // },
+    bookingType:{
+        type:String,
+        required:true
+    },
     isDone: { type: Boolean, default: false },
     result:{
         type:String
@@ -28,8 +32,8 @@ const consultationSchema = new mongoose.Schema({
 
 const Consultation = mongoose.model('Consultation', consultationSchema);
 
-export const addConsultation = async (email, date, timeSlot,mode,result,isDone) => {
-    const consultation = new Consultation({ email, date, timeSlot , mode, isDone,result});
+export const addConsultation = async (email, date, timeSlot, bookingType,mode,result,isDone) => {
+    const consultation = new Consultation({ email, date, timeSlot ,bookingType, mode, isDone,result});
 
     await consultation.save();
     console.log("Consultation added successfully");
