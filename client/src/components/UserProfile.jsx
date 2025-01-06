@@ -269,7 +269,7 @@ const UserProfile = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const response = await fetch("http://localhost:3000/api/userdata", {
+        const response = await fetch("https://leeza.app/api/userdata", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`, // Ensure token is prefixed with "Bearer "
