@@ -1,10 +1,9 @@
-// import { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Auth from "./components/Auth";
-import Auth1 from "./components/Auth1"
+import HomePage from "./components/HomePage";
 import ChildHome from "./components/ChildHome";
 import ParentHome from "./components/ParentHome";
-import HomePage from "./components/HomePage";
 import ScheduleDiagnosisAssesment from "./components/ScheduleDiagnosisAssesment";
 import BookConsultation from "./components/BookConsultation";
 import ScheduleTherapy from "./components/ScheduleTherapy";
@@ -13,7 +12,7 @@ import AdminLogin from "./components/AdminLogin";
 import AdminDashboard from "./components/AdminDashboard";
 import AdminOpinion from "./components/AdminOpinion";
 import DiplomaHome from "./components/DiplomaHome";
-import Blogs from './components/Blogs';
+import Blogs from "./components/Blogs";
 import DemoCard from "./components/DemoCard";
 import UserProfile from "./components/UserProfile";
 import About from "./components/About";
@@ -25,32 +24,38 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route path="/DiplomaHome" element={<DiplomaHome />} />
-      <Route path="/DemoCard" element={<DemoCard />} />
-      <Route path="/" element={<HomePage />} />
-        <Route path="/home" element={<HomePage />} />
+        {/* Authentication */}
+        <Route index element={<HomePage />} />
         <Route path="/auth" element={<Auth />} />
-        <Route
-          path="/diagnosisassesment"
-          element={<ScheduleDiagnosisAssesment />}
-        />
+
+        {/* Main Pages */}
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
+
+        {/* Services */}
+        <Route path="/diagnosis-assessment" element={<ScheduleDiagnosisAssesment />} />
+        <Route path="/book-consultation" element={<BookConsultation />} />
+        <Route path="/schedule-therapy" element={<ScheduleTherapy />} />
+        <Route path="/assessment/:id" element={<Assessment />} />
+        <Route path="/autism-services" element={<AutismServices />} />
+        <Route path="/booking-schedule" element={<BookingSchedule />} />
+
+        {/* User & Admin */}
         <Route path="/child" element={<ChildHome />} />
-        <Route path="/blogs" element={<Blogs />} /> The Blogs route
-        <Route path="/About" element={<About />} />
         <Route path="/parent" element={<ParentHome />} />
-        <Route path="/bookconsultation" element={<BookConsultation />} />
-        <Route path="/scheduletherapy" element={<ScheduleTherapy />} />
-        <Route path="/assessment/:id" element={<Assessment/>} />
+        <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/user-opinion" element={<AdminOpinion />} />
-        <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/autism-services" element={<AutismServices />} /> {/* Added Autism Services route */}
-        <Route path="/booking-schedule" element={<BookingSchedule />} /> {/* Added Booking Schedule route */}
-        <Route path="/contact" element={<Contact/>} /> 
+
+        {/* Extra Pages */}
+        <Route path="/diploma-home" element={<DiplomaHome />} />
+        <Route path="/demo-card" element={<DemoCard />} />
       </Routes>
     </Router>
   );
 }
 
-export default App;
+export default Auth;
