@@ -1,12 +1,9 @@
-// Auth.jsx
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
 
-const Auth = () => {
-  return (
-    <div>
-      {/* Your Auth component code */}
-    </div>
-  );
-};
-
-export default Auth; // Ensure this is a default export
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

@@ -1,6 +1,6 @@
-
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Auth from "./components/Auth";
+import Auth from "./components/Auth1";
 import HomePage from "./components/HomePage";
 import ChildHome from "./components/ChildHome";
 import ParentHome from "./components/ParentHome";
@@ -20,12 +20,12 @@ import AutismServices from "./components/AutismServices";
 import BookingSchedule from "./components/BookingSchedule";
 import Contact from "./components/Contact";
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>
         {/* Authentication */}
-        <Route index element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<Auth />} />
 
         {/* Main Pages */}
@@ -35,7 +35,10 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         {/* Services */}
-        <Route path="/diagnosis-assessment" element={<ScheduleDiagnosisAssesment />} />
+        <Route
+          path="/diagnosis-assessment"
+          element={<ScheduleDiagnosisAssesment />}
+        />
         <Route path="/book-consultation" element={<BookConsultation />} />
         <Route path="/schedule-therapy" element={<ScheduleTherapy />} />
         <Route path="/assessment/:id" element={<Assessment />} />
@@ -56,6 +59,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
-export default Auth;
+export default App;
