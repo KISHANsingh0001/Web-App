@@ -20,6 +20,7 @@ import About from "./components/About";
 import AutismServices from "./components/AutismServices";
 import BookingSchedule from "./components/BookingSchedule";
 import Contact from "./components/Contact";
+import Questions from "./components/questions";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
         <Route path="/autism-services" element={<AutismServices />} /> {/* Added Autism Services route */}
         <Route path="/booking-schedule" element={<BookingSchedule />} /> {/* Added Booking Schedule route */}
         <Route path="/contact" element={<Contact/>} /> 
+        <Route path="/questions" element={<Questions/>} /> 
       </Routes>
     </Router>
   );
