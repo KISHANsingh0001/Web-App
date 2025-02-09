@@ -16,6 +16,8 @@ export default {
         'Topaz': '#7D7987',
         'know-more': '#4089ED',
         'stateBlue': '#2445B9',
+        'statePurple':'#812061',
+        'stateSkyblue':'#65bccf'
       },
     },
   },

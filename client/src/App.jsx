@@ -49,7 +49,7 @@ function App() {
         <Route path="/autism-services" element={<AutismServices />} /> {/* Added Autism Services route */}
         <Route path="/booking-schedule" element={<BookingSchedule />} /> {/* Added Booking Schedule route */}
         <Route path="/contact" element={<Contact/>} /> 
-        <Route path="/questions" element={<Questions/>} /> 
+        {/* <Route path="/questions" element={<Questions/>} />  */}
       </Routes>
     </Router>
   );

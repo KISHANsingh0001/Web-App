@@ -11,6 +11,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Questions from "./questions";
 
 // Sample experience data (import your actual data or update this as needed)
 const homecards = [
@@ -85,6 +86,7 @@ const HomecardsCard = ({ homecards }) => (
       ))}
     </ul>
   </VerticalTimelineElement>
+  
 );
 
 function Homepage() {
@@ -160,8 +162,11 @@ function Homepage() {
             <HomecardsCard key={`homecards-${index}`} homecards={homecards} />
           ))}
         </VerticalTimeline>
+        <div className="p-2"></div>
       </div>
-
+      <div>
+        {<Questions/>}
+      </div>
       <br />
       <br />
       <Footer />

@@ -308,16 +308,22 @@ function Questions() {
     const [progress, setProgress] = useState(0);
   
     const handleAnswerClick = () => {
-      if (currentQuestion < questions.length - 1) {
-        setCurrentQuestion(prev => prev + 1);
-        setProgress(prev => prev + (100 / questions.length));
-      }
+        if (currentQuestion < questions.length - 1) {
+            setCurrentQuestion((prev) => prev + 1);
+            setProgress((prev) => prev + 100 / questions.length);
+          } else {
+            setProgress(100);
+          }
     };
+    function resetFun(){
+        setCurrentQuestion(0);
+        setProgress(0);
+    }
   
     const QuestionContent = ({ question }) => (
       <div className="w-full">
         <div className='flex justify-center'>
-          <h1 className="text-2xl md:text-4xl font-bold text-purple-800 mb-6">
+          <h1 className="text-3xl md:text-4xl font-bold text-purple-800 mb-6 font-serif">
             Question {currentQuestion + 1}
           </h1>
         </div>
@@ -327,14 +333,14 @@ function Questions() {
           </p>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-4 justify-between p-1">
+        <div className="flex flex-col md:flex-row gap-4 justify-between p-1 ">
           {question.options.map((option, index) => (
             <button
               key={index}
               onClick={handleAnswerClick}
               className="flex-1 p-4 text-lg rounded-xl transition-all duration-200 hover:scale-105
                 bg-white border-2 border-purple-200 hover:border-purple-400 
-                text-purple-800 hover:bg-purple-50 shadow-sm hover:shadow-md
+                text-stateSkyblue hover:bg-purple-50 shadow-sm hover:shadow-md
                 whitespace-nowrap"
             >
               {option}
@@ -343,8 +349,8 @@ function Questions() {
         </div>
         <div className="mt-8">
           <div className="flex items-center justify-between">
-            <div className="flex items-center text-purple-800">
-              <span className="text-sm font-medium m-1">
+            <div className="flex items-center text-statePurple">
+              <span className="text-sm font-medium m-1 font-serif">
                 Question {currentQuestion + 1} of {questions.length}
               </span>
             </div>
@@ -356,13 +362,16 @@ function Questions() {
             ></div>
           </div>
         </div>
+        <span className='m-2 p-2 flex justify-center items-center'>
+            <button className='border p-2 bg-blue-100 rounded-md' onClick={resetFun}>Reset Progress</button>
+        </span>
       </div>
     );
   
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center p-4">
-        <div className="max-w-5xl w-full bg-white rounded-2xl shadow-xl p-8">
-          <div className="mb-8 relative overflow-hidden" style={{ minHeight: '300px' }}>
+      <div className=" bg-slate-50 flex  justify-center p-4">
+        <div className="max-w-5xl w-full bg-white rounded-2xl shadow-xl p-8 m-8">
+          <div className="mb-8 relative overflow-hidden">
             <QuestionContent question={questions[currentQuestion]} />
           </div>
         </div>
